@@ -7,8 +7,6 @@ bp = Blueprint('test', __name__)
 def user():
     user = models.User.query.first()
     return {'posts': user.get_posts() }
-    # return { 'user': user.to_dict(), 'posts': user.get_posts() }
-    
 
 @bp.route('posts')
 def posts():

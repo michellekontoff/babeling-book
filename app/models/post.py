@@ -12,14 +12,17 @@ class Post(db.Model):
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
 
-    owner = relationship('User', back_populates='posts')
+    owner = relationship('User', back_populates='posts', lazy=True)
     language = relationship('Language')
 
     def to_dict(self):
         return {
             'title': self.title,
             'content': self.content,
-            'owner': self.owner,
+            'owner': {
+                'id': self.owner.id,
+                'username': self.owner.username
+            },
             'language': self.language.name,
             'created_at': self.created_at,
             'updated_at': self.updated_at

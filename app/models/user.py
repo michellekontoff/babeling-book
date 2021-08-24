@@ -37,4 +37,4 @@ class User(db.Model, UserMixin):
         }
 
     def get_posts(self):
-        return { 'posts': [post.to_dict() for post in self.posts] }
+        return [post.to_dict() for post in self.posts]
