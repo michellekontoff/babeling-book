@@ -36,7 +36,7 @@ class User(db.Model, UserMixin):
             'bio': self.bio,
             'profile_img': self.profile_img,
             'languages': {
-                'speaks': self.speaks,
-                'learning': self.learning
+                'speaks': [lang.name for lang in self.speaks],
+                'learning': [lang.name for lang in self.learning]
             }
         }
