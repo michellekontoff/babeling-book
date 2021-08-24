@@ -1,4 +1,5 @@
 from .db import db
+from sqlalchemy.orm import relationship
 
 class Post(db.Model):
     __tablename__ = 'posts'
@@ -10,3 +11,15 @@ class Post(db.Model):
     language_id = db.Column(db.Integer, db.ForeignKey('languages.id'))
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
+
+    owner = relationship("User", back_populates="posts")
+
+    def to_dict(self):
+        return {
+            'title': self.title,
+            'content': self.content,
+            'owner': self.owner,
+            'language': self.language,
+            'created_at': self.created_at,
+            'updated_at': self.updated_at
+        }
