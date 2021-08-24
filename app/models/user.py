@@ -14,7 +14,8 @@ class User(db.Model, UserMixin):
     email = db.Column(db.String(255), nullable=False, unique=True)
     hashed_password = db.Column(db.String(255), nullable=False)
 
-    posts = relationship("Post", back_populates="owner", lazy=True)
+    speaks = relationship('Language', secondary='speakers', lazy=True)
+    learning = relationship('Language', secondary='learners', lazy=True)
 
     @property
     def password(self):
@@ -33,8 +34,9 @@ class User(db.Model, UserMixin):
             'username': self.username,
             'email': self.email,
             'bio': self.bio,
-            'profile_img': self.profile_img
+            'profile_img': self.profile_img,
+            'languages': {
+                'speaks': self.speaks,
+                'learning': self.learning
+            }
         }
-
-    def get_posts(self):
-        return [post.to_dict() for post in self.posts]

@@ -12,7 +12,7 @@ class Post(db.Model):
     created_at = db.Column(db.DateTime, nullable=False)
     updated_at = db.Column(db.DateTime, nullable=False)
 
-    owner = relationship('User', back_populates='posts', lazy=True)
+    owner = relationship('User', lazy=True)
     language = relationship('Language')
 
     def to_dict(self):
