@@ -20,7 +20,7 @@ class Post(db.Model):
             'title': self.title,
             'content': self.content,
             'owner': self.owner,
-            'language': self.language,
+            'language': self.language.name,
             'created_at': self.created_at,
             'updated_at': self.updated_at
         }
