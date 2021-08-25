@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+.header {
+    width: 800px;
+    height: 415px;
+    margin: auto;
+    background-image: url(../../images/welcome_v2.png);
+    background-size: 800px auto;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+     '.       btns'
+     'welcome btns';
+}
+
+.header__img {
+    height: 475px;
+}
+
+.about__img {
+    height: 475px;
+}
+
+.header__welcome {
+    grid-area: welcome;
+    display: flex;
+    /* height: 400px; */
+    align-items: flex-end;
+    margin-bottom: 5px;
+    margin-left: 8px;
+    color: white;
+    text-shadow: 1px 1px 4px black;
+    font-family: 'Marck Script', cursive;
+    font-size: 38pt;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+
+}
+
+.header__buttons {
+    grid-area: btns;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    /* height:400px; */
+    margin: 10px;
+}
+
+.header__buttons button {
+    font-family: 'Marck Script', cursive;
+    font-size: 25pt;
+    color: white;
+    text-shadow: 1px 1px 4px black;
+    /* background-color: rgba(0,0,0,0.5); */
+    border-bottom: 3px solid rgba(0,0,0,0.5);
+    border-left: 3px solid rgba(0,0,0,0.5);
+    width: 175px;
+    height: 50px;
+    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.2);
+}
+
+.header__buttons button:hover {
+    font-family: 'Lucida Sans';
+    font-size: 22pt;
+    color: white;
+    text-shadow: 1px 1px 4px black;
+    /* background-color: rgba(0,0,0,0); */
+    
+}
