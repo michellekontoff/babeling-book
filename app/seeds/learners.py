@@ -1,9 +1,11 @@
-from app.models import db, Learner
+from app.models import db, Learner, language
+from random import randint
 
 def seed_learners():
-    l1 = Learner(user_id=1, language_id=3)
-
-    db.session.add(l1)
+    for i in range(0,12):
+        learner = Learner(user_id=randint(1, 9), language_id=randint(1, 35))
+        
+        db.session.add(learner)
     db.session.commit()
 
 def undo_learners():
