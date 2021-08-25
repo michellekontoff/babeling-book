@@ -1,7 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
-
+import LoginFormModal from '../auth/LoginFormModal'
+import SignUpFormMoal from '../auth/SignUpFormModal'
 import welcome from '../../images/welcome_v2.png'
 import about from '../../images/about.jpg'
 import './homepage.css'
@@ -20,8 +21,8 @@ export default function Homepage() {
                     Babeling Book
                 </div>
                 <div className='header__buttons'>
-                    <button>Log In</button>
-                    <button>Sign Up</button>
+                    <LoginFormModal />
+                    <SignUpFormMoal />
                 </div>
             </div>
             <div className='about'>
