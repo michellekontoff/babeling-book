@@ -68,6 +68,30 @@
     font-size: 22pt;
     color: white;
     text-shadow: 1px 1px 4px black;
-    /* background-color: rgba(0,0,0,0); */
+    background-color: rgba(0,0,0,0.3);
     
+}
+
+.about {
+    background-color: rgb(80, 187, 187);
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    padding: 10px;
+}
+
+.about__img-container {
+    flex-shrink: 0;
+}
+.about__img {
+    width: 500px;
+    height: auto;
+}
+
+.about__message {
+    width: 300px;
+    margin-right: 25px;
+    flex-shrink: 0;
+    align-self: center;
+
 }
