@@ -5,13 +5,18 @@ bp = Blueprint('test', __name__)
 
 @bp.route('user')
 def user():
-    user = models.User.query.first()
-    return user.to_dict()
+    users = models.User.query.all()
+    return { 'users': [user.to_dict() for user in users] }
 
 @bp.route('posts')
 def posts():
     posts = models.Post.query.all()
     return { 'posts': [post.to_dict() for post in posts]}
+
+@bp.route('comments')
+def comments():
+    comments = models.Comment.query.all()
+    return { 'comments': [comment.to_dict() for comment in comments]}
 
 @bp.route('lang')
 def lang():

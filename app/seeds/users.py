@@ -6,12 +6,6 @@ from faker import Faker
 def seed_users():
     fake = Faker()
 
-    for i in range(0, 6):
-        name = fake.name()
-        bio = fake.sentence()
-        i = User(username=name[0:40], bio=bio[0:250], email=fake.email(), password='yeppers')
-
-        db.session.add(i)
 
 
     demo = User(
@@ -24,6 +18,13 @@ def seed_users():
     db.session.add(demo)
     db.session.add(marnie)
     db.session.add(bobbie)
+    
+    for i in range(0, 6):
+        name = fake.name()
+        bio = fake.sentence()
+        i = User(username=name[0:40], bio=bio[0:250], email=fake.email(), password='yeppers')
+
+        db.session.add(i)
 
     db.session.commit()
 

@@ -1,11 +1,12 @@
 from app.models import db, Speaker
+from random import randint
 
 def seed_speakers():
-    s1 = Speaker(user_id=1, language_id=1)
-    s2 = Speaker(user_id=1, language_id=2)
-
-    db.session.add(s1)
-    db.session.add(s2)
+    for i in range(0,12):
+        speaker = Speaker(user_id=randint(1, 9), language_id=randint(1, 35))
+        
+        db.session.add(speaker)
+        
     db.session.commit()
 
 def undo_speakers():

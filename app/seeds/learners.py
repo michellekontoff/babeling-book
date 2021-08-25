@@ -1,4 +1,4 @@
-from app.models import db, Learner, language
+from app.models import db, Learner
 from random import randint
 
 def seed_learners():
@@ -6,6 +6,7 @@ def seed_learners():
         learner = Learner(user_id=randint(1, 9), language_id=randint(1, 35))
         
         db.session.add(learner)
+
     db.session.commit()
 
 def undo_learners():
