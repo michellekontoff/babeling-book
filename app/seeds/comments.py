@@ -1,9 +1,17 @@
 from app.models import db, Comment
+from faker import Faker
+from random import randint
 
 def seed_comments():
-    c1 = Comment(content='your spelling is great!', user_id=3, post_id=1)
+    fake = Faker(['fr_Fr', 'es_ES', 'en_US', 'ja_JP'])
 
-    db.session.add(c1)
+    for i in range(0, 51):
+        uid = randint(1, 9)
+        pid = randint(1, 96)
+        comment = Comment(content=fake.text(), user_id=uid, post_id=pid)
+        
+        db.session.add(comment)
+
     db.session.commit()
 
 def undo_comments():

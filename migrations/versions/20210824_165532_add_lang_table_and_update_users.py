@@ -23,7 +23,7 @@ def upgrade():
     sa.Column('name', sa.String(), nullable=False),
     sa.PrimaryKeyConstraint('id')
     )
-    op.add_column('users', sa.Column('bio', sa.String(length=500), nullable=True))
+    op.add_column('users', sa.Column('bio', sa.String(length=255), nullable=True))
     op.add_column('users', sa.Column('profile_img', sa.String(), nullable=True))
     # ### end Alembic commands ###
 

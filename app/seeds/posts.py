@@ -1,12 +1,34 @@
 from app.models import db, Post
 from datetime import datetime
+from faker import Faker
+from random import randint
 
 def seed_posts():
-    p1 = Post(title='test', content='test postssssssseeeeddddd', language_id=2, user_id=1, created_at=datetime.now(), updated_at=datetime.now())
-    p2 = Post(title='test2', content='ANOTHJER test postssssssseeeeddddd', language_id=1, user_id=2, created_at=datetime.now(), updated_at=datetime.now())
+    fake_fr = Faker(['fr_FR'])
+    fake_sp = Faker(['es_ES'])
+    fake_jp = Faker(['ja_JP'])
+    fake_en = Faker()
 
-    db.session.add(p1)
-    db.session.add(p2)
+    for f in range (0, 30):
+        user = randint(1, 9)
+        f = Post(title=fake_fr.sentence()[0:50], content=fake_fr.text(), user_id=user, language_id=2)
+        db.session.add(f)
+
+    for s in range (0, 30):
+        user = randint(1, 9)
+        s = Post(title=fake_sp.sentence()[0:50], content=fake_sp.text(), user_id=user, language_id=3)
+        db.session.add(s)
+
+    for e in range (0, 30):
+        user = randint(1, 9)
+        e = Post(title=fake_en.sentence()[0:50], content=fake_en.text(), user_id=user, language_id=1)
+        db.session.add(e)
+
+    for j in range (0, 6):
+        user = randint(1, 9)
+        j = Post(title=fake_jp.sentence()[0:50], content=fake_jp.text(), user_id=user, language_id=8)
+        db.session.add(j)
+
 
     db.session.commit()
 
