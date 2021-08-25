@@ -4,6 +4,7 @@ from .languages import seed_languages, undo_languages
 from .posts import seed_posts, undo_posts
 from .speakers import seed_speakers, undo_speakers
 from .learners import seed_learners, undo_learners
+from .comments import seed_comments, undo_comments
 
 # Creates a seed group to hold our commands
 # So we can type `flask seed --help`
@@ -18,6 +19,7 @@ def seed():
     seed_posts()
     seed_learners()
     seed_speakers()
+    seed_comments()
     # Add other seed functions here
 
 
@@ -29,4 +31,5 @@ def undo():
     undo_posts()
     undo_learners()
     undo_speakers()
+    undo_comments()
     # Add other undo functions here

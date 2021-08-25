@@ -4,3 +4,4 @@ from .post import Post
 from .language import Language
 from .speaker import Speaker
 from .learner import Learner
+from .comment import Comment
