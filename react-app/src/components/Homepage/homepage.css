@@ -64,8 +64,8 @@
 }
 
 .header__buttons button:hover {
-    font-family: 'Lucida Sans';
-    font-size: 22pt;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20pt;
     color: white;
     text-shadow: 1px 1px 4px black;
     background-color: rgba(0,0,0,0.3);
@@ -78,6 +78,7 @@
     justify-content: center;
     margin: 30px;
     padding: 10px;
+    align-items: center;
 }
 
 .about__img-container {
@@ -89,9 +90,17 @@
 }
 
 .about__message {
-    width: 300px;
+    width: 350px;
     margin-right: 25px;
     flex-shrink: 0;
-    align-self: center;
 
+}
+
+.about__message button {
+    color: white;
+}
+
+.about__message button:hover {
+    font-style: italic;
+    color: black;
 }
