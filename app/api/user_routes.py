@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
 from flask_login import login_required
-from app.models import User
+from sqlalchemy import desc
+from app.models import User, Post
 
 user_routes = Blueprint('users', __name__)
 
@@ -17,3 +18,9 @@ def users():
 def user(id):
     user = User.query.get(id)
     return user.to_dict()
+
+@user_routes.route('/<int:id>/posts')
+def get_posts_by_user(id):
+    posts = Post.query.filter(Post.user_id == id).order_by(desc(Post.created_at)).all()
+
+    return { post.id: post.to_dict() for post in posts }

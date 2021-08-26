@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import LoginForm from './components/auth/LoginForm';
-import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import Homepage from './components/Homepage';
 import Profile from './components/Profile';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
-import User from './components/User';
 import { authenticate } from './store/session';
+
+import PostCreateForm from './components/PostCreateForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -28,22 +27,27 @@ function App() {
 
   return (
     <BrowserRouter>
-      {/* <NavBar /> */}
+      <NavBar />
       <Switch>
-        <Route path='/login' exact={true}>
-          <LoginForm />
-        </Route>
-        <Route path='/sign-up' exact={true}>
-          <SignUpForm />
-        </Route>
         <ProtectedRoute path='/users' exact={true} >
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true} >
           <Profile />
         </ProtectedRoute>
+        <ProtectedRoute path='/posts/new' exact={true}>
+            <PostCreateForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/posts/:postId' exact={true}>
+            <p>Your new post!</p>
+        </ProtectedRoute>
         <Route path='/' exact={true} >
           <Homepage />
+        </Route>
+        <Route>
+            <h1 id='not-found'><p>404</p>
+                <p>The page you requested could not be found.</p>
+            </h1>
         </Route>
       </Switch>
     </BrowserRouter>
