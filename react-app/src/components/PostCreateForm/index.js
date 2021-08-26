@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { useHistory } from 'react-router'
 
 export default function PostCreateForm(){
+    const history = useHistory()
+
     const [title, setTitle] = useState('')
     const [content, setContent] = useState('')
     const [languageId, setLanguageId] = useState("1")
@@ -11,7 +14,7 @@ export default function PostCreateForm(){
     const userId = useSelector(state => state.session.user.id)
 
     async function getLanguages() {
-        const res = await fetch('/api/languages')
+        const res = await fetch('/api/languages/')
 
         if (res.ok) {
             const list = await res.json()
@@ -33,9 +36,7 @@ export default function PostCreateForm(){
             user_id: userId
         }
 
-        console.log('post', post)
-
-        const res = await fetch('/api/posts', {
+        const res = await fetch('/api/posts/', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -43,14 +44,12 @@ export default function PostCreateForm(){
             body: JSON.stringify(post)
         })
 
-        console.log(res)
         const data = await res.json()
-
-        console.log(data)
+        console.log(res)
         if (res.ok) {
+            history.push(`/posts/${data.id}`)
         } else {
             setErrors(data)
-            console.log('bad', data)
 
         }
     }
@@ -59,11 +58,6 @@ export default function PostCreateForm(){
         getLanguages()
 
     }, [])
-
-    useEffect(() => {
-        // console.log('ll', languageList)
-
-    }, )
 
 
     return (
@@ -77,6 +71,8 @@ export default function PostCreateForm(){
             />
             
             <label>Content</label>
+            {/* { errors?.length > 0 ? <p className='errors'>{errors.content}</p> : <p>hi</p>} */}
+            <label className='errors'>{errors?.content}</label>
             <textarea
                 name='content'
                 value={content}

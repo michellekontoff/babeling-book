@@ -38,6 +38,9 @@ function App() {
         <ProtectedRoute path='/posts/new' exact={true}>
             <PostCreateForm />
         </ProtectedRoute>
+        <ProtectedRoute path='/posts/:postId' exact={true}>
+            <p>Your new post!</p>
+        </ProtectedRoute>
         <Route path='/' exact={true} >
           <Homepage />
         </Route>
