@@ -17,6 +17,12 @@
     box-shadow: 0px 0px 4px 2px rgb(255, 255, 255);
 }
 
+.auth-form .errors {
+    /* color: red; */
+    background-color: rgba(255,255,255);
+    text-align: center;
+}
+
 .auth-form button {
     border: 2px solid rgb(226, 142, 33);
     box-shadow: 0px 0px 4px 1px rgb(255, 255, 255);
