@@ -24,6 +24,11 @@ const NavBar = () => {
     <div className='navbar'>
         <button onClick={() => setShowNav(!showNav)}>Open/Close</button>
         <nav className='nav-links' style={!showNav ? {transform: 'translateX(250px)'} : {}}>
+            <div className='navbar__hello'>
+                <h2>Hello,</h2>
+                <h2>{user.username}</h2>
+            </div>
+
             <ul className='nav-links__list'>
                 <li><NavLink to={`/users/${user.id}`} activeClassName='navbar--active'>Your Profile</NavLink></li>
                 <li><NavLink to='/posts' activeClassName='navbar--active'>Latest Posts</NavLink></li>

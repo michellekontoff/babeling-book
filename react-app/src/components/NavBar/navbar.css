@@ -7,6 +7,17 @@
     right: 0px;
 }
 
+.navbar h2 {
+    margin: 20px auto 5px;
+    text-align: center;
+    width: 250px;
+}
+
+.navbar h2 + h2 {
+    margin: auto;
+}
+
+
 .navbar button {
     position: relative;
     right: 100px;
@@ -19,4 +30,24 @@
     height: 100%;
     transition: all 0.25s linear;
     background-color: white;
+ }
+.nav-links__list {
+    padding: 10px;
+    padding-left: 20px;
+}
+
+.nav-links__list li {
+    margin: 10px;
+}
+
+
+.nav-links a {
+     color: black;
+     font-size: 16pt;
+ }
+
+ .nav-links a:hover,
+ a.navbar--active {
+     font-style: italic;
+     font-size: 18pt;
  }
