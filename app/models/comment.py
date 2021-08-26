@@ -20,7 +20,8 @@ class Comment(db.Model):
             'content': self.content,
             'owner': {
                 'id': self.owner.id,
-                'username': self.owner.username
+                'username': self.owner.username,
+                'speaks': [lang.name for lang in self.owner.speaks]
             },
             'post_id': self.post_id,
             'created_at': self.created_at.strftime("%c"),

@@ -1,1 +1,26 @@
 /* TODO Add site wide styles */
+
+body {
+    box-sizing: border-box;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 12pt;
+}
+
+button {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 12pt;
+    border: none;
+    background: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.errors {
+    /* color: red; */
+    background-color: rgba(255,255,255);
+    text-align: center;
+}

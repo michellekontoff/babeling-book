@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Marck+Script&display=swap');
+
+.header {
+    width: 800px;
+    height: 415px;
+    margin: auto;
+    background-image: url(../../images/welcome_v2.png);
+    background-size: 800px auto;
+    background-repeat: no-repeat;
+    display: grid;
+    grid-template-columns: 490px 1fr;
+    grid-template-rows: 1fr 1fr;
+    grid-template-areas:
+     'welcome btns'
+     '.       btns';
+}
+
+.header__img {
+    height: 475px;
+}
+
+.about__img {
+    height: 475px;
+}
+
+.header__welcome {
+    /* FONT-WEIGHT: 500; */
+    height: fit-content;
+    width: fit-content;
+    grid-area: welcome;
+    display: flex;
+    flex-direction: column;
+    /* height: 400px; */
+    align-self: flex-end;
+    justify-self: flex-end;
+    /* margin-bottom: 5px; */
+    /* margin-left: 8px; */
+    color: white;
+    text-shadow: 1px 1px 3px rgb(168, 95, 0), -1px -1px 3px rgb(168, 95, 0), 0px 0px 5px black;
+    font-family: 'Marck Script', cursive;
+    font-size: 60pt;
+    text-decoration: underline;
+    text-decoration-thickness: 3px;
+    margin-right: 45px;
+    margin-bottom: 40px;
+    padding-right: 40px;
+    /* border-bottom: 3px solid rgba(0,0,0,0.5);
+    border-left: 3px solid rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.2); */
+}
+.header__welcome-babeling {
+    position: relative;
+    top: 10px;
+}
+
+.header__welcome-book {
+    position: relative;
+    bottom: 20px;
+    align-self: flex-end;
+    margin-right: 40px;
+}
+
+.header__buttons {
+    grid-area: btns;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    /* height:400px; */
+    margin: 10px;
+}
+
+.header__buttons button {
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
+    font-family: 'Marck Script', cursive;
+    font-size: 25pt;
+    color: white;
+    text-shadow: 1px 1px 4px black;
+    /* background-color: rgba(0,0,0,0.5); */
+    width: 175px;
+    height: 50px;
+    border-bottom: 3px solid rgba(0,0,0,0.5);
+    border-left: 3px solid rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.2);
+}
+
+.header__buttons button:hover {
+    font-size: 25pt;
+    color: white;
+    text-shadow: 1px 1px 4px black;
+    background-color: rgba(0,0,0,0.4);
+    border-top: 3px solid rgba(0,0,0,0.5);
+    border-right: 3px solid rgba(0,0,0,0.5);
+    /* border-bottom: 0px;
+    border-left: 0px; */
+    /* box-shadow: 1px -1px 3px 1px rgba(0,0,0,0.5); */
+}
+
+.about {
+    background-color: rgb(80, 187, 187);
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    padding: 10px;
+    align-items: center;
+}
+
+.about__img-container {
+    flex-shrink: 0;
+}
+.about__img {
+    width: 500px;
+    height: auto;
+}
+
+.about__message {
+    width: 350px;
+    margin-right: 25px;
+    flex-shrink: 0;
+
+}
+
+.about__message button {
+    color: white;
+}
+
+.about__message button:hover {
+    font-style: italic;
+    color: black;
+}

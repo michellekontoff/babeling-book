@@ -3,12 +3,21 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import { login } from '../../store/session';
 
+import './auth.css'
+
 const LoginForm = () => {
   const [errors, setErrors] = useState([]);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const user = useSelector(state => state.session.user);
   const dispatch = useDispatch();
+
+  const demoLogin = async () => {
+    const data = await dispatch(login('demo@aa.io', 'password'));
+    if (data) {
+      setErrors(data);
+    }
+  }
 
   const onLogin = async (e) => {
     e.preventDefault();
@@ -31,33 +40,35 @@ const LoginForm = () => {
   }
 
   return (
-    <form onSubmit={onLogin}>
+    <form className='login-form auth-form' onSubmit={onLogin}>
       <div>
-        {errors.map((error, ind) => (
-          <div key={ind}>{error}</div>
-        ))}
-      </div>
-      <div>
-        <label htmlFor='email'>Email</label>
+        {/* <label htmlFor='email'>Email</label> */}
+        <p className='errors'>{errors?.email}</p>
         <input
           name='email'
           type='text'
           placeholder='Email'
           value={email}
           onChange={updateEmail}
+          placeholder='Email'
         />
       </div>
       <div>
-        <label htmlFor='password'>Password</label>
+        {/* <label htmlFor='password'>Password</label> */}
+        <p className='errors'>{errors?.password}</p>
         <input
           name='password'
           type='password'
           placeholder='Password'
           value={password}
           onChange={updatePassword}
+          placeholder='Password'
         />
-        <button type='submit'>Login</button>
       </div>
+      <div>
+        <button type='submit'>Log In</button>
+        <button type='button' onClick={demoLogin}>Demo</button>
+       </div>
     </form>
   );
 };
