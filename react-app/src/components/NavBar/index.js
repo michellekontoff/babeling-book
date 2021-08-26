@@ -1,37 +1,39 @@
 
-import React from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
-import LogoutButton from './auth/LogoutButton';
+import LogoutButton from '../auth/LogoutButton';
+
+import './navbar.css'
 
 const NavBar = () => {
+    const user = useSelector(state => state.session.user)
+    const [showNav, setShowNav] = useState(false)
+
+    if (!user) return null;
+
+    /* 
+        Logo button - on click opens side bar.
+            - toggle shownav when clicked
+        if shownav is false, only show button
+        if shownav is true, show navbar
+    */
+
+
   return (
-    <nav>
-      <ul>
-        <li>
-          <NavLink to='/' exact={true} activeClassName='active'>
-            Home
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/login' exact={true} activeClassName='active'>
-            Login
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/sign-up' exact={true} activeClassName='active'>
-            Sign Up
-          </NavLink>
-        </li>
-        <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
-        </li>
-        <li>
-          <LogoutButton />
-        </li>
-      </ul>
+    <div className='navbar'>
+        <button onClick={() => setShowNav(!showNav)}>Open/Close</button>
+        <nav className='nav-links' style={!showNav ? {transform: 'translateX(250px)'} : {}}>
+            <ul className='nav-links__list'>
+                <li><NavLink to={`/users/${user.id}`} activeClassName='navbar--active'>Your Profile</NavLink></li>
+                <li><NavBar to='/posts' activeClassName='navbar--active'>Latest Posts</NavBar></li>
+                <li><NavBar to='/posts/new' activeClassName='navbar--active'>Create New Post</NavBar></li>
+            </ul>
+            {/* <div className='navbar__search'>
+                <input placeholder='To be implemented...'></input>
+            </div> */}
     </nav>
+    </div>
   );
 }
 
