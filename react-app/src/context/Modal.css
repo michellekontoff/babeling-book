@@ -21,4 +21,10 @@
   #modal-content {
     position: absolute;
     background-color:white;
+    display: flex;
+    justify-content: center;
+    /* width: 400px;
+    height: fit-content; */
+    height: 300px;
+    width: 400px;
   }
