@@ -15,7 +15,7 @@ lang_list = [
     "Italiano",
     "Bahasa Indonesia",
     "Українська",
-    "polski",
+    "Polski",
     "Nederlands",
     "한국어",
     "עברית",
