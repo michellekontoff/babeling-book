@@ -18,3 +18,7 @@ button {
 button:hover {
     cursor: pointer;
 }
+
+.errors {
+    color: red;
+}

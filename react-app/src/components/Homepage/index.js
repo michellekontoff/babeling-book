@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import { Redirect } from 'react-router';
 import LoginFormModal from '../auth/LoginFormModal'
@@ -7,7 +7,9 @@ import welcome from '../../images/welcome_v2.png'
 import about from '../../images/about.jpg'
 import './homepage.css'
 
+
 export default function Homepage() {
+
     const user = useSelector(state => state.session.user);
 
     if (user) {
