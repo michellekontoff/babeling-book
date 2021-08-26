@@ -51,3 +51,14 @@
      font-style: italic;
      font-size: 18pt;
  }
+
+ .navbar__search {
+     text-align: center;
+ }
+
+ .navbar__search input {
+     border-radius: 4px;
+     height: 20px;
+     width: 125px;
+     margin: auto;
+ }

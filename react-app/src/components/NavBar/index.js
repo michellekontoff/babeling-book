@@ -34,9 +34,9 @@ const NavBar = () => {
                 <li><NavLink to='/posts' activeClassName='navbar--active'>Latest Posts</NavLink></li>
                 <li><NavLink to='/posts/new' activeClassName='navbar--active'>Create New Post</NavLink></li>
             </ul>
-            {/* <div className='navbar__search'>
+            <div className='navbar__search'>
                 <input placeholder='To be implemented...'></input>
-            </div> */}
+            </div>
     </nav>
     </div>
   );
