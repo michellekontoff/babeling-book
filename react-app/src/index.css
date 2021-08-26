@@ -18,3 +18,9 @@ button {
 button:hover {
     cursor: pointer;
 }
+
+.errors {
+    /* color: red; */
+    background-color: rgba(255,255,255);
+    text-align: center;
+}

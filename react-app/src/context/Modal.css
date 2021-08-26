@@ -20,5 +20,14 @@
   
   #modal-content {
     position: absolute;
-    background-color:white;
+    background-color:rgba(0,0,0,0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    /* width: auto;
+    height: auto; */
+    overflow-y: auto;
+    margin: auto;
+    padding: 20px;
   }
