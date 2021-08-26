@@ -26,8 +26,8 @@ const NavBar = () => {
         <nav className='nav-links' style={!showNav ? {transform: 'translateX(250px)'} : {}}>
             <ul className='nav-links__list'>
                 <li><NavLink to={`/users/${user.id}`} activeClassName='navbar--active'>Your Profile</NavLink></li>
-                <li><NavBar to='/posts' activeClassName='navbar--active'>Latest Posts</NavBar></li>
-                <li><NavBar to='/posts/new' activeClassName='navbar--active'>Create New Post</NavBar></li>
+                <li><NavLink to='/posts' activeClassName='navbar--active'>Latest Posts</NavLink></li>
+                <li><NavLink to='/posts/new' activeClassName='navbar--active'>Create New Post</NavLink></li>
             </ul>
             {/* <div className='navbar__search'>
                 <input placeholder='To be implemented...'></input>
