@@ -8,11 +8,11 @@
     background-size: 800px auto;
     background-repeat: no-repeat;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 490px 1fr;
     grid-template-rows: 1fr 1fr;
     grid-template-areas:
-     '.       btns'
-     'welcome btns';
+     'welcome btns'
+     '.       btns';
 }
 
 .header__img {
@@ -24,19 +24,28 @@
 }
 
 .header__welcome {
+    FONT-WEIGHT: 500;
+    height: fit-content;
+    width: fit-content;
     grid-area: welcome;
     display: flex;
     /* height: 400px; */
-    align-items: flex-end;
-    margin-bottom: 5px;
-    margin-left: 8px;
+    align-self: flex-end;
+    justify-self: flex-end;
+    /* margin-bottom: 5px; */
+    /* margin-left: 8px; */
     color: white;
-    text-shadow: 1px 1px 4px black;
+    text-shadow: 1px 1px 3px rgb(168, 95, 0), -1px -1px 3px rgb(168, 95, 0), 0px 0px 5px black;
     font-family: 'Marck Script', cursive;
-    font-size: 38pt;
+    font-size: 53pt;
     text-decoration: underline;
     text-decoration-thickness: 3px;
-
+    margin-right: 45px;
+    margin-bottom: 20px;
+    /* border-bottom: 3px solid rgba(0,0,0,0.5);
+    border-left: 3px solid rgba(0,0,0,0.5);
+    box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
+    background-color: rgba(0,0,0,0.2); */
 }
 
 .header__buttons {
@@ -50,26 +59,30 @@
 }
 
 .header__buttons button {
+    /* font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; */
     font-family: 'Marck Script', cursive;
     font-size: 25pt;
     color: white;
     text-shadow: 1px 1px 4px black;
     /* background-color: rgba(0,0,0,0.5); */
-    border-bottom: 3px solid rgba(0,0,0,0.5);
-    border-left: 3px solid rgba(0,0,0,0.5);
     width: 175px;
     height: 50px;
+    border-bottom: 3px solid rgba(0,0,0,0.5);
+    border-left: 3px solid rgba(0,0,0,0.5);
     box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
     background-color: rgba(0,0,0,0.2);
 }
 
 .header__buttons button:hover {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 20pt;
+    font-size: 25pt;
     color: white;
     text-shadow: 1px 1px 4px black;
-    background-color: rgba(0,0,0,0.3);
-    
+    background-color: rgba(0,0,0,0.4);
+    border-top: 3px solid rgba(0,0,0,0.5);
+    border-right: 3px solid rgba(0,0,0,0.5);
+    /* border-bottom: 0px;
+    border-left: 0px; */
+    /* box-shadow: 1px -1px 3px 1px rgba(0,0,0,0.5); */
 }
 
 .about {
