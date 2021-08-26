@@ -7,4 +7,4 @@ bp = Blueprint('languages', __name__)
 def get_all_languages():
     langs = Language.query.all()
 
-    return { 'languages': [lang.name for lang in langs] }
+    return { 'languages': [lang.to_dict() for lang in langs] }

@@ -47,7 +47,7 @@ def get_post_by_id(id):
 def create_post():
     form = PostCreateForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-
+    print('I MADE IT MOM')
     if form.validate_on_submit():
         data = form.data
         post = Post(user_id=data['user_id'], title=data['title'], content=data['content'], language_id=data['language_id'])
