@@ -28,3 +28,11 @@ button:hover {
 li {
     list-style: none;
 }
+
+#not-found {
+    position: relative;
+    width: 400px;
+    text-align: center;
+    left: 50px;
+    top: 50px
+}
