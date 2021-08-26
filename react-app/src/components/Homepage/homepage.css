@@ -24,11 +24,12 @@
 }
 
 .header__welcome {
-    FONT-WEIGHT: 500;
+    /* FONT-WEIGHT: 500; */
     height: fit-content;
     width: fit-content;
     grid-area: welcome;
     display: flex;
+    flex-direction: column;
     /* height: 400px; */
     align-self: flex-end;
     justify-self: flex-end;
@@ -37,15 +38,27 @@
     color: white;
     text-shadow: 1px 1px 3px rgb(168, 95, 0), -1px -1px 3px rgb(168, 95, 0), 0px 0px 5px black;
     font-family: 'Marck Script', cursive;
-    font-size: 53pt;
+    font-size: 60pt;
     text-decoration: underline;
     text-decoration-thickness: 3px;
     margin-right: 45px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
+    padding-right: 40px;
     /* border-bottom: 3px solid rgba(0,0,0,0.5);
     border-left: 3px solid rgba(0,0,0,0.5);
     box-shadow: 1px 1px 3px 1px rgba(0,0,0,0.5);
     background-color: rgba(0,0,0,0.2); */
+}
+.header__welcome-babeling {
+    position: relative;
+    top: 10px;
+}
+
+.header__welcome-book {
+    position: relative;
+    bottom: 20px;
+    align-self: flex-end;
+    margin-right: 40px;
 }
 
 .header__buttons {

@@ -18,7 +18,12 @@ export default function Homepage() {
         <div className='homepage-container'>
             <div className='header'>
                 <div className='header__welcome'>
-                    Babeling Book
+                    <div className='header__welcome-babeling'>
+                        Babeling
+                    </div>
+                    <div className='header__welcome-book'>
+                        Book
+                    </div>
                 </div>
                 <div className='header__buttons'>
                     <LoginFormModal />
