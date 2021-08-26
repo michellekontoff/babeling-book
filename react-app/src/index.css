@@ -20,5 +20,7 @@ button:hover {
 }
 
 .errors {
-    color: red;
+    /* color: red; */
+    background-color: rgba(255,255,255);
+    text-align: center;
 }

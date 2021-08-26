@@ -65,8 +65,10 @@ const LoginForm = () => {
           placeholder='Password'
         />
       </div>
+      <div>
         <button type='submit'>Log In</button>
         <button type='button' onClick={demoLogin}>Demo</button>
+       </div>
     </form>
   );
 };
