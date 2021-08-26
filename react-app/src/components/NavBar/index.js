@@ -33,7 +33,9 @@ const NavBar = () => {
                 <li><NavLink to={`/users/${user.id}`} activeClassName='navbar--active'>Your Profile</NavLink></li>
                 <li><NavLink to='/posts' activeClassName='navbar--active'>Latest Posts</NavLink></li>
                 <li><NavLink to='/posts/new' activeClassName='navbar--active'>Create New Post</NavLink></li>
+                <li><LogoutButton /></li>
             </ul>
+                <li></li>
             <div className='navbar__search'>
                 <input placeholder='To be implemented...'></input>
             </div>

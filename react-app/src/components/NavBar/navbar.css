@@ -37,22 +37,31 @@
 }
 
 .nav-links__list li {
+    height: 30px;
     margin: 10px;
 }
 
 
-.nav-links a {
+#logout-btn {
+    position: relative;
+    left: 2px
+}
+
+.nav-links a,
+#logout-btn {
      color: black;
      font-size: 16pt;
  }
 
  .nav-links a:hover,
- a.navbar--active {
+ a.navbar--active,
+ #logout-btn:hover {
      font-style: italic;
      font-size: 18pt;
  }
 
  .navbar__search {
+     margin-top: 30px;
      text-align: center;
  }
 
