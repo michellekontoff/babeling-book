@@ -1,4 +1,5 @@
 from flask import Blueprint, request
+from sqlalchemy import desc
 from app.forms import PostCreateForm, PostEditForm
 from app.models import Post, db
 from datetime import datetime
@@ -9,9 +10,9 @@ bp = Blueprint('posts', __name__)
 # GET ALL POSTS
 @bp.route('/')
 def get_all_posts():
-    posts = Post.query.all()
+    posts = Post.query.order_by(desc(Post.created_at)).all()
 
-    return { post.to_dict()['id']: post.to_dict() for post in posts }
+    return { post.id: post.to_dict() for post in posts }
 
 # GET, EDIT, DELETE POST BY ID
 @bp.route('/<int:id>', methods=['GET', 'PUT', 'DELETE'])
@@ -35,7 +36,7 @@ def get_post_by_id(id):
             return post.to_dict()
         else:
             return form.errors
-            
+
     elif request.method == 'DELETE':
         db.session.delete(post)
         db.session.commit()
