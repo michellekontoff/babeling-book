@@ -31,7 +31,7 @@ const NavBar = () => {
 
             <ul className='nav-links__list'>
                 <li><NavLink to={`/users/${user.id}`} activeClassName='navbar--active'>Your Profile</NavLink></li>
-                <li><NavLink to='/posts' activeClassName='navbar--active'>Latest Posts</NavLink></li>
+                <li><NavLink to='/posts/latest' activeClassName='navbar--active'>Latest Posts</NavLink></li>
                 <li><NavLink to='/posts/new' activeClassName='navbar--active'>Create New Post</NavLink></li>
                 <li><LogoutButton /></li>
             </ul>
