@@ -8,7 +8,7 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
     const history = useHistory()
     const [title, setTitle] = useState(post.title)
     const [content, setContent] = useState(post.content)
-    const [languageId, setLanguageId] = useState(post.language_id)
+    const [languageId, setLanguageId] = useState(post.language.id)
     const [languageList, setLanguageList] = useState([])
     const [errors, setErrors] = useState([])
 
@@ -55,7 +55,7 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
         console.log(res)
         if (res.ok) {
             setEditMode(false)
-            history.push(`/posts/${post.id}`)
+            // history.push(`/posts/${post.id}`)
         } else {
             setErrors(data)
 

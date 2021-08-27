@@ -25,7 +25,10 @@ class Post(db.Model):
                 'id': self.owner.id,
                 'username': self.owner.username
             },
-            'language': self.language.name,
+            'language': {
+                'id': self.language.id,
+                'name':self.language.name
+            },
             'created_at': self.created_at.strftime("%c"),
             'updated_at': self.updated_at.strftime("%c")
         }

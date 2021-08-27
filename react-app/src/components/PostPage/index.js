@@ -44,7 +44,7 @@ export default function PostPage() {
     useEffect(() => {
         getPost()
 
-    }, [])
+    }, [editMode])
     useEffect(() => {
         console.log(post)
 
@@ -60,7 +60,7 @@ export default function PostPage() {
                     <h2>{post.title}</h2>
                 </div>
                 <div className='post__details'>
-                    {post.owner?.username}, {post.created_at}, { post.language }{ post.updated_at !== post.created_at ? <span>, edited {post.updated_at}</span> : null }
+                    {post.owner?.username}, {post.created_at}, { post.language?.name }{ post.updated_at !== post.created_at ? <span>, edited {post.updated_at}</span> : null }
                 </div>
                 <div className='post__content'>
                     {post.content}
