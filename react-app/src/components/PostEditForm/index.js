@@ -89,7 +89,7 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
                 ></textarea>
                 
                 <label className='language-label'>Language</label>
-                <select value={post.language.id} onChange={(e) => setLanguageId(e.target.value)}>
+                <select value={post.language.id === languageId ? languageId : null} onChange={(e) => setLanguageId(e.target.value)}>
                     {languageList?.map((language) => {
                     return <option key={language.id} value={language.id}>{language.name}</option>
                     })}
