@@ -58,7 +58,7 @@ export default function PostPage() {
                     <h2>{post.title}</h2>
                 </div>
                 <div className='post__details'>
-                    {post.owner?.username} {post.created_at} { post.updated_at !== post.created_at ? <span> - {post.updated_at} (edited)</span> : null }
+                    {post.owner?.username} {post.created_at} { post.language } { post.updated_at !== post.created_at ? <span> - {post.updated_at} (edited)</span> : null }
                 </div>
                 <div className='post__content'>
                     {post.content}
