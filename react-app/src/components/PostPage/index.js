@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router'
 
+import PostEditForm from '../PostEditForm'
+
 import './postPage.css'
 
 export default function PostPage() {
@@ -44,13 +46,13 @@ export default function PostPage() {
 
     }, [])
     useEffect(() => {
-        console.log(post)
+        // console.log(post)
 
     })
 
     let content;
     if (editMode) {
-        content = <p>edit mode!</p>
+        content = <PostEditForm ownerId={post.owner?.id} postId={post?.id} />
     } else {
         content = (
             <div className='post'>
