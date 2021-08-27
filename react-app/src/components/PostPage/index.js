@@ -46,13 +46,13 @@ export default function PostPage() {
 
     }, [])
     useEffect(() => {
-        // console.log(post)
+        console.log(post)
 
     })
 
     let content;
     if (editMode) {
-        content = <PostEditForm ownerId={post.owner?.id} postId={post?.id} />
+        content = <PostEditForm editMode={editMode} setEditMode={setEditMode} ownerId={post.owner?.id} post={post} />
     } else {
         content = (
             <div className='post'>

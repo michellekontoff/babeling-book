@@ -4,11 +4,11 @@ import { useHistory, useParams } from 'react-router'
 
 import './postEditForm.css'
 
-export default function PostEditForm({ ownerId, postId }){
+export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
     const history = useHistory()
-    const [title, setTitle] = useState('')
-    const [content, setContent] = useState('')
-    const [languageId, setLanguageId] = useState("1")
+    const [title, setTitle] = useState(post.title)
+    const [content, setContent] = useState(post.content)
+    const [languageId, setLanguageId] = useState(post.language_id)
     const [languageList, setLanguageList] = useState([])
     const [errors, setErrors] = useState([])
 
@@ -33,30 +33,29 @@ export default function PostEditForm({ ownerId, postId }){
             setErrors({
                 auth: 'You are not authorized to edit this post.'
             })
-            console.log(errors)
             return
         }
-        console.log('I MADE IT MOM')
 
-        const post = {
+        const editedPost = {
             title,
             content,
             language_id: parseInt(languageId),
             user_id: userId
         }
-
-        const res = await fetch(`/api/posts/${postId}`, {
+        console.log(editedPost)
+        const res = await fetch(`/api/posts/${post.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(post)
+            body: JSON.stringify(editedPost)
         })
 
         const data = await res.json()
         console.log(res)
         if (res.ok) {
-            history.push(`/posts/${postId}`)
+            setEditMode(false)
+            history.push(`/posts/${post.id}`)
         } else {
             setErrors(data)
 

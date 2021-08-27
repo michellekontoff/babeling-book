@@ -36,7 +36,7 @@ def get_post_by_id(id):
             db.session.commit()
             return post.to_dict()
         else:
-            return form.errors
+            return form.errors, 500
 
     elif request.method == 'DELETE':
         db.session.delete(post)
