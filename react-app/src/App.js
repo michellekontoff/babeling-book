@@ -7,7 +7,7 @@ import Profile from './components/Profile';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import { authenticate } from './store/session';
-
+import PostPage from './components/PostPage';
 import PostCreateForm from './components/PostCreateForm';
 
 function App() {
@@ -38,8 +38,8 @@ function App() {
         <ProtectedRoute path='/posts/new' exact={true}>
             <PostCreateForm />
         </ProtectedRoute>
-        <ProtectedRoute path='/posts/:postId(\\d)' exact={true}>
-            <p>Your new post!</p>
+        <ProtectedRoute path='/posts/:postId' exact={true}>
+            <PostPage />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <Homepage />

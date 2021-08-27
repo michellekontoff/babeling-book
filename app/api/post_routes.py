@@ -17,8 +17,9 @@ def get_all_posts():
 # GET, EDIT, DELETE POST BY ID
 @bp.route('/<int:id>', methods=['GET', 'PUT', 'DELETE'])
 def get_post_by_id(id):
-    post = Post.query.get(id)
-
+    post = Post.query.filter(Post.id == id).first()
+    print('AJSHDKAJHDKJASH', '2', id)
+    print(post)
     if post is None:
         return {'error': 'Post could not be found.'}
 
