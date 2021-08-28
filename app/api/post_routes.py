@@ -14,6 +14,13 @@ def get_all_posts():
 
     return { post.id: post.to_dict() for post in posts }
 
+# GET MOST RECENT POSTS
+@bp.route('/latest')
+def get_latest_posts():
+    posts = Post.query.order_by(desc(Post.created_at)).limit(30)
+
+    return { 'posts': [post.to_dict() for post in posts] }
+
 # GET, EDIT, DELETE POST BY ID
 @bp.route('/<int:id>', methods=['GET', 'PUT', 'DELETE'])
 def get_post_by_id(id):

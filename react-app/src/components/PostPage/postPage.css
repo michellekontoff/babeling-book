@@ -33,10 +33,6 @@
     font-size: 13pt;
 }
 
-.post__details a:hover {
-    font-style: italic;
-}
-
 .post__btns {
     margin: 15px 0px 5px;
     display: flex;

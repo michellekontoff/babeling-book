@@ -9,6 +9,7 @@ import UsersList from './components/UsersList';
 import { authenticate } from './store/session';
 import PostPage from './components/PostPage';
 import PostCreateForm from './components/PostCreateForm';
+import PostsLatest from './components/PostsLatest';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -39,7 +40,7 @@ function App() {
             <PostCreateForm />
         </ProtectedRoute>
         <ProtectedRoute path='/posts/latest' exact={true}>
-            <p>Latest posts!</p>
+            <PostsLatest />
         </ProtectedRoute>
         <ProtectedRoute path='/posts/:postId' exact={true}>
             <PostPage />
