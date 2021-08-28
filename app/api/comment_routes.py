@@ -18,7 +18,7 @@ def get_all_comments():
 @bp.route('/<int:id>', methods=['GET', 'PUT', 'DELETE'])
 def get_comment_by_id(id):
     comment = Comment.query.get(id)
-    print(comment)
+
     if comment is None:
         return {'error': 'Comment could not be found.'}
 
