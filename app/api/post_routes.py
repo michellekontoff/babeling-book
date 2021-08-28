@@ -17,7 +17,7 @@ def get_all_posts():
 # GET, EDIT, DELETE POST BY ID
 @bp.route('/<int:id>', methods=['GET', 'PUT', 'DELETE'])
 def get_post_by_id(id):
-    post = Post.query.get(id)
+    post = Post.query.filter(Post.id == id).first()
 
     if post is None:
         return {'error': 'Post could not be found.'}
@@ -35,7 +35,7 @@ def get_post_by_id(id):
             db.session.commit()
             return post.to_dict()
         else:
-            return form.errors
+            return form.errors, 500
 
     elif request.method == 'DELETE':
         db.session.delete(post)

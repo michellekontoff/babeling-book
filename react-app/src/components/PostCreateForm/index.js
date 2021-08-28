@@ -47,7 +47,7 @@ export default function PostCreateForm(){
         })
 
         const data = await res.json()
-        console.log(res)
+        
         if (res.ok) {
             history.push(`/posts/${data.id}`)
         } else {
@@ -64,7 +64,7 @@ export default function PostCreateForm(){
 
     return (
         <div className='post-create-container'>
-            <img id='post-create-img' src={image}></img>
+            <img id='post-create-img' src={image} alt='create-post-img'></img>
             <form className='post-create-form post-form' onSubmit={(e) => submitPost(e)}>
                 {/* <h2>Create Post</h2> */}
                 <label>Title</label>
