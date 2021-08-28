@@ -94,7 +94,15 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
                     return <option key={language.id} value={language.id}>{language.name}</option>
                     })}
                 </select>
-                <button type='submit'>Edit Post</button>
+                <div className='post-edit__btns'>
+                    <button type='submit' className='post-edit__edit'>Edit Post</button>
+                    <button
+                    type='button'
+                    className='post-edit__cancel'
+                    onClick={() => setEditMode(!editMode)}>
+                        Cancel
+                    </button>
+                </div>
             </form>
     )
 }

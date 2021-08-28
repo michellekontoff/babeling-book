@@ -1,0 +1,68 @@
+.post-edit-form {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 450px;
+}
+
+.post-edit-form input {
+    border-radius: 4px;
+    /* height: 25px; */
+    padding: 5px;
+}
+
+.post-edit-form textarea {
+    resize: none;
+    border-radius: 4px;
+    border-width: 2px;
+    padding: 5px;
+}
+
+.post-edit-form select,
+.language-label {
+    width: 150px;
+    align-self: center;
+    border-radius: 4px;
+    border-width: 2px;
+    padding: 2px;
+}
+
+.post-edit-form label:not(.errors),
+.language-label {
+    margin: 5px 3px 2px;
+    font-size: 14pt;
+    color: rgb(0, 86, 97);
+}
+
+label.errors {
+    color: red;
+    text-align: center;
+}
+
+.post-edit__btns {
+    display: flex;
+    justify-content: center;
+}
+.post-edit-form button {
+    margin: 20px 20px 5px;
+    width: 110px;
+    padding: 10px 15px;
+    font-size: 14pt;
+    align-self: center;
+}
+
+.post-edit__edit {
+    background-color: rgb(212, 241, 245);
+    border: 2px solid rgb(0, 86, 97);
+}
+
+.post-edit__cancel {
+    border: 2px solid red;
+    background-color: rgb(255, 198, 198);
+}
+
+.post-edit-form button:hover {
+    position: relative;
+    top: 5px;
+    box-shadow: -2px -2px 5px 1px rgb(53, 53, 53);
+}
