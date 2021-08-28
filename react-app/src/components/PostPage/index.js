@@ -15,9 +15,8 @@ export default function PostPage() {
     const params = useParams()
     const history = useHistory()
 
-    async function getPost(){
-        console.log(params.postId)
-        const res = await fetch(`/api/posts/${params.postId}`)
+    async function getPost(id){
+        const res = await fetch(`/api/posts/${id}`)
 
         if (res.ok) {
             const post = await res.json()
@@ -43,13 +42,10 @@ export default function PostPage() {
     }
 
     useEffect(() => {
-        getPost()
+        getPost(params.postId)
 
-    }, [editMode])
-    useEffect(() => {
-        console.log(post)
+    }, [editMode, params.postId])
 
-    })
 
     let content;
     if (editMode) {
@@ -90,3 +86,31 @@ export default function PostPage() {
         </>
     )
 }
+
+// import React, { useState, useEffect } from "react";
+
+// export default function User(props) {
+//   const [user, setUser] = useState(null);
+
+//   async function fetchUserData() {
+//     const response = await fetch("/");
+//     setUser(await response.json());
+//   }
+
+//   useEffect(() => {
+//     fetchUserData();
+//   }, []);
+
+//   if (!user) {
+//     return "loading...";
+//   }
+
+//   return (
+//     <details>
+//       <summary>{user.name}</summary>
+//       <strong>{user.age}</strong> years old
+//       <br />
+//       lives in {user.address}
+//     </details>
+//   );
+// }

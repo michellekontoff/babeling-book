@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
-import { useHistory, useParams } from 'react-router'
 
 import './postEditForm.css'
 
 export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
-    const history = useHistory()
     const [title, setTitle] = useState(post.title)
     const [content, setContent] = useState(post.content)
     const [languageId, setLanguageId] = useState(post.language.id)
@@ -29,7 +27,7 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
     async function editPost(e){
         e.preventDefault()
 
-        if (ownerId != userId) {
+        if (ownerId !== userId) {
             setErrors({
                 auth: 'You are not authorized to edit this post.'
             })
@@ -42,7 +40,7 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
             language_id: parseInt(languageId),
             user_id: userId
         }
-        console.log(editedPost)
+ 
         const res = await fetch(`/api/posts/${post.id}`, {
             method: 'PUT',
             headers: {
@@ -52,7 +50,7 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
         })
 
         const data = await res.json()
-        console.log(res)
+
         if (res.ok) {
             setEditMode(!editMode)
             // history.push(`/posts/${post.id}`)
