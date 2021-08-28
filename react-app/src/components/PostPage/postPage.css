@@ -23,16 +23,13 @@
     color: rgb(0, 86, 97);
 }
 
-.post__content {
-    margin-top: 20px;
-}
 
 .post__details > div {
     color: grey
 }
 
 .post__details {
-    text-align: right;
+    margin: 15px 35px;
 }
 
 .post__details a {
@@ -45,7 +42,7 @@
 }
 
 .post__btns {
-    margin: 7px 0px 5px;
+    margin: 15px 0px 5px;
     display: flex;
     justify-content: flex-end;
 }
