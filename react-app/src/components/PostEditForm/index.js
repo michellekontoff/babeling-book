@@ -54,7 +54,7 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
         const data = await res.json()
         console.log(res)
         if (res.ok) {
-            setEditMode(false)
+            setEditMode(!editMode)
             // history.push(`/posts/${post.id}`)
         } else {
             setErrors(data)

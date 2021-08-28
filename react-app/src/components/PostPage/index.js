@@ -55,27 +55,34 @@ export default function PostPage() {
         content = <PostEditForm editMode={editMode} setEditMode={setEditMode} ownerId={post.owner?.id} post={post} />
     } else {
         content = (
-            <div className='post'>
-                <div className='post__title'>
-                    <h2>{post.title}</h2>
+                <div className='post'>
+                    <div className='post__title'>
+                        <h2>{post.title}</h2>
+                    </div>
+                    <div className='post__details'>
+                        {post.owner?.username} - { post.language?.name } - {post.created_at} { post.updated_at !== post.created_at ? <div>edited {post.updated_at}</div> : null }
+                    </div>
+                    <div className='post__content'>
+                        {post.content}
+                    </div>
+                    { post.owner?.id === user.id ?
+                        <div className='post__btns'>
+                            <button className='post__edit' type='button' onClick={() => setEditMode(!editMode)}>Edit</button>
+                            <button className='post__delete' type='button' onClick={deletePost}>Delete</button>
+                        </div>
+                        : null}
                 </div>
-                <div className='post__details'>
-                    {post.owner?.username}, {post.created_at}, { post.language?.name }{ post.updated_at !== post.created_at ? <span>, edited {post.updated_at}</span> : null }
-                </div>
-                <div className='post__content'>
-                    {post.content}
-                </div>
-                <div className='post__btns'>
-                    <button className='post__edit' type='button' onClick={() => setEditMode(!editMode)}>Edit</button>
-                    <button className='post__delete' type='button' onClick={deletePost}>Delete</button>
-                </div>
-            </div>
         )
     }
 
     return (
-        <div className='post-container'>
-            { post.error ? <h2>{post.error}</h2> : content}
-        </div>
+        <>
+            <div className='post-container'>
+                { post.error ? <h2>{post.error}</h2> : content}
+            </div>
+            <div className='comments-container'>
+                    COMMENTS!
+            </div>
+        </>
     )
 }

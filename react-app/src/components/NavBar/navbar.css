@@ -18,9 +18,10 @@
 }
 
 
-.navbar button {
-    position: relative;
-    right: 100px;
+.navbar > button {
+    position: absolute;
+    right: 300px;
+    bottom: 40px;
 }
 
  .nav-links {
