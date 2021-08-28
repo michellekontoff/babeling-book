@@ -4,6 +4,7 @@ import { useParams, useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 
 import PostEditForm from '../PostEditForm'
+import CommentCreateForm from '../CommentCreateForm'
 import CommentList from '../CommentList'
 
 import './postPage.css'
@@ -11,6 +12,7 @@ import './postPage.css'
 export default function PostPage() {
     const user = useSelector(state => state.session.user)
     const [editMode, setEditMode] = useState(false)
+    const [addComment, setAddComment] = useState(false)
     const [post, setPost] = useState({})
     const [comments, setComments] = useState([])
 
@@ -58,7 +60,7 @@ export default function PostPage() {
         getPost(params.postId)
         getPostComments(params.postId)
 
-    }, [editMode, params.postId])
+    }, [addComment, editMode, params.postId])
 
 
     let content;
@@ -89,11 +91,19 @@ export default function PostPage() {
         )
     }
 
+    let leaveComment;
+    if (!addComment) {
+        leaveComment = <button type='button' className='comments__add-btn' onClick={() => setAddComment(!addComment)}>Leave a Comment</button>
+    } else {
+        leaveComment = <CommentCreateForm setAddComment={setAddComment} addComment={addComment} postId={post.id} userId={user.id} />
+    }
+
     return (
         <>
             <div className='post-container'>
                 { post.error ? <h2>{post.error}</h2> : content}
             </div>
+            {leaveComment}
             <div className='comments-container'>
                 <CommentList comments={comments} />
             </div>
