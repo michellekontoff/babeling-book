@@ -11,7 +11,6 @@ export default function PostLatest() {
 
         if (res.ok) {
             const data = await res.json()
-            // console.log(data)
             setPosts(data.posts)
         } else {
             return 'Something went wrong.'

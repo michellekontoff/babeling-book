@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import Post from './Post'
 
@@ -11,7 +11,7 @@ export default function PostList({ posts }) {
             <div className='post-list'>
                 {posts?.map((post, i) => {
                     return <div key={post.id} className='post-list__item'>
-                        <Link to={`/posts/${post.id}`}><Post post={post}></Post></Link>
+                        <Post post={post} />
                     </div>
                 })}
             </div>
