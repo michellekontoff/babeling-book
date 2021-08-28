@@ -25,7 +25,7 @@ export default function PostLatest() {
     return (
         <>
             <div className='posts-latest'>
-                <h2>Latest Posts</h2>
+                <h1>Latest Posts</h1>
                 <PostList posts={posts} />
             </div>
         </>

@@ -23,4 +23,4 @@ def user(id):
 def get_posts_by_user(id):
     posts = Post.query.filter(Post.user_id == id).order_by(desc(Post.created_at)).all()
 
-    return { post.id: post.to_dict() for post in posts }
+    return { 'posts': [post.to_dict() for post in posts] }
