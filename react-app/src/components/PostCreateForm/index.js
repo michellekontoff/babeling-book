@@ -18,7 +18,7 @@ export default function PostCreateForm(){
     const userId = useSelector(state => state.session.user.id)
 
     async function getLanguages() {
-        const res = await fetch('/api/languages/')
+        const res = await fetch('/api/languages')
 
         if (res.ok) {
             const list = await res.json()
@@ -38,7 +38,7 @@ export default function PostCreateForm(){
             user_id: userId
         }
 
-        const res = await fetch('/api/posts/', {
+        const res = await fetch('/api/posts', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

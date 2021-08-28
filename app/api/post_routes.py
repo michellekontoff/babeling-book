@@ -1,14 +1,14 @@
 from flask import Blueprint, request
 from sqlalchemy import desc
 from app.forms import PostCreateForm, PostEditForm
-from app.models import Post, db
+from app.models import Post, Comment, db
 from datetime import datetime
 
 
 bp = Blueprint('posts', __name__)
 
 # GET ALL POSTS
-@bp.route('/')
+@bp.route('')
 def get_all_posts():
     posts = Post.query.order_by(desc(Post.created_at)).all()
 
@@ -50,7 +50,7 @@ def get_post_by_id(id):
         return { "deletion": "successful" }
 
 # CREATE POST
-@bp.route('/', methods=['POST'])
+@bp.route('', methods=['POST'])
 def create_post():
     form = PostCreateForm()
     form['csrf_token'].data = request.cookies['csrf_token']
@@ -63,3 +63,11 @@ def create_post():
         return post.to_dict()
     else:
         return form.errors, 500
+
+
+#GET ALL OF A POST'S COMMENTS
+@bp.route('/<int:id>/comments')
+def get_post_comments(id):
+    comments = Comment.query.filter(Comment.post_id == id).order_by(Comment.created_at).all()
+
+    return { 'comments': [comment.to_dict() for comment in comments] }
