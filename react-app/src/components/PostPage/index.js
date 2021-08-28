@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useParams, useHistory } from 'react-router'
+import { Link } from 'react-router-dom'
 
 import PostEditForm from '../PostEditForm'
 
@@ -60,7 +61,10 @@ export default function PostPage() {
                         <h2>{post.title}</h2>
                     </div>
                     <div className='post__details'>
-                        {post.owner?.username} - { post.language?.name } - {post.created_at} { post.updated_at !== post.created_at ? <div>edited {post.updated_at}</div> : null }
+                        <div><Link to={`/users/${post.owner?.id}`}>{post.owner?.username}</Link></div>
+                        <div>{ post.language?.name }</div>
+                        <div>{post.created_at}</div>
+                        { post.updated_at !== post.created_at ? <div>edited {post.updated_at}</div> : null }
                     </div>
                     <div className='post__content'>
                         {post.content}

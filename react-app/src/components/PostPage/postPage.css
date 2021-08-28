@@ -19,16 +19,33 @@
 
 .post__title h2 {
     margin-top: 0px;
-    margin-bottom: 5px;
+    margin-bottom: 7px;
     color: rgb(0, 86, 97);
 }
 
+.post__content {
+    margin-top: 20px;
+}
+
+.post__details > div {
+    color: grey
+}
+
 .post__details {
-    color: lightgrey
+    text-align: right;
+}
+
+.post__details a {
+    color: black;
+    font-size: 13pt;
+}
+
+.post__details a:hover {
+    font-style: italic;
 }
 
 .post__btns {
-    margin: 5px 0px 5px;
+    margin: 7px 0px 5px;
     display: flex;
     justify-content: flex-end;
 }
