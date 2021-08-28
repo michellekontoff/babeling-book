@@ -99,14 +99,16 @@ export default function PostPage() {
     }
 
     return (
-        <>
+        <div className='post-page'>
             <div className='post-container'>
                 { post.error ? <h2>{post.error}</h2> : content}
             </div>
-            {leaveComment}
+            <div className='comment-create-container'>
+                {leaveComment}
+            </div>
             <div className='comments-container'>
                 <CommentList comments={comments} />
             </div>
-        </>
+        </div>
     )
 }
