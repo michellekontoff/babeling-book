@@ -5,6 +5,7 @@ import CommentEditForm from '../CommentEditForm'
 
 export default function Comment({ comment }) {
     const [editComment, setEditComment] = useState(false)
+    
 
     async function deleteComment() {
         const res = window.confirm('Are you sure you want to permanently delete this comment?')

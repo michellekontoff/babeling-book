@@ -60,7 +60,12 @@ export default function PostPage() {
         getPost(params.postId)
         getPostComments(params.postId)
 
-    }, [addComment, editMode, params.postId])
+    }, [editMode, params.postId])
+
+    useEffect(() => {
+        getPostComments(params.postId)
+
+    }, [addComment, params.postId])
 
 
     let content;

@@ -5,22 +5,23 @@ import './commentEditForm.css'
 
 export default function CommentEditForm({ editComment, setEditComment, comment }){
 
-    const [content, setContent] = useState('')
+    const [content, setContent] = useState(comment.content)
     const [errors, setErrors] = useState([])
 
     async function submitComment(e){
         e.preventDefault()
 
-        const comment = {
+        const editedComment = {
             content,
         }
+        console.log(comment)
 
         const res = await fetch(`/api/comments/${comment.id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(comment)
+            body: JSON.stringify(editedComment)
         })
 
         const data = await res.json()
@@ -38,7 +39,7 @@ export default function CommentEditForm({ editComment, setEditComment, comment }
                 <textarea
                     name='content'
                     rows='10'
-                    value={comment.content}
+                    value={content}
                     onChange={(e) => setContent(e.target.value)}
                 ></textarea>
                 <div className='comment__btns'>

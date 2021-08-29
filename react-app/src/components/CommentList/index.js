@@ -4,7 +4,7 @@ import Comment from './Comment'
 import './commentList.css'
 
 export default function CommentList({ comments }) {
-
+    
     return (
         <>
             <div className='comment-list'>
