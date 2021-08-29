@@ -4,4 +4,5 @@ to access the original post's id and content, i passed it as a prop into the edi
 
 deletes on comments are not showing up immediately/dynamically. the page has to be refreshed for the deletion to show :(
 
-....edits show immediately but after refactoring, edit button now turns all comments to edit mode
+edits weren't showing right away then....edits show immediately but after refactoring, edit button now turns all comments to edit mode...
+solution: instead of passing the comments as props from CommentList to Comment, have comment fetch post by the id passed to it, then refetch whent comment-edit-mode state changes.

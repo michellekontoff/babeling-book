@@ -23,10 +23,16 @@ export default function Comment({ commentId }) {
         if (!res) {
             return
         } else {
-            await fetch(`/api/comments/${comment.id}`, {
+            const response = await fetch(`/api/comments/${comment.id}`, {
                 method: 'DELETE'
             })
-        }
+        
+            const data = await response.json();
+
+            if (response.ok) {
+                setComment(data)
+            }
+       }
     }
 
     useEffect(() => {
@@ -38,8 +44,8 @@ export default function Comment({ commentId }) {
     }
 
     return (
-        <>
-            <div className='comment__details'>
+        <> { comment.content ?
+            <><div className='comment__details'>
                 <Link to={`/users/${comment.owner?.id}`}>{comment.owner?.username}</Link> - {comment.created_at} {comment.created_at !== comment.updated_at ? <span>edited {comment.updated_at}</span> : null}
             </div>
             <div className='comment__content'>
@@ -48,7 +54,8 @@ export default function Comment({ commentId }) {
             <div className='comment__btns'>
                 <button type='submit' className='comment-edit__edit' onClick={() => setEditComment(!editComment)}>Edit</button>
                 <button type='button' className='comment-edit__del-cancel' onClick={deleteComment}>Delete</button>
-            </div>
+            </div></>
+            : null}
         </>
     )
 }
