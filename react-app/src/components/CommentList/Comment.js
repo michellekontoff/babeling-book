@@ -1,11 +1,21 @@
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import CommentEditForm from '../CommentEditForm'
 
-export default function Comment({ comment, editComment, setEditComment }) {
-    // const [editComment, setEditComment] = useState(false)
+export default function Comment({ commentId }) {
+    const [editComment, setEditComment] = useState(false)
+    const [comment, setComment] = useState({})
     
+    async function getEditedComment(id) {
+        const res = await fetch(`/api/comments/${id}`);
+
+        const data = await res.json();
+
+        if (res.ok) {
+            setComment(data)
+        }
+    }
 
     async function deleteComment() {
         const res = window.confirm('Are you sure you want to permanently delete this comment?')
@@ -16,11 +26,12 @@ export default function Comment({ comment, editComment, setEditComment }) {
             await fetch(`/api/comments/${comment.id}`, {
                 method: 'DELETE'
             })
-            
-
         }
-
     }
+
+    useEffect(() => {
+        getEditedComment(commentId)
+    }, [editComment, comment.id])
 
     if (editComment) {
         return <CommentEditForm comment={comment} editComment={editComment} setEditComment={setEditComment} />

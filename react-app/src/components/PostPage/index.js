@@ -15,7 +15,7 @@ export default function PostPage() {
     const [editMode, setEditMode] = useState(false)
     const [addComment, setAddComment] = useState(false)
     const [post, setPost] = useState({})
-    const [comments, setComments] = useState([])
+    // const [comments, setComments] = useState([])
 
     const params = useParams()
     const history = useHistory()
@@ -31,16 +31,16 @@ export default function PostPage() {
         }
     }
 
-    async function getPostComments(id){
-        const res = await fetch(`/api/posts/${id}/comments`)
+    // async function getPostComments(id){
+    //     const res = await fetch(`/api/posts/${id}/comments`)
 
-        if (res.ok) {
-            const data = await res.json()
-            setComments(data.comments)
-        } else {
-            return 'Something went wrong.'
-        }
-    }
+    //     if (res.ok) {
+    //         const data = await res.json()
+    //         setComments(data.comments)
+    //     } else {
+    //         return 'Something went wrong.'
+    //     }
+    // }
 
     async function deletePost() {
         const res = window.confirm('Are you sure you want to permanently delete this post?')
@@ -59,14 +59,14 @@ export default function PostPage() {
 
     useEffect(() => {
         getPost(params.postId)
-        getPostComments(params.postId)
+        // getPostComments(params.postId)
 
     }, [editMode, params.postId])
 
-    useEffect(() => {
-        getPostComments(params.postId)
+    // useEffect(() => {
+    //     getPostComments(params.postId)
 
-    }, [addComment, editComment, params.postId])
+    // }, [addComment, editComment, params.postId])
 
 
     let content;
@@ -113,7 +113,7 @@ export default function PostPage() {
                 {leaveComment}
             </div>
             <div className='comments-container'>
-                <CommentList comments={comments} editComment={editComment} setEditComment={setEditComment} />
+                <CommentList />
             </div>
         </div>
     )
