@@ -9,7 +9,7 @@ export default function CommentList({ comments }) {
         <>
             <div className='comment-list'>
                 {comments?.map((comment, i) => {
-                    return <div key={comment.id} className='comment-list__item'>
+                    return <div key={comment.id} className='comment'>
                         <Comment comment={comment} />
                     </div>
                 })}

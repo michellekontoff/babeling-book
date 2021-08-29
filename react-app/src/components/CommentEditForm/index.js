@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 
-import './commentCreateForm.css'
+import './commentEditForm.css'
 
-export default function CommentCreateForm({addComment, setAddComment, postId, userId }){
+export default function CommentEditForm({ editComment, setEditComment, comment }){
 
     const [content, setContent] = useState('')
     const [errors, setErrors] = useState([])
@@ -13,12 +13,10 @@ export default function CommentCreateForm({addComment, setAddComment, postId, us
 
         const comment = {
             content,
-            post_id: postId,
-            user_id: userId
         }
 
-        const res = await fetch('/api/comments', {
-            method: 'POST',
+        const res = await fetch(`/api/comments/${comment.id}`, {
+            method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
@@ -28,24 +26,25 @@ export default function CommentCreateForm({addComment, setAddComment, postId, us
         const data = await res.json()
         
         if (res.ok) {
-            setAddComment(!addComment)
+            setEditComment(!editComment)
         } else {
             setErrors(data)
         }
     }
 
     return (
-            <form className='comment-create-form comment-form' onSubmit={(e) => submitComment(e)}>                
+            <form className='comment-edit-form comment-form' onSubmit={(e) => submitComment(e)}>                
                 <label className='errors'>{errors?.content}</label>
                 <textarea
                     name='content'
                     rows='10'
-                    value={content}
+                    value={comment.content}
                     onChange={(e) => setContent(e.target.value)}
                 ></textarea>
-
-                <button type='submit'>Leave a Comment</button>
-                <button type='button' onClick={() => setAddComment(!addComment)}>Cancel</button>
+                <div className='comment__btns'>
+                    <button type='submit' className='comment-edit__edit'>Edit</button>
+                    <button type='button' className='comment-edit__del-cancel' onClick={() => setEditComment(!editComment)}>Cancel</button>
+                </div>
             </form>
     )
 }
