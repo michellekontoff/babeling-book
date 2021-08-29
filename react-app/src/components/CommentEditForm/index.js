@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from 'react'
-import { useSelector } from 'react-redux'
+import React, { useState } from 'react'
 
 import './commentEditForm.css'
 
@@ -14,7 +13,6 @@ export default function CommentEditForm({ editComment, setEditComment, comment }
         const editedComment = {
             content,
         }
-        console.log(comment)
 
         const res = await fetch(`/api/comments/${comment.id}`, {
             method: 'PUT',

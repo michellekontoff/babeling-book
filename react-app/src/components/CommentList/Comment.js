@@ -37,7 +37,7 @@ export default function Comment({ commentId, postOwnerId, userId }) {
 
     useEffect(() => {
         getEditedComment(commentId)
-    }, [editComment, comment.id])
+    }, [editComment, commentId])
 
     if (editComment) {
         return <CommentEditForm comment={comment} editComment={editComment} setEditComment={setEditComment} />
