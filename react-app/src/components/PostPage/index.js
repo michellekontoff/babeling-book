@@ -108,10 +108,10 @@ export default function PostPage() {
             <div className='post-container'>
                 { post.error ? <h2>{post.error}</h2> : content}
             </div>
-            <div className='comment-create-container'>
+            <div className='comments-container'>
+            <div className='comment-create'>
                 {leaveComment}
             </div>
-            <div className='comments-container'>
                 <CommentList addComment={addComment} postOwnerId={post.owner?.id} userId={user.id} />
             </div>
         </div>
