@@ -4,13 +4,17 @@ import { useParams, useHistory } from 'react-router'
 import { Link } from 'react-router-dom'
 
 import PostEditForm from '../PostEditForm'
+import CommentCreateForm from '../CommentCreateForm'
+import CommentList from '../CommentList'
 
 import './postPage.css'
 
 export default function PostPage() {
     const user = useSelector(state => state.session.user)
     const [editMode, setEditMode] = useState(false)
+    const [addComment, setAddComment] = useState(false)
     const [post, setPost] = useState({})
+    // const [comments, setComments] = useState([])
 
     const params = useParams()
     const history = useHistory()
@@ -25,6 +29,17 @@ export default function PostPage() {
             return 'Something went wrong.'
         }
     }
+
+    // async function getPostComments(id){
+    //     const res = await fetch(`/api/posts/${id}/comments`)
+
+    //     if (res.ok) {
+    //         const data = await res.json()
+    //         setComments(data.comments)
+    //     } else {
+    //         return 'Something went wrong.'
+    //     }
+    // }
 
     async function deletePost() {
         const res = window.confirm('Are you sure you want to permanently delete this post?')
@@ -43,8 +58,14 @@ export default function PostPage() {
 
     useEffect(() => {
         getPost(params.postId)
+        // getPostComments(params.postId)
 
     }, [editMode, params.postId])
+
+    // useEffect(() => {
+    //     getPostComments(params.postId)
+
+    // }, [addComment, editComment, params.postId])
 
 
     let content;
@@ -75,14 +96,24 @@ export default function PostPage() {
         )
     }
 
+    let leaveComment;
+    if (!addComment) {
+        leaveComment = <button type='button' className='comments__add-btn' onClick={() => setAddComment(!addComment)}>Leave a Comment</button>
+    } else {
+        leaveComment = <CommentCreateForm setAddComment={setAddComment} addComment={addComment} postId={post.id} userId={user.id} />
+    }
+
     return (
-        <>
+        <div className='post-page'>
             <div className='post-container'>
                 { post.error ? <h2>{post.error}</h2> : content}
             </div>
             <div className='comments-container'>
-                    COMMENTS!
+            <div className='comment-create'>
+                {leaveComment}
             </div>
-        </>
+                <CommentList addComment={addComment} postOwnerId={post.owner?.id} userId={user.id} />
+            </div>
+        </div>
     )
 }
