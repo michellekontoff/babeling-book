@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import CommentEditForm from '../CommentEditForm'
 
-export default function Comment({ commentId }) {
+export default function Comment({ commentId, postOwnerId, userId }) {
     const [editComment, setEditComment] = useState(false)
     const [comment, setComment] = useState({})
     
@@ -52,8 +52,8 @@ export default function Comment({ commentId }) {
                 {comment.content}
             </div>
             <div className='comment__btns'>
-                <button type='submit' className='comment-edit__edit' onClick={() => setEditComment(!editComment)}>Edit</button>
-                <button type='button' className='comment-edit__del-cancel' onClick={deleteComment}>Delete</button>
+                { comment.owner?.id === userId ? <button type='submit' className='comment-edit__edit' onClick={() => setEditComment(!editComment)}>Edit</button> : null}
+                { comment.owner?.id === userId || postOwnerId === userId ? <button type='button' className='comment-edit__del-cancel' onClick={deleteComment}>Delete</button> : null }
             </div></>
             : null}
         </>

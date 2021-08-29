@@ -4,7 +4,7 @@ import { useParams } from 'react-router'
 
 import './commentList.css'
 
-export default function CommentList({ addComment}) {
+export default function CommentList({ postOwnerId, addComment, userId}) {
     const params = useParams()
     const [comments, setComments] = useState([])
 
@@ -29,7 +29,7 @@ export default function CommentList({ addComment}) {
             <div className='comment-list'>
                 {comments?.map((comment, i) => {
                     return <div key={comment.id} className='comment'>
-                        <Comment commentId={comment.id} />
+                        <Comment commentId={comment.id} postOwnerId={postOwnerId} userId={userId} />
                     </div>
                 })}
             </div>

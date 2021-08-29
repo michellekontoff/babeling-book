@@ -112,7 +112,7 @@ export default function PostPage() {
                 {leaveComment}
             </div>
             <div className='comments-container'>
-                <CommentList addComment={addComment} />
+                <CommentList addComment={addComment} postOwnerId={post.owner?.id} userId={user.id} />
             </div>
         </div>
     )
