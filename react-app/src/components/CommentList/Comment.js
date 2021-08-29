@@ -3,8 +3,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import CommentEditForm from '../CommentEditForm'
 
-export default function Comment({ comment }) {
-    const [editComment, setEditComment] = useState(false)
+export default function Comment({ comment, editComment, setEditComment }) {
+    // const [editComment, setEditComment] = useState(false)
     
 
     async function deleteComment() {
