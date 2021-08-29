@@ -11,7 +11,6 @@ import './postPage.css'
 
 export default function PostPage() {
     const user = useSelector(state => state.session.user)
-    const [editComment, setEditComment] = useState(false)
     const [editMode, setEditMode] = useState(false)
     const [addComment, setAddComment] = useState(false)
     const [post, setPost] = useState({})
@@ -113,7 +112,7 @@ export default function PostPage() {
                 {leaveComment}
             </div>
             <div className='comments-container'>
-                <CommentList />
+                <CommentList addComment={addComment} />
             </div>
         </div>
     )

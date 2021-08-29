@@ -4,10 +4,9 @@ import { useParams } from 'react-router'
 
 import './commentList.css'
 
-export default function CommentList() {
+export default function CommentList({ addComment}) {
     const params = useParams()
     const [comments, setComments] = useState([])
-    const [editComment, setEditComment] = useState(false)
 
     async function getPostComments(id){
         const res = await fetch(`/api/posts/${id}/comments`)
@@ -23,7 +22,7 @@ export default function CommentList() {
     useEffect(() => {
         getPostComments(params.postId)
 
-    }, [editComment, params.postId])
+    }, [addComment, params.postId])
     
     return (
         <>
