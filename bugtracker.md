@@ -6,3 +6,6 @@ deletes on comments are not showing up immediately/dynamically. the page has to 
 
 edits weren't showing right away then....edits show immediately but after refactoring, edit button now turns all comments to edit mode...
 solution: instead of passing the comments as props from CommentList to Comment, have comment fetch post by the id passed to it, then refetch whent comment-edit-mode state changes.
+
+putting the comment contents into a grid is causing issues with spacing between content and details for the last comment in the list.
+    i had accidentally put the bottom border div inside the 'comment' class div

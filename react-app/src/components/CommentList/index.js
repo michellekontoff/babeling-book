@@ -39,10 +39,10 @@ export default function CommentList({ postOwnerId, addComment, userId }) {
                               comment={comment}
                               setComment={setComment}
                            />
+                        </div>
                            {comments[i + 1] ?
                            <div className='comment__border'></div>
                            : null}
-                        </div>
 
                      </>
                   );
