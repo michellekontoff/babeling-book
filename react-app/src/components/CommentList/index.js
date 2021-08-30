@@ -7,7 +7,7 @@ import "./commentList.css";
 export default function CommentList({ postOwnerId, addComment, userId }) {
    const params = useParams();
    const [comments, setComments] = useState([]);
-   const [comment, setComment] = useState({});
+//    const [comment, setComment] = useState({});
 
    async function getPostComments(id) {
       const res = await fetch(`/api/posts/${id}/comments`);
@@ -22,7 +22,7 @@ export default function CommentList({ postOwnerId, addComment, userId }) {
 
    useEffect(() => {
       getPostComments(params.postId);
-   }, [comment, addComment, params.postId]);
+   }, [addComment, params.postId]);
 
    return (
       <>
@@ -30,21 +30,20 @@ export default function CommentList({ postOwnerId, addComment, userId }) {
             <div className="comment-list">
                {comments?.map((comment, i) => {
                   return (
-                     <>
-                        <div key={comment.id} className="comment">
+                     <div key={comment.id}>
+                        <div  className="comment">
                            <Comment
                               commentId={comment.id}
                               postOwnerId={postOwnerId}
                               userId={userId}
-                              comment={comment}
-                              setComment={setComment}
+
                            />
                         </div>
                            {comments[i + 1] ?
-                           <div className='comment__border'></div>
+                           <div key={i} className='comment__border'></div>
                            : null}
 
-                     </>
+                     </div>
                   );
                })}
             </div>
