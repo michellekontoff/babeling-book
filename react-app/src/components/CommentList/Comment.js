@@ -1,43 +1,28 @@
 
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import CommentEditForm from '../CommentEditForm'
+import { useComments } from '../../context/CommentsContext'
 
-export default function Comment({ commentId, postOwnerId, userId, delComment, setDelComment }) {
+export default function Comment({ comment }) {
     const [editComment, setEditComment] = useState(false)
-    const [comment, setComment] = useState({})
-    
-    async function getEditedComment(id) {
-        const res = await fetch(`/api/comments/${id}`);
-
-        const data = await res.json();
-
-        if (res.ok) {
-            setComment(data)
-        }
-    }
+    const { userId, postOwnerId, getPostComments, postId } = useComments()
 
     async function deleteComment() {
         const res = window.confirm('Are you sure you want to permanently delete this comment?')
-        setDelComment(!delComment)
+        
         if (!res) {
             return
         } else {
             const response = await fetch(`/api/comments/${comment.id}`, {
                 method: 'DELETE'
             })
-        
-            const data = await response.json();
 
             if (response.ok) {
-                
+                getPostComments(postId)
             }
        }
     }
-
-    useEffect(() => {
-        getEditedComment(commentId)
-    }, [comment, commentId, editComment])
 
     if (editComment) {
         return <CommentEditForm comment={comment} editComment={editComment} setEditComment={setEditComment} />

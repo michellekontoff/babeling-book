@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
+import { useComments } from '../../context/CommentsContext'
 
 import './commentCreateForm.css'
 
-export default function CommentCreateForm({addComment, setAddComment, postId, userId }){
-
+export default function CommentCreateForm({addComment, setAddComment }){
+    const { postId, userId, getPostComments } = useComments()
     const [content, setContent] = useState('')
     const [errors, setErrors] = useState([])
 
     async function submitComment(e){
         e.preventDefault()
-
         const comment = {
             content,
             post_id: postId,
@@ -28,6 +28,7 @@ export default function CommentCreateForm({addComment, setAddComment, postId, us
         
         if (res.ok) {
             setAddComment(!addComment)
+            getPostComments(postId)
         } else {
             setErrors(data)
         }

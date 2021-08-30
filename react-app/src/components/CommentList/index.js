@@ -1,50 +1,46 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useComments } from "../../context/CommentsContext";
 import Comment from "./Comment";
-import { useParams } from "react-router";
-
+import CommentCreateForm from "../CommentCreateForm";
 import "./commentList.css";
 
-export default function CommentList({ postOwnerId, addComment, userId }) {
-   const params = useParams();
-   const [comments, setComments] = useState([]);
-   const [delComment, setDelComment] = useState(false);
+export default function CommentList() {
+   const [addComment, setAddComment] = useState(false);
+   const { comments } = useComments();
 
-   async function getPostComments(id) {
-      const res = await fetch(`/api/posts/${id}/comments`);
-
-      if (res.ok) {
-         const data = await res.json();
-         setComments(data.comments);
-      } else {
-         return "Something went wrong.";
-      }
+   let leaveComment;
+   if (!addComment) {
+      leaveComment = (
+         <button
+            type="button"
+            className="comments__add-btn"
+            onClick={() => setAddComment(!addComment)}
+         >
+            Leave a Comment
+         </button>
+      );
+   } else {
+      leaveComment = (
+         <CommentCreateForm
+            setAddComment={setAddComment}
+            addComment={addComment}
+         />
+      );
    }
-
-   useEffect(() => {
-      let subscribed = true;
-      if (subscribed) getPostComments(params.postId);
-
-      return () => subscribed = false;
-   }, [delComment, addComment, params.postId]);
 
    return (
       <>
+         <div className="comment-create">{leaveComment}</div>
          {comments?.length ? (
             <div className="comment-list">
                {comments?.map((comment, i) => {
                   return (
                      <div key={comment.id}>
-                        <div  className="comment">
-                           <Comment
-                              commentId={comment.id}
-                              postOwnerId={postOwnerId}
-                              userId={userId}
-                              delComment={delComment}
-                              setDelComment={setDelComment}
-                              />
-                              {comments[i + 1] ?
-                              <div key={i} className='comment__border'></div>
-                              : null}
+                        <div className="comment">
+                           <Comment comment={comment} />
+                           {comments[i + 1] ? (
+                              <div key={i} className="comment__border"></div>
+                           ) : null}
                         </div>
                      </div>
                   );
