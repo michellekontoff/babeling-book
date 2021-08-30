@@ -11,7 +11,7 @@ putting the comment contents into a grid is causing issues with spacing between 
     i had accidentally put the bottom border div inside the 'comment' class div
 
 delete comment isn't causing a refresh of the comments list. so if you delete the last comment, there's an empty box. also, the border remains even if the content is gone.
-    plan: refetch comments on delete. have context/provider fetch the comments once with a useEffect. comments and setComments get passed down to postpage and all its children. in comment.js, after deleting comment, make new fetch to comments and setcomments again. can also include post, and postowner info in context
+    plan: refetch comments on delete. have context/provider fetch the comments once with a useEffect. comments and setComments get passed down to commentlist and all its children. in comment.js, after deleting comment, make new fetch to comments and setcomments again. can also include post, and postowner info in context
 
 in debugging delete comment, discovered that apparently my fetch to get comments was being called infinitely(?) and yet despite this, comments aren't refreshing after delete. doesn't fetch forever when using postman
     instead of calling setComments in the getPostComments function, i needed to call setComments in the useEffect

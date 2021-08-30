@@ -2,11 +2,11 @@
 import React, { useEffect, useState, useContext } from 'react'
 import { Link } from 'react-router-dom'
 import CommentEditForm from '../CommentEditForm'
-import { PostPageContext } from '../../context/PostPageContext'
+import { useComments } from '../../context/CommentsContext'
 
-export default function Comment({ commentId, postOwnerId, userId }) {
+export default function Comment({ comment }) {
     const [editComment, setEditComment] = useState(false)
-    const [comment, setComment] = useState({})
+    const { userId, postOwnerId, getPostComments } = useComments()
     // const { refreshComments, setRefreshComments } = useContext(PostPageContext)
     
     async function getEditedComment(id) {
@@ -15,7 +15,7 @@ export default function Comment({ commentId, postOwnerId, userId }) {
         const data = await res.json();
 
         if (res.ok) {
-            setComment(data)
+            // setEditComment(data)
         }
     }
 
@@ -32,14 +32,14 @@ export default function Comment({ commentId, postOwnerId, userId }) {
             const data = await response.json();
 
             if (response.ok) {
-                // setRefreshComments(!refreshComments)
+                getPostComments()
             }
        }
     }
 
     useEffect(() => {
-        getEditedComment(commentId)
-    }, [comment, commentId, editComment])
+        getEditedComment(comment.id)
+    }, [comment, comment.id, editComment])
 
     if (editComment) {
         return <CommentEditForm comment={comment} editComment={editComment} setEditComment={setEditComment} />

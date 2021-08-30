@@ -11,8 +11,6 @@ import PostPage from './components/PostPage';
 import PostCreateForm from './components/PostCreateForm';
 import PostsLatest from './components/PostsLatest';
 
-import { PostPageProvider } from './context/PostPageContext'
-
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
