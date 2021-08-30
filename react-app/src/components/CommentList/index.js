@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
+import { PostPageContext } from '../../context/PostPageContext'
 import Comment from "./Comment";
 import { useParams } from "react-router";
 
@@ -7,11 +8,11 @@ import "./commentList.css";
 export default function CommentList({ postOwnerId, addComment, userId }) {
    const params = useParams();
    const [comments, setComments] = useState([]);
-   const [delComment, setDelComment] = useState(false);
+//    const { setRefreshComments } = useContext(PostPageContext)
 
    async function getPostComments(id) {
       const res = await fetch(`/api/posts/${id}/comments`);
-
+      console.log('i ran')
       if (res.ok) {
          const data = await res.json();
          setComments(data.comments);
@@ -21,11 +22,10 @@ export default function CommentList({ postOwnerId, addComment, userId }) {
    }
 
    useEffect(() => {
-      let subscribed = true;
-      if (subscribed) getPostComments(params.postId);
+        
+      getPostComments(params.postId);
 
-      return () => subscribed = false;
-   }, [delComment, addComment, params.postId]);
+   }, [addComment, params.postId]);
 
    return (
       <>
@@ -39,8 +39,6 @@ export default function CommentList({ postOwnerId, addComment, userId }) {
                               commentId={comment.id}
                               postOwnerId={postOwnerId}
                               userId={userId}
-                              delComment={delComment}
-                              setDelComment={setDelComment}
                               />
                               {comments[i + 1] ?
                               <div key={i} className='comment__border'></div>
