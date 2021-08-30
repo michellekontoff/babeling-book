@@ -13,3 +13,10 @@
 .comment__details a {
     font-size: 13pt;
 }
+
+.comment__border {
+    width: 450px;
+    border-top: 1px solid lightgrey;
+    margin: 25px auto;
+    border-radius: 8px;
+}
