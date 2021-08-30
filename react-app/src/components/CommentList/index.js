@@ -10,12 +10,12 @@ export default function CommentList({ postOwnerId, addComment, userId }) {
    const [comments, setComments] = useState([]);
 //    const { setRefreshComments } = useContext(PostPageContext)
 
-   async function getPostComments(id) {
-      const res = await fetch(`/api/posts/${id}/comments`);
+   async function getPostComments() {
+      const res = await fetch(`/api/posts/${params.postId}/comments`);
       console.log('i ran')
       if (res.ok) {
          const data = await res.json();
-         setComments(data.comments);
+         return data.comments
       } else {
          return "Something went wrong.";
       }
@@ -23,9 +23,10 @@ export default function CommentList({ postOwnerId, addComment, userId }) {
 
    useEffect(() => {
         
-      getPostComments(params.postId);
+      let comments = getPostComments();
+      setComments(comments)
 
-   }, [addComment, params.postId]);
+   }, []);
 
    return (
       <>
