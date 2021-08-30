@@ -133,7 +133,11 @@ export default function PostPage() {
             {post.error ? <h2>{post.error}</h2> : content}
          </div>
          <div className="comments-container">
-            <CommentsProvider postOwnerId={post.owner?.id} userId={user.id} postId={post.id}>
+            <CommentsProvider
+               postOwnerId={post.owner?.id}
+               userId={user.id}
+               postId={post.id}
+            >
                <CommentList />
             </CommentsProvider>
          </div>

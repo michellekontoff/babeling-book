@@ -7,7 +7,7 @@ export function useComments() {
     return useContext(CommentsContext);
   }
 
-export function CommentsProvider({ children, postOwnerId, userId }) {
+export function CommentsProvider({ children, postOwnerId, userId, postId }) {
     const [comments, setComments] = useState([])
 
     const params = useParams()
@@ -31,7 +31,7 @@ export function CommentsProvider({ children, postOwnerId, userId }) {
      }, []);
 
     return (
-      <CommentsContext.Provider value={{ comments, setComments, postOwnerId, getPostComments, userId }}>
+      <CommentsContext.Provider value={{ comments, setComments, postOwnerId, getPostComments, userId, postId }}>
         {children}
       </CommentsContext.Provider>
     )

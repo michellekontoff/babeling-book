@@ -7,7 +7,7 @@ import "./commentList.css";
 
 export default function CommentList() {
    const [addComment, setAddComment] = useState(false);
-   const { comments, userId, postId } = useComments();
+   const { comments } = useComments();
    //    const params = useParams();
    //    const [comments, setComments] = useState([]);
    //    const { setRefreshComments } = useContext(PostPageContext)
@@ -46,8 +46,6 @@ export default function CommentList() {
          <CommentCreateForm
             setAddComment={setAddComment}
             addComment={addComment}
-            postId={postId}
-            userId={userId}
          />
       );
    }

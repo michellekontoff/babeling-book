@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import { useComments } from '../../context/CommentsContext'
 
 import './commentEditForm.css'
 
 export default function CommentEditForm({ editComment, setEditComment, comment }){
-
+    const { getPostComments } = useComments()
     const [content, setContent] = useState(comment.content)
     const [errors, setErrors] = useState([])
 
@@ -26,6 +27,7 @@ export default function CommentEditForm({ editComment, setEditComment, comment }
         
         if (res.ok) {
             setEditComment(!editComment)
+            getPostComments()
         } else {
             setErrors(data)
         }
