@@ -1,24 +1,12 @@
 
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import CommentEditForm from '../CommentEditForm'
 import { useComments } from '../../context/CommentsContext'
 
 export default function Comment({ comment }) {
-    // const [comment, setComment] = useState({})
     const [editComment, setEditComment] = useState(false)
-    const { userId, postOwnerId, getPostComments } = useComments()
-    // const { refreshComments, setRefreshComments } = useContext(PostPageContext)
-    
-    // async function getEditedComment(id) {
-    //     const res = await fetch(`/api/comments/${id}`);
-
-    //     const data = await res.json();
-
-    //     if (res.ok) {
-    //         setComment(data)
-    //     }
-    // }
+    const { userId, postOwnerId, getPostComments, postId } = useComments()
 
     async function deleteComment() {
         const res = window.confirm('Are you sure you want to permanently delete this comment?')
@@ -29,18 +17,12 @@ export default function Comment({ comment }) {
             const response = await fetch(`/api/comments/${comment.id}`, {
                 method: 'DELETE'
             })
-        
-            const data = await response.json();
 
             if (response.ok) {
-                getPostComments()
+                getPostComments(postId)
             }
        }
     }
-
-    // useEffect(() => {
-    //     getEditedComment(comment.id)
-    // }, [comment, comment.id, editComment])
 
     if (editComment) {
         return <CommentEditForm comment={comment} editComment={editComment} setEditComment={setEditComment} />

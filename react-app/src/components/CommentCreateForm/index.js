@@ -10,7 +10,6 @@ export default function CommentCreateForm({addComment, setAddComment }){
 
     async function submitComment(e){
         e.preventDefault()
-        console.log(postId, userId)
         const comment = {
             content,
             post_id: postId,
@@ -29,7 +28,7 @@ export default function CommentCreateForm({addComment, setAddComment }){
         
         if (res.ok) {
             setAddComment(!addComment)
-            getPostComments()
+            getPostComments(postId)
         } else {
             setErrors(data)
         }

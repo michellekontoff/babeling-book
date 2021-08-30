@@ -12,9 +12,8 @@ export function CommentsProvider({ children, postOwnerId, userId, postId }) {
 
     const params = useParams()
 
-    async function getPostComments() {
-        const res = await fetch(`/api/posts/${params.postId}/comments`);
-        console.log('i ran')
+    async function getPostComments(id) {
+        const res = await fetch(`/api/posts/${id}/comments`);
         if (res.ok) {
            const data = await res.json();
            setComments(data.comments)
@@ -25,10 +24,9 @@ export function CommentsProvider({ children, postOwnerId, userId, postId }) {
   
      useEffect(() => {
           
-        getPostComments();
-        // setComments(comments)
+        getPostComments(params.postId);
   
-     }, []);
+     }, [params.postId]);
 
     return (
       <CommentsContext.Provider value={{ comments, setComments, postOwnerId, getPostComments, userId, postId }}>

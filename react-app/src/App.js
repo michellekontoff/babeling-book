@@ -43,9 +43,7 @@ function App() {
             <PostsLatest />
         </ProtectedRoute>
         <ProtectedRoute path='/posts/:postId' exact={true}>
-            
-                <PostPage />
-            
+            <PostPage />
         </ProtectedRoute>
         <Route path='/' exact={true} >
           <Homepage />

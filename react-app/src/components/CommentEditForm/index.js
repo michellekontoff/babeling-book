@@ -4,7 +4,7 @@ import { useComments } from '../../context/CommentsContext'
 import './commentEditForm.css'
 
 export default function CommentEditForm({ editComment, setEditComment, comment }){
-    const { getPostComments } = useComments()
+    const { getPostComments, postId } = useComments()
     const [content, setContent] = useState(comment.content)
     const [errors, setErrors] = useState([])
 
@@ -27,7 +27,7 @@ export default function CommentEditForm({ editComment, setEditComment, comment }
         
         if (res.ok) {
             setEditComment(!editComment)
-            getPostComments()
+            getPostComments(postId)
         } else {
             setErrors(data)
         }
