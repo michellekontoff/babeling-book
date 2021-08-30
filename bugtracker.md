@@ -9,3 +9,5 @@ solution: instead of passing the comments as props from CommentList to Comment, 
 
 putting the comment contents into a grid is causing issues with spacing between content and details for the last comment in the list.
     i had accidentally put the bottom border div inside the 'comment' class div
+
+despite ordering comments by created_at date in the api route, if a comment is edited, it gets reorderd in the list displayed on the post page to the end
