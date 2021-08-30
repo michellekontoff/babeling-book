@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import CommentEditForm from '../CommentEditForm'
 
-export default function Comment({ commentId, postOwnerId, userId }) {
+export default function Comment({ commentId, postOwnerId, userId, delComment, setDelComment }) {
     const [editComment, setEditComment] = useState(false)
     const [comment, setComment] = useState({})
     
@@ -19,7 +19,7 @@ export default function Comment({ commentId, postOwnerId, userId }) {
 
     async function deleteComment() {
         const res = window.confirm('Are you sure you want to permanently delete this comment?')
-
+        setDelComment(!delComment)
         if (!res) {
             return
         } else {
@@ -30,7 +30,7 @@ export default function Comment({ commentId, postOwnerId, userId }) {
             const data = await response.json();
 
             if (response.ok) {
-                setComment(data)
+                
             }
        }
     }
@@ -45,7 +45,8 @@ export default function Comment({ commentId, postOwnerId, userId }) {
 
     return (
         <> { comment.content ?
-            <><div className='comment__details'>
+            <>
+            <div className='comment__details'>
                 <Link to={`/users/${comment.owner?.id}`}>{comment.owner?.username}</Link> - {comment.created_at} {comment.created_at !== comment.updated_at ? <span>(edited)</span> : null}
             </div>
             <div className='comment__content'>
