@@ -11,8 +11,6 @@
     border-radius: 8px;
 }
 
-
-
 .post__title h2 {
     margin-top: 0px;
     margin-bottom: 7px;
@@ -58,4 +56,27 @@
 .post__delete {
     border: 1px solid red;
     background-color: rgb(255, 198, 198);
+}
+
+.comment-create {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.comment-create button {
+    border-left: 3px solid rgb(96, 178, 189);
+    border-top: 3px solid rgb(96, 178, 189);
+    border-right: 3px solid rgb(236, 139, 49);
+    border-bottom: 3px solid rgb(236, 139, 49);
+    background: linear-gradient(to bottom right, #90c4da, #ebf8e1, #ffc17f);
+    padding: 6px;
+    font-size: 13pt;
+}
+
+.comment-create button:hover {
+    position: relative;
+    bottom: 5px;
+    /* transition: all 1s linear; */
+    box-shadow: 2px 2px 7px 1px rgba(77, 77, 77, 0.671), -2px 2px 7px 1px rgba(77, 77, 77, 0.671);
 }

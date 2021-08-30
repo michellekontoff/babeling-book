@@ -1,0 +1,15 @@
+.comment-list {
+    box-shadow: 0px 0px 6px 3px rgb(236, 139, 49), -4px 6px 7px 2px rgba(77, 77, 77, 0.671);
+    padding: 15px;
+    border-radius: 8px;
+
+}
+
+.comment__details {
+    margin: 3px 35px;
+    color: grey;
+}
+
+.comment__details a {
+    font-size: 13pt;
+}

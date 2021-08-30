@@ -46,7 +46,7 @@ export default function Comment({ commentId, postOwnerId, userId }) {
     return (
         <> { comment.content ?
             <><div className='comment__details'>
-                <Link to={`/users/${comment.owner?.id}`}>{comment.owner?.username}</Link> - {comment.created_at} {comment.created_at !== comment.updated_at ? <span>edited {comment.updated_at}</span> : null}
+                <Link to={`/users/${comment.owner?.id}`}>{comment.owner?.username}</Link> - {comment.created_at} {comment.created_at !== comment.updated_at ? <span>(edited)</span> : null}
             </div>
             <div className='comment__content'>
                 {comment.content}
