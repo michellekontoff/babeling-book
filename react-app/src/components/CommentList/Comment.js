@@ -3,9 +3,9 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import CommentEditForm from '../CommentEditForm'
 
-export default function Comment({ commentId, postOwnerId, userId }) {
+export default function Comment({ commentId, postOwnerId, userId, comment, setComment }) {
     const [editComment, setEditComment] = useState(false)
-    const [comment, setComment] = useState({})
+    // const [comment, setComment] = useState({})
     
     async function getEditedComment(id) {
         const res = await fetch(`/api/comments/${id}`);

@@ -36,7 +36,7 @@ export default function CommentEditForm({ editComment, setEditComment, comment }
                 <label className='errors'>{errors?.content}</label>
                 <textarea
                     name='content'
-                    rows='10'
+                    rows='7'
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                 ></textarea>

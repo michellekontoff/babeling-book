@@ -34,17 +34,18 @@ export default function CommentCreateForm({addComment, setAddComment, postId, us
     }
 
     return (
-            <form className='comment-create-form comment-form' onSubmit={(e) => submitComment(e)}>                
+            <form className='comment-create-form comment-form' onSubmit={(e) => submitComment(e)}>
+                <label>Leave a Comment</label>                
                 <label className='errors'>{errors?.content}</label>
                 <textarea
                     name='content'
-                    rows='10'
+                    rows='7'
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                 ></textarea>
 
-                <button type='submit'>Leave a Comment</button>
-                <button type='button' onClick={() => setAddComment(!addComment)}>Cancel</button>
+                <button type='submit' className='comments__add-btn'>Submit</button>
+                <button type='button' className='comment-create__cancel' onClick={() => setAddComment(!addComment)}>Cancel</button>
             </form>
     )
 }

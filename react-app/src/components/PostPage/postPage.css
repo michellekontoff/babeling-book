@@ -64,7 +64,7 @@
     justify-content: center;
 }
 
-.comment-create button {
+.comments__add-btn {
     border-left: 3px solid rgb(96, 178, 189);
     border-top: 3px solid rgb(96, 178, 189);
     border-right: 3px solid rgb(236, 139, 49);
@@ -77,6 +77,11 @@
 .comment-create button:hover {
     position: relative;
     bottom: 5px;
-    /* transition: all 1s linear; */
+    /* transition: position 1s linear; */
     box-shadow: 2px 2px 7px 1px rgba(77, 77, 77, 0.671), -2px 2px 7px 1px rgba(77, 77, 77, 0.671);
 }
+
+/* button.comment-create__cancel {
+    background-color: black;
+    color: white;
+} */

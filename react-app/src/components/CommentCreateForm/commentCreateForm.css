@@ -1,0 +1,32 @@
+.comment-create__cancel {
+    border: 2px solid red;
+    background-color: rgb(255, 198, 198);
+    font-size: 13pt;
+    padding: 6px;
+}
+
+.comment-create-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.comment-create-form button {
+    width: 90px;
+    margin: 5px auto;
+}
+
+/* .comment-form textarea{
+    resize: none;
+} */
+
+.comment-form textarea {
+    resize: none;
+}
+
+.comment-create-form textarea {
+    margin: 0px auto 5px;
+    border-radius: 4px;
+    width: 400px;
+    /* border-width: 2px; */
+}
