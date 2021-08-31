@@ -18,18 +18,6 @@ export default function PostCreateForm(){
 
     const userId = useSelector(state => state.session.user.id)
 
-    // async function getLanguages() {
-    //     const res = await fetch('/api/languages')
-
-    //     if (res.ok) {
-    //         const list = await res.json()
-    //         setLanguageList(list.languages)
-
-    //     } else {
-    //         return 'Something went wrong.'
-    //     }
-    // }
-
     async function submitPost(e){
         e.preventDefault()
         const post = {

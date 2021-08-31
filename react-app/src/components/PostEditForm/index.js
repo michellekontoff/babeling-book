@@ -13,18 +13,6 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
 
     const userId = useSelector(state => state.session.user.id)
 
-    // async function getLanguages() {
-    //     const res = await fetch('/api/languages')
-
-    //     if (res.ok) {
-    //         const list = await res.json()
-    //         setLanguageList(list.languages)
-
-    //     } else {
-    //         return 'Something went wrong.'
-    //     }
-    // }
-
     async function editPost(e){
         e.preventDefault()
 
@@ -54,7 +42,6 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
 
         if (res.ok) {
             setEditMode(!editMode)
-            // history.push(`/posts/${post.id}`)
         } else {
             setErrors(data)
 
