@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import { useHistory } from 'react-router'
+import { getLanguages } from '../postUtils'
 
 import image from '../../images/postCreate.jpg'
 
@@ -17,17 +18,17 @@ export default function PostCreateForm(){
 
     const userId = useSelector(state => state.session.user.id)
 
-    async function getLanguages() {
-        const res = await fetch('/api/languages')
+    // async function getLanguages() {
+    //     const res = await fetch('/api/languages')
 
-        if (res.ok) {
-            const list = await res.json()
-            setLanguageList(list.languages)
+    //     if (res.ok) {
+    //         const list = await res.json()
+    //         setLanguageList(list.languages)
 
-        } else {
-            return 'Something went wrong.'
-        }
-    }
+    //     } else {
+    //         return 'Something went wrong.'
+    //     }
+    // }
 
     async function submitPost(e){
         e.preventDefault()
@@ -57,7 +58,7 @@ export default function PostCreateForm(){
     }
 
     useEffect(() => {
-        getLanguages()
+        getLanguages(setLanguageList)
 
     }, [])
 
