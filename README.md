@@ -55,7 +55,7 @@ Add a new Post to the database
 Edit or delete a post to change the title, contents, or language, or remove it from the database.
 ![Edit Post]()
 
-### Create, Read, Update, Delete {resource-1} {resource-2-plural}
+### Create, Read, Update, Delete Comments on a Post
 View a comments for a post on that post's page.
 ![{resource-2-plural}](./readme-assets/images/{resource-2-plural}.png)
 Add comments, edit them, or delete them.
@@ -122,46 +122,125 @@ npm start
 
 ## Technical Implementation Details
 
-### {Detail 1}
-Description 1
+### Comments Context
+Comments are added, updated, and removed dynamically without a full page refresh or leaving the page. Changes are seen in real time. The context provider wraps the CommentList tree inside the PostPage component. It receives some information from the PostPage component, then establishes its own getPostComments function and comments state. It gives access to all of the above through all the children of the CommentList tree. Comments is updated with the getPostComments function for every CRUD operation.
 
 Part of code is shown below:
+Post information is threaded into the context provider
+```javascript
+// react-app/src/components/PostPage/index.js
+// ...
+   return (
+      <div className="post-page">
+         <div className="post-container">
+            {post.error ? <h2>{post.error}</h2> : content}
+         </div>
+         <div className="comments-container">
+            <CommentsProvider
+               postOwnerId={post.owner?.id}
+               userId={user.id}
+               postId={post.id}
+            >
+               <CommentList />
+            </CommentsProvider>
+         </div>
+      </div>
+   );
+}
+```
+
+Comments Provider receives props from PostPage and establishes its comments state and getPostComments function. It performs the initial fetch of a post's comments, then passes all the pieces onto its children.
+```javascript
+// react-app/src/context/CommentsContext.js
+// ...
+export function CommentsProvider({ children, postOwnerId, userId, postId }) {
+    const [comments, setComments] = useState([])
+
+    const params = useParams()
+
+    async function getPostComments(id) {
+        const res = await fetch(`/api/posts/${id}/comments`);
+        if (res.ok) {
+           const data = await res.json();
+           setComments(data.comments)
+        } else {
+           return "Something went wrong.";
+        }
+     }
+      // Comments for a post are retrieved on first render
+     useEffect(() => {
+          
+        getPostComments(params.postId);
+  
+     }, [params.postId]);
+
+    return (
+      <CommentsContext.Provider value={{ comments, setComments, postOwnerId, getPostComments, userId, postId }}>
+        {children}
+      </CommentsContext.Provider>
+    )
+  }
+```
+
+Comments are retrieved in ascending order by ID which puts the most recent posts at the top.
 
 ```python
-print('add code snippet 1 here')
+#GET ALL OF A POST'S COMMENTS
+@bp.route('/<int:id>/comments')
+def get_post_comments(id):
+    comments = Comment.query.filter(Comment.post_id == id).order_by(asc(Comment.id)).all()
+
+
+    return { 'comments': [comment.to_dict() for comment in comments] }
 ```
 
-Description 2
-
-```javascript
-print('add code snippet 2 here')
-```
-
-### {Detail 2}
-Description 1
-
+### Abbreviated post content
+When displayed as part of a list, posts with more than 200 characters are abbreviated with '...' The full post can be viewed by visiting that post's page.
+![Abbreviated Post]()
 Code snippet is shown here:
 
 ```javascript
-print('add code snippet 1 here')
+// src/components/PostList/Post.js
+export default function Post({ post }) {
+   const [subString, setSubString] = useState(false);
+
+   useEffect(() => {
+      if (post.content.length > 200) {
+         setSubString(post.content.substring(0, 200) + " ...");
+      }
+   }, [post.content]);
+
+    return (
+        <>
+        {/* ... */}
+         <Link to={`/posts/${post.id}`}>
+            <div className="post__content">
+               {post.content?.length < 200 ? (
+                  <>{post.content}</>
+               ) : (
+                  <>{subString}</>
+               )}
+            </div>
+         </Link>
+        </>
+    )
 ```
 
 
 ## Future Features
 
-1. __Search__ - search {resource-1-plural}
+1. __Search__ - Search posts and users
 
-2. __Second Feature__ - second feature details
+2. __Profile__ - Proper profile page that displays information about the user, such as what languages they speak or are learning and their bio in addition to listing their posts.
 
 
 ## Contact
 
-### {Your Name}
-<a href="https://www.linkedin.com/in/{linkedin-handle}/"><img src="./readme-assets/logos/linkedin-logo.png" height="28" align="middle" /></a>
-<a href="https://angel.co/u/{angel-list-handle}"><img src="./readme-assets/logos/angellist-logo.png" height="28" align="middle" /></a>
-<a href="https://github.com/{github-handle}"><img src="./readme-assets/logos/github-logo.png" height="38" align="middle" /></a>
+### Michelle Kontoff
+<a href="https://www.linkedin.com/in/mlkontoff/"><img src="./readme-assets/logos/linkedin-logo.png" height="28" align="middle" /></a>
+<a href="https://github.com/michellekontoff"><img src="./readme-assets/logos/github-logo.png" height="38" align="middle" /></a>
 
-{email}
+mlkontoff@gmail.com
 
 
 ## Special Thanks
