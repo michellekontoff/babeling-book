@@ -38,11 +38,11 @@ export default function CommentList() {
                      <div key={comment.id}>
                         <div className="comment">
                            <Comment comment={comment} />
+                     </div>
                            {comments[i + 1] ? (
                               <div key={i} className="comment__border"></div>
                            ) : null}
                         </div>
-                     </div>
                   );
                })}
             </div>

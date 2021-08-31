@@ -34,18 +34,21 @@ export default function CommentEditForm({ editComment, setEditComment, comment }
     }
 
     return (
-            <form className='comment-edit-form comment-form' onSubmit={(e) => submitComment(e)}>                
+        <>
+            <form className='comment-edit-form comment-form'>                
                 <label className='errors'>{errors?.content}</label>
                 <textarea
                     name='content'
-                    rows='7'
+                    rows='6'
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                 ></textarea>
+            </form>
                 <div className='comment__btns'>
-                    <button type='submit' className='comment-edit__edit'>Edit</button>
+                    <button type='submit' className='comment-edit__edit'
+                    onClick={(e) => submitComment(e)}>Edit</button>
                     <button type='button' className='comment-edit__del-cancel' onClick={() => setEditComment(!editComment)}>Cancel</button>
                 </div>
-            </form>
+                </>
     )
 }

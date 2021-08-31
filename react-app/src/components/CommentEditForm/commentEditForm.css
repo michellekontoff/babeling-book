@@ -1,0 +1,23 @@
+.comment-edit-form {
+    /* display: grid;
+    grid-template-columns: 530px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+       "details btns"
+       "input btns"; */
+    /* height: 120px; */
+ }
+
+ .comment-edit-form {
+     grid-area: content;
+ }
+
+ .comment-edit-form textarea {
+    width: 530px;
+    margin: 5px auto;
+    border-radius: 4px;
+ }
+
+ /* .comment-edit__btns {
+     grid-area: btns;
+ } */

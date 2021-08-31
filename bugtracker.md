@@ -17,4 +17,5 @@ delete comment isn't causing a refresh of the comments list. so if you delete th
 in debugging delete comment, discovered that apparently my fetch to get comments was being called infinitely(?) and yet despite this, comments aren't refreshing after delete. doesn't fetch forever when using postman
     instead of calling setComments in the getPostComments function, i needed to call setComments in the useEffect
 
-editing comment rearranges the order of the comments
+editing comment rearranges the order of the comments... comments just out of order in general.
+    comments weren't sorting correctly in backend. fixed by changing query order_by from created_at to id.
