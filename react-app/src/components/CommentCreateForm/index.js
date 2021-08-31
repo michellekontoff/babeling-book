@@ -1,15 +1,15 @@
 import React, { useState } from 'react'
+import { useComments } from '../../context/CommentsContext'
 
 import './commentCreateForm.css'
 
-export default function CommentCreateForm({addComment, setAddComment, postId, userId }){
-
+export default function CommentCreateForm({addComment, setAddComment }){
+    const { postId, userId, getPostComments } = useComments()
     const [content, setContent] = useState('')
     const [errors, setErrors] = useState([])
 
     async function submitComment(e){
         e.preventDefault()
-
         const comment = {
             content,
             post_id: postId,
@@ -28,23 +28,25 @@ export default function CommentCreateForm({addComment, setAddComment, postId, us
         
         if (res.ok) {
             setAddComment(!addComment)
+            getPostComments(postId)
         } else {
             setErrors(data)
         }
     }
 
     return (
-            <form className='comment-create-form comment-form' onSubmit={(e) => submitComment(e)}>                
+            <form className='comment-create-form comment-form' onSubmit={(e) => submitComment(e)}>
+                <label>Leave a Comment</label>                
                 <label className='errors'>{errors?.content}</label>
                 <textarea
                     name='content'
-                    rows='10'
+                    rows='7'
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                 ></textarea>
 
-                <button type='submit'>Leave a Comment</button>
-                <button type='button' onClick={() => setAddComment(!addComment)}>Cancel</button>
+                <button type='submit' className='comments__add-btn'>Submit</button>
+                <button type='button' className='comment-create__cancel' onClick={() => setAddComment(!addComment)}>Cancel</button>
             </form>
     )
 }

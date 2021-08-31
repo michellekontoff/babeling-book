@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from sqlalchemy import desc
+from sqlalchemy import desc, asc
 from app.forms import PostCreateForm, PostEditForm
 from app.models import Post, Comment, db
 from datetime import datetime
@@ -10,14 +10,14 @@ bp = Blueprint('posts', __name__)
 # GET ALL POSTS
 @bp.route('')
 def get_all_posts():
-    posts = Post.query.order_by(desc(Post.created_at)).all()
+    posts = Post.query.order_by(desc(Post.id)).all()
 
     return { post.id: post.to_dict() for post in posts }
 
 # GET MOST RECENT POSTS
 @bp.route('/latest')
 def get_latest_posts():
-    posts = Post.query.order_by(desc(Post.created_at)).limit(30)
+    posts = Post.query.order_by(desc(Post.id)).limit(30)
 
     return { 'posts': [post.to_dict() for post in posts] }
 
@@ -68,6 +68,7 @@ def create_post():
 #GET ALL OF A POST'S COMMENTS
 @bp.route('/<int:id>/comments')
 def get_post_comments(id):
-    comments = Comment.query.filter(Comment.post_id == id).order_by(Comment.created_at).all()
+    comments = Comment.query.filter(Comment.post_id == id).order_by(asc(Comment.id)).all()
+
 
     return { 'comments': [comment.to_dict() for comment in comments] }

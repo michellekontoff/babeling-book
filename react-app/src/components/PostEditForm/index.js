@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
+import { getLanguages } from '../postUtils'
 
 import './postEditForm.css'
 
@@ -11,18 +12,6 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
     const [errors, setErrors] = useState([])
 
     const userId = useSelector(state => state.session.user.id)
-
-    async function getLanguages() {
-        const res = await fetch('/api/languages/')
-
-        if (res.ok) {
-            const list = await res.json()
-            setLanguageList(list.languages)
-
-        } else {
-            return 'Something went wrong.'
-        }
-    }
 
     async function editPost(e){
         e.preventDefault()
@@ -53,7 +42,6 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
 
         if (res.ok) {
             setEditMode(!editMode)
-            // history.push(`/posts/${post.id}`)
         } else {
             setErrors(data)
 
@@ -61,7 +49,7 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
     }
 
     useEffect(() => {
-        getLanguages()
+        getLanguages(setLanguageList)
 
     }, [])
 
@@ -87,7 +75,7 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }){
                 ></textarea>
                 
                 <label className='language-label'>Language</label>
-                <select value={post.language.id === languageId ? languageId : null} onChange={(e) => setLanguageId(e.target.value)}>
+                <select value={languageId} onChange={(e) => setLanguageId(e.target.value)}>
                     {languageList?.map((language) => {
                     return <option key={language.id} value={language.id}>{language.name}</option>
                     })}

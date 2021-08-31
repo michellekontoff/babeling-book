@@ -1,38 +1,52 @@
-import React, { useState, useEffect } from 'react'
-import Comment from './Comment'
-import { useParams } from 'react-router'
+import React, { useState } from "react";
+import { useComments } from "../../context/CommentsContext";
+import Comment from "./Comment";
+import CommentCreateForm from "../CommentCreateForm";
+import "./commentList.css";
 
-import './commentList.css'
+export default function CommentList() {
+   const [addComment, setAddComment] = useState(false);
+   const { comments } = useComments();
 
-export default function CommentList({ postOwnerId, addComment, userId}) {
-    const params = useParams()
-    const [comments, setComments] = useState([])
+   let leaveComment;
+   if (!addComment) {
+      leaveComment = (
+         <button
+            type="button"
+            className="comments__add-btn"
+            onClick={() => setAddComment(!addComment)}
+         >
+            Leave a Comment
+         </button>
+      );
+   } else {
+      leaveComment = (
+         <CommentCreateForm
+            setAddComment={setAddComment}
+            addComment={addComment}
+         />
+      );
+   }
 
-    async function getPostComments(id){
-        const res = await fetch(`/api/posts/${id}/comments`)
-
-        if (res.ok) {
-            const data = await res.json()
-            setComments(data.comments)
-        } else {
-            return 'Something went wrong.'
-        }
-    }
-
-    useEffect(() => {
-        getPostComments(params.postId)
-
-    }, [addComment, params.postId])
-    
-    return (
-        <>
-            <div className='comment-list'>
-                {comments?.map((comment, i) => {
-                    return <div key={comment.id} className='comment'>
-                        <Comment commentId={comment.id} postOwnerId={postOwnerId} userId={userId} />
-                    </div>
-                })}
+   return (
+      <>
+         <div className="comment-create">{leaveComment}</div>
+         {comments?.length ? (
+            <div className="comment-list">
+               {comments?.map((comment, i) => {
+                  return (
+                     <div key={comment.id}>
+                        <div className="comment">
+                           <Comment comment={comment} />
+                     </div>
+                           {comments[i + 1] ? (
+                              <div key={i} className="comment__border"></div>
+                           ) : null}
+                        </div>
+                  );
+               })}
             </div>
-        </>
-    )
+         ) : null}
+      </>
+   );
 }

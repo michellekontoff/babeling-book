@@ -1,0 +1,10 @@
+
+.comment-edit-form {
+     grid-area: content;
+ }
+
+ .comment-edit-form textarea {
+    width: 530px;
+    margin: 5px auto;
+    border-radius: 4px;
+ }
