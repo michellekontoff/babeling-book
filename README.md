@@ -233,6 +233,8 @@ export default function Post({ post }) {
 
 2. __Profile__ - Proper profile page that displays information about the user, such as what languages they speak or are learning and their bio in addition to listing their posts.
 
+3. __Following/Feed__ - Users can follow one another and view their personal feed that is comprised of the latest posts by people they follow.
+
 
 ## Contact
 
