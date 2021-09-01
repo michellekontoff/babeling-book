@@ -29,11 +29,12 @@ li {
 }
 
 #not-found {
-    position: relative;
+    /* position: relative; */
     width: 400px;
     text-align: center;
-    left: 50px;
-    top: 50px
+    /* left: 50px;
+    top: 50px */
+    margin: auto;
 }
 
 a {
