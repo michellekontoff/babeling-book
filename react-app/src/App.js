@@ -10,6 +10,7 @@ import { authenticate } from './store/session';
 import PostPage from './components/PostPage';
 import PostCreateForm from './components/PostCreateForm';
 import PostsLatest from './components/PostsLatest';
+import SearchResults from './components/Search/SearchResults';
 
 function App() {
    const [loaded, setLoaded] = useState(false);
@@ -44,6 +45,9 @@ function App() {
             </ProtectedRoute>
             <ProtectedRoute path={`/posts/:postId(\\d+)`} exact={true}>
                <PostPage />
+            </ProtectedRoute>
+            <ProtectedRoute path={`/search/:search`}>
+                <SearchResults />
             </ProtectedRoute>
             <Route path='/' exact={true}>
                <Homepage />

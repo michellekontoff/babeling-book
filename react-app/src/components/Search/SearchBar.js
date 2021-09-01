@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 
 export default function SearchBar () {
     const [search, setSearch] = useState('')
+    const history = useHistory()
     /* have a controlled input for search term.
         upon hitting search button, perform search fx.
         search fx checks length of term
@@ -12,9 +14,12 @@ export default function SearchBar () {
                     if post matches both title and content, only return it once
     */
 
-    async function submitSearch () {
-        console.log('search me btich', search)
-    }
+    // async function submitSearch () {
+    //     console.log('search me btich', search)
+    //     return (
+    //         <Redirect to='/' />
+    //     )                                                   
+    // }
 
     
 
@@ -26,12 +31,14 @@ export default function SearchBar () {
             placeholder='Search...'
             onChange={(e) => setSearch(e.target.value)}
             />
-            <button type='button'
-            className='search__btn'
-            onClick={submitSearch}
-            >
-                Search
-            </button>
+            {/* <Link to={`/search/${search}`}> */}
+                <button type='button'
+                className='search__btn'
+                onClick={() => history.push(`/search/${search}`)}
+                >
+                    Search
+                </button>
+            {/* </Link> */}
         </div>
     )
 }
