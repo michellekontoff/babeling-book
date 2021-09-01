@@ -17,8 +17,12 @@
 
 .navbar > button {
     position: absolute;
-    right: 300px;
-    bottom: 40px;
+    right: 270px;
+    bottom: 10px;
+}
+
+.logo {
+    height: 80px;
 }
 
  .nav-links {
