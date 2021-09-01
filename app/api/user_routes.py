@@ -21,6 +21,6 @@ def user(id):
 
 @user_routes.route('/<int:id>/posts')
 def get_posts_by_user(id):
-    posts = Post.query.filter(Post.user_id == id).order_by(desc(Post.created_at)).all()
+    posts = Post.query.filter(Post.user_id == id).order_by(desc(Post.id)).all()
 
     return { 'posts': [post.to_dict() for post in posts] }

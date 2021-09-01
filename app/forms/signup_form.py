@@ -23,7 +23,7 @@ def username_exists(form, field):
 def strong_password(form, field):
     password = field.data
 
-    if re.match(r"^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$])[\w\d!@#$]$", password):
+    if re.match(r"^(?=.*[\d])(?=.*[A-Z])(?=.*[a-z])(?=.*[!@#$])[\w\d!@#$]", password):
         return
     else:
         raise ValidationError('Password must have at least one uppercase, one lower case letter, one number, and one special character.')
