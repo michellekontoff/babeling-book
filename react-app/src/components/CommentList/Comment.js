@@ -29,8 +29,8 @@ export default function Comment({ comment }) {
       <div className="comment__details">
          <Link to={`/users/${comment.owner?.id}`}>
             {comment.owner?.username}
-         </Link>{" "}
-         - {comment.created_at}{" "}
+         </Link>
+         - {comment.created_at}
          {comment.created_at !== comment.updated_at ? (
             <span>(edited)</span>
          ) : null}
@@ -39,20 +39,20 @@ export default function Comment({ comment }) {
 
    if (editComment) {
       return (
-          <>
-          {commentDetails}
-         <CommentEditForm
-            comment={comment}
-            editComment={editComment}
-            setEditComment={setEditComment}
-         />
+         <>
+            {commentDetails}
+            <CommentEditForm
+               comment={comment}
+               editComment={editComment}
+               setEditComment={setEditComment}
+            />
          </>
       );
    }
 
    return (
       <>
-        {commentDetails}
+         {commentDetails}
          <div className="comment__content">{comment.content}</div>
          <div className="comment__btns">
             {comment.owner?.id === userId ? (

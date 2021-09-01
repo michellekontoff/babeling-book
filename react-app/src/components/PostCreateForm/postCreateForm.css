@@ -22,12 +22,10 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* align-items: center; */
 }
 
 .post-create-form input {
     border-radius: 4px;
-    /* height: 25px; */
     padding: 5px;
 }
 
@@ -56,7 +54,6 @@
 
 .post-create-form button {
     margin-top: 20px;
-    /* width: 150px; */
     padding: 10px 15px;
     font-size: 16pt;
     align-self: center;
@@ -69,11 +66,3 @@
     top: 5px;
     box-shadow: -2px -2px 5px 1px rgb(53, 53, 53);
 }
-
-/* .btn {
-    display: flex;
-}
-
-.btn div {
-    text-align: left;
-} */

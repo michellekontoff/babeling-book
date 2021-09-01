@@ -1,33 +1,30 @@
-import React, { useEffect, useState } from 'react'
-import PostList from '../PostList'
+import React, { useEffect, useState } from "react";
+import PostList from "../PostList";
 
-import './postsLatest.css'
+import "./postsLatest.css";
 
 export default function PostLatest() {
-    const [posts, setPosts] = useState([])
+   const [posts, setPosts] = useState([]);
 
-    async function getPosts(){
-        const res = await fetch(`/api/posts/latest`)
+   async function getPosts() {
+      const res = await fetch(`/api/posts/latest`);
 
-        if (res.ok) {
-            const data = await res.json()
-            setPosts(data.posts)
-        } else {
-            return 'Something went wrong.'
-        }
-    }
+      if (res.ok) {
+         const data = await res.json();
+         setPosts(data.posts);
+      } else {
+         return "Something went wrong.";
+      }
+   }
 
-    useEffect(() => {
-        getPosts()
+   useEffect(() => {
+      getPosts();
+   }, []);
 
-    }, [])
-
-    return (
-        <>
-            <div className='posts-latest'>
-                <h1>Latest Posts</h1>
-                <PostList posts={posts} />
-            </div>
-        </>
-    )
+   return (
+      <div className="posts-latest">
+         <h1>Latest Posts</h1>
+         <PostList posts={posts} />
+      </div>
+   );
 }

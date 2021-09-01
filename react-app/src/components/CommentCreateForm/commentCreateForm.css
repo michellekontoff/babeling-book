@@ -16,10 +16,6 @@
     margin: 5px auto;
 }
 
-/* .comment-form textarea{
-    resize: none;
-} */
-
 .comment-form textarea {
     resize: none;
 }
@@ -28,5 +24,4 @@
     margin: 0px auto 5px;
     border-radius: 4px;
     width: 400px;
-    /* border-width: 2px; */
 }
