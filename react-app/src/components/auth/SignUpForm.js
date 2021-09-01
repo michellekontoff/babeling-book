@@ -16,15 +16,12 @@ const SignUpForm = () => {
 
   const onSignUp = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-        setErrors({'confirmPassword': 'Passwords do not match.'})
-    }
-    if (password === confirmPassword) {
-      const data = await dispatch(signUp(username, email, password));
+ 
+      const data = await dispatch(signUp(username, email, password, confirmPassword));
       if (data) {
         setErrors(data)
       }
-    }
+
   };
 
   const updateUsername = (e) => {
@@ -79,7 +76,7 @@ const SignUpForm = () => {
           placeholder='Password'
         ></input>
 
-        <p className='errors'>{errors?.confirmPassword}</p>
+        <p className='errors'>{errors?.confirm}</p>
         <input
           type='password'
           name='confirm_password'
