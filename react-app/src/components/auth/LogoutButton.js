@@ -5,8 +5,6 @@ import { logout } from '../../store/session';
 const LogoutButton = ({showNav, setShowNav}) => {
   const dispatch = useDispatch()
   const onLogout = async (e) => {
-    //   console.log(setShowNav)
-    //   setShowNav(!showNav)
     await dispatch(logout());
   };
 
