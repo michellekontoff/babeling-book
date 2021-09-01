@@ -1,0 +1,23 @@
+.gmail-logo {
+    position: relative;
+    top: 2px
+}
+
+.footer {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 200px;
+    margin: auto;
+}
+
+.footer > span {
+    margin-bottom: 10px;
+}
+
+.footer__logos {
+    display: flex;
+    justify-content: space-evenly;
+    width: 200px;
+}

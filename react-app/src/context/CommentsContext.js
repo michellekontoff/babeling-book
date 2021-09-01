@@ -21,7 +21,7 @@ export function CommentsProvider({ children, postOwnerId, userId, postId }) {
            return "Something went wrong.";
         }
      }
-  
+  // Comments for a post are retrieved on first render
      useEffect(() => {
           
         getPostComments(params.postId);

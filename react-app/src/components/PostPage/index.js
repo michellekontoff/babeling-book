@@ -15,7 +15,6 @@ export default function PostPage() {
    const [editMode, setEditMode] = useState(false);
    const [post, setPost] = useState({});
 
-
    const params = useParams();
    const history = useHistory();
 
@@ -49,7 +48,6 @@ export default function PostPage() {
    useEffect(() => {
       getPost(params.postId);
    }, [editMode, params.postId]);
-
 
    let content;
    if (editMode) {

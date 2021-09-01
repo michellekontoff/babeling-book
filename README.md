@@ -1,134 +1,264 @@
-# Flask React Project
+<p align='center'>
+  <img src='./react-app/src/images/bb-logo-closed.png' height='200px'>
+</p>
 
-This is the starter for the Flask React project.
+# Babeling Book
+Babeling Book is a blogging app designed to language-learners who want to practice their writing skills while writing things they care about. In addition to commenting on the contents of a post, users are encouraged to help each other grow linguistically by offering corrections and suggestions.
 
-## Getting started
+* Live site: <a href='https://babelingbook.herokuapp.com/'>Babeling Book on Heroku</a>
 
-1. Clone this repository (only this branch)
+* Reference to the Babeling Book <a href='https://www.github.com/michellekontoff/babelingbook/wiki'>Wiki Docs</a>
 
-   ```bash
-   git clone https://github.com/appacademy-starters/python-project-starter.git
-   ```
+| Table of Contents |
+| ----------------- |
+| 1. [Features](#features) |
+| 2. [Installation](#installation) |
+| 3. [Technical Implementation Details](#technical-implementation-details) |
+| 4. [Future Features](#future-features) |
+| 5. [Contact](#contact) |
+| 6. [Special Thanks](#special-thanks) |
 
-2. Install dependencies
 
-      ```bash
-      pipenv install --dev -r dev-requirements.txt && pipenv install -r requirements.txt
-      ```
+## Technologies
+* <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript"><img src="https://img.shields.io/badge/-JavaScript-F7DF1E?logo=JavaScript&logoColor=333333" /></a>
+* <a href="https://www.postgresql.org/"><img src="https://img.shields.io/badge/-PostgreSQL-336791?logo=PostgreSQL&logoColor=white" /></a>
+* <a href="https://nodejs.org/"><img src="https://img.shields.io/badge/Node.js-43853D?style=flat&logo=node.js&logoColor=white"></a>
+* <a href="https://reactjs.org/"><img src="https://img.shields.io/badge/react-%2320232a.svg?style=flat&logo=react&logoColor=%2361DAFB"></a>
+* <a href="https://redux.js.org/"><img src="https://img.shields.io/badge/redux-%23593d88.svg?style=flat&logo=redux&logoColor=white"></a>
+* <a href="https://developer.mozilla.org/en-US/docs/Web/CSS"><img src="https://img.shields.io/badge/-CSS3-1572B6?logo=CSS3" /></a>
+* <a href="https://www.python.org/"><img src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white" /></a>
+* <a href="https://flask.palletsprojects.com/"><img src="https://img.shields.io/badge/Flask-000000?style=flat&logo=flask&logoColor=white" /></a>
+* <a href="https://www.heroku.com/home"><img src="https://img.shields.io/badge/Heroku-430098?style=flat&logo=heroku&logoColor=white" /></a>
 
-3. Create a **.env** file based on the example with proper settings for your
-   development environment
-4. Setup your PostgreSQL user, password and database and make sure it matches your **.env** file
 
-5. Get into your pipenv, migrate your database, seed your database, and run your flask app
+## Features
 
-   ```bash
-   pipenv shell
-   ```
+### Log In and Sign Up
+<p align="center">
+    <img src='./readme-assets/signup.png' height="200" />
+    <img src='./readme-assets/login.png' height="200" />
+</p>
 
-   ```bash
-   flask db upgrade
-   ```
+Log in as a demo user, or create your own account to see what Babeling Book has to offer.
 
-   ```bash
-   flask seed all
-   ```
+### Posts
+Babeling Book view all the posts you've made by selecting 'Your Posts' in the navbar.
+Or view the most recent posts on the Latest Post's page.
+<p align="center">
+    <img src='./readme-assets/posts.png' height="250" />
+</p>
 
-   ```bash
-   flask run
-   ```
+### View Post
+See the full contents of a single post
+<p align="center">
+    <img src='./readme-assets/post.png' height="250" />
+</p>
 
-6. To run the React App in development, checkout the [README](./react-app/README.md) inside the `react-app` directory.
+### Add Post
+Add a new Post to the database
+<p align="center">
+    <img src='./readme-assets/create-post.png' height="250" />
+</p>
 
-***
-*IMPORTANT!*
-   If you add any python dependencies to your pipfiles, you'll need to regenerate your requirements.txt before deployment.
-   You can do this by running:
+### Edit or Delete Post
+Edit or delete a post to change the title, contents, or language, or remove it from the database without leaving the page.
+<p align="center">
+    <img src='./readme-assets/edit-post.png' height="250" />
+</p>
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
+### Create, Read, Update, Delete Comments on a Post
+View a comments for a post on that post's page.
+<p align="center">
+    <img src='./readme-assets/comments.png' height="250" />
+</p>
 
-*ALSO IMPORTANT!*
-   psycopg2-binary MUST remain a dev dependency because you can't install it on apline-linux.
-   There is a layer in the Dockerfile that will install psycopg2 (not binary) for us.
-***
+Add comments, edit them, or delete them.
+<p align="center">
+    <img src='./readme-assets/edit-comment.png' height="250" />
+</p>
 
-## Deploy to Heroku
+## Installation
+To build/run project locally, please follow these steps:
 
-1. Before you deploy, don't forget to run the following command in order to
-ensure that your production environment has all of your up-to-date
-dependencies. You only have to run this command when you have installed new
-Python packages since your last deployment, but if you aren't sure, it won't
-hurt to run it again.
+1. Clone this repository
 
-   ```bash
-   pipenv lock -r > requirements.txt
-   ```
+```shell
+git clone https://github.com/michellekontoff/babelingbook.git
+```
 
-2. Create a new project on Heroku
-3. Under Resources click "Find more add-ons" and add the add on called "Heroku Postgres"
-4. Install the [Heroku CLI](https://devcenter.heroku.com/articles/heroku-command-line)
-5. Run
+2. Inside root '/' directory, install Pipfile dependencies and create the virtual environment
+```shell
+pipenv install
+```
 
-   ```bash
-   heroku login
-   ```
+2. Navigate to `/react-app` and install npm dependencies
 
-6. Login to the heroku container registry
+```shell
+cd react-app
+npm install
+```
 
-   ```bash
-   heroku container:login
-   ```
+3. In the `/` root directory, create a `.env` based on the `.env.example` with proper settings
 
-7. Update the `REACT_APP_BASE_URL` variable in the Dockerfile.
-   This should be the full URL of your Heroku app: i.e. "https://flask-react-aa.herokuapp.com"
-8. Push your docker container to heroku from the root directory of your project.
-   (If you are using an M1 mac, follow [these steps below](#for-m1-mac-users) instead, then continue on to step 9.)
-   This will build the Dockerfile and push the image to your heroku container registry.
+4. Setup your PostgreSQL user, password and database and ensure it matches your `.env` file
 
-   ```bash
-   heroku container:push web -a {NAME_OF_HEROKU_APP}
-   ```
+5. Before running any flask commands, confirm you are in the pipenv virtual env. If not, make sure you're in the root directory '/' and run the command:
+```shell
+pipenv shell
+```
 
-9. Release your docker container to heroku
+5. In the root folder, create the database by running in the terminal:
+```shell
+flask db create
+```
 
-      ```bash
-      heroku container:release web -a {NAME_OF_HEROKU_APP}
-      ```
+6. In the root folder, migrate tables to the database by running in the terminal:
+```shell
+flask db migrate
+```
 
-10. set up your database
+7. In the root folder, seed the database by running in the terminal:
+```shell
+flask seed all
+```
 
-      ```bash
-      heroku run -a {NAME_OF_HEROKU_APP} flask db upgrade
-      heroku run -a {NAME_OF_HEROKU_APP} flask seed all
-      ```
+8. Start the flask backend in the `/` root directory
+```shell
+flask run
+```
 
-11. Under Settings find "Config Vars" and add any additional/secret .env
-variables.
+9. Start the frontend by navigating to `/react-app` directory and running
 
-12. profit
+```javascript
+npm start
+```
 
-### For M1 Mac users
 
-(Replaces **Step 8**)
+## Technical Implementation Details
 
-1. Build image with linux platform for heroku servers. Replace
-{NAME_OF_HEROKU_APP} with your own tag:
+### Comments Context
+Comments are added, updated, and removed dynamically without a full page refresh or leaving the page. Changes are seen in real time. The context provider wraps the CommentList tree inside the PostPage component. It receives some information from the PostPage component, then establishes its own getPostComments function and comments state. It gives access to all of the above through all the children of the CommentList tree. Comments is updated with the getPostComments function for every CRUD operation.
 
-   ```bash=
-   docker buildx build --platform linux/amd64 -t {NAME_OF_HEROKU_APP} .
-   ```
+Part of code is shown below:
+Post information is threaded into the context provider
+```javascript
+// react-app/src/components/PostPage/index.js
+// ...
+   return (
+      <div className="post-page">
+         <div className="post-container">
+            {post.error ? <h2>{post.error}</h2> : content}
+         </div>
+         <div className="comments-container">
+            <CommentsProvider
+               postOwnerId={post.owner?.id}
+               userId={user.id}
+               postId={post.id}
+            >
+               <CommentList />
+            </CommentsProvider>
+         </div>
+      </div>
+   );
+}
+```
 
-2. Tag your app with the url for your apps registry. Make sure to use the name
-of your Heroku app in the url and tag name:
+Comments Provider receives props from PostPage and establishes its comments state and getPostComments function. It performs the initial fetch of a post's comments, then passes all the pieces onto its children.
+```javascript
+// react-app/src/context/CommentsContext.js
+// ...
+export function CommentsProvider({ children, postOwnerId, userId, postId }) {
+    const [comments, setComments] = useState([])
 
-   ```bash=2
-   docker tag {NAME_OF_HEROKU_APP} registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
+    const params = useParams()
 
-3. Use docker to push the image to the Heroku container registry:
+    async function getPostComments(id) {
+        const res = await fetch(`/api/posts/${id}/comments`);
+        if (res.ok) {
+           const data = await res.json();
+           setComments(data.comments)
+        } else {
+           return "Something went wrong.";
+        }
+     }
+      // Comments for a post are retrieved on first render
+     useEffect(() => {
+          
+        getPostComments(params.postId);
+  
+     }, [params.postId]);
 
-   ```bash=3
-   docker push registry.heroku.com/{NAME_OF_HEROKU_APP}/web
-   ```
+    return (
+      <CommentsContext.Provider value={{ comments, setComments, postOwnerId, getPostComments, userId, postId }}>
+        {children}
+      </CommentsContext.Provider>
+    )
+  }
+```
+
+Comments are retrieved in ascending order by ID which puts the most recent posts at the top.
+
+```python
+#GET ALL OF A POST'S COMMENTS
+@bp.route('/<int:id>/comments')
+def get_post_comments(id):
+    comments = Comment.query.filter(Comment.post_id == id).order_by(asc(Comment.id)).all()
+
+
+    return { 'comments': [comment.to_dict() for comment in comments] }
+```
+
+### Abbreviated post content
+When displayed as part of a list, posts with more than 200 characters are abbreviated with '...' The full post can be viewed by visiting that post's page.
+![Abbreviated Post]()
+Code snippet is shown here:
+
+```javascript
+// src/components/PostList/Post.js
+export default function Post({ post }) {
+   const [subString, setSubString] = useState(false);
+
+   useEffect(() => {
+      if (post.content.length > 200) {
+         setSubString(post.content.substring(0, 200) + " ...");
+      }
+   }, [post.content]);
+
+    return (
+        <>
+        {/* ... */}
+         <Link to={`/posts/${post.id}`}>
+            <div className="post__content">
+               {post.content?.length < 200 ? (
+                  <>{post.content}</>
+               ) : (
+                  <>{subString}</>
+               )}
+            </div>
+         </Link>
+        </>
+    )
+```
+
+
+## Future Features
+
+1. __Search__ - Search posts and users
+
+2. __Profile__ - Proper profile page that displays information about the user, such as what languages they speak or are learning and their bio in addition to listing their posts.
+
+3. __Following/Feed__ - Users can follow one another and view their personal feed that is comprised of the latest posts by people they follow.
+
+
+## Contact
+
+### Michelle Kontoff
+<a href="https://www.linkedin.com/in/michelle-kontoff-149866132/"><img src="./react-app/src/images/linkedin-logo.png" height="28" align="middle" /></a>
+<a href="https://github.com/michellekontoff"><img src="./react-app/src/images/github-logo.png" height="38" align="middle" /></a>
+
+mlkontoff@gmail.com
+
+
+## Special Thanks
+* Peers who have given me support and community: [Brandon](https://github.com/Omstachu), [Ji](https://github.com/ji-k), [Johnathan](https://github.com/jyih), [Andrew](https://github.com/andru17urdna), [Henry](https://github.com/hnrywltn), [Pierre](https://github.com/TheGuilbotine), [Lema](https://github.com/lemlooma), [Meagan](https://github.com/meagan13), [Simon](https://github.com/Simonvargas), [Michelle](https://github.com/michellekontoff), [Nico](https://github.com/nicopierson), [John](https://github.com/Jomix-13), [Manna](https://github.com/makon57), and [Monte](https://github.com/theflaggship)
+* Mentors who have given me their time and effort: [Zach](https://github.com/zdwatts), [Ryan](https://github.com/rhwebster), [Kristen](https://github.com/chaunceykm), [Rihana](https://github.com/martinson-r), [Peter](https://github.com/Lazytangent), [Autumn](https://github.com/fairy-scary), [Warren](https://github.com/tamagrijr), [Ed](https://github.com/edherm), and [Javier](https://github.com/javiermortiz) 
