@@ -39,7 +39,7 @@ Babeling Book is a blogging app designed to language-learners who want to practi
     <img src='./readme-assets/login.png' height="200" />
 </p>
 
-Log in as a demo user, or create your own account to see what Babeling Book has to offer.
+Log in as a demo user, or create and log into your own account to see what Babeling Book has to offer.
 
 ### Posts
 Babeling Book view all the posts you've made by selecting 'Your Posts' in the navbar.
