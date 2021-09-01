@@ -54,11 +54,6 @@
     color: rgb(0, 86, 97);
 }
 
-label.errors {
-    color: red;
-    text-align: center;
-}
-
 .post-create-form button {
     margin-top: 20px;
     /* width: 150px; */

@@ -42,3 +42,9 @@ a {
     text-decoration: none;
     color: black;
 }
+
+label.errors {
+    color: red;
+    text-align: center;
+    padding: 2px 2px;
+}
