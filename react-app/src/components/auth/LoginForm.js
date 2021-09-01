@@ -41,9 +41,9 @@ const LoginForm = () => {
 
   return (
     <form className='login-form auth-form' onSubmit={onLogin}>
-      <div>
+
         {/* <label htmlFor='email'>Email</label> */}
-        <p className='errors'>{errors?.email}</p>
+        <label className='errors'>{errors?.email}</label>
         <input
           name='email'
           type='text'
@@ -51,10 +51,9 @@ const LoginForm = () => {
           value={email}
           onChange={updateEmail}
         />
-      </div>
-      <div>
+
         {/* <label htmlFor='password'>Password</label> */}
-        <p className='errors'>{errors?.password}</p>
+        <label className='errors'>{errors?.password}</label>
         <input
           name='password'
           type='password'
@@ -62,11 +61,11 @@ const LoginForm = () => {
           value={password}
           onChange={updatePassword}
         />
-      </div>
-      <div>
-        <button type='submit'>Log In</button>
-        <button type='button' onClick={demoLogin}>Demo</button>
-       </div>
+        <div>
+            <button type='submit'>Log In</button>
+            <button type='button' onClick={demoLogin}>Demo</button>
+        </div>
+
     </form>
   );
 };

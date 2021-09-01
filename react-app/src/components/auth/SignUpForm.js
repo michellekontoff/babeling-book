@@ -49,7 +49,7 @@ const SignUpForm = () => {
     <form className='signup-form auth-form' onSubmit={onSignUp}>
       
 
-        <p className='errors'>{errors?.username}</p>
+        <label className='errors'>{errors?.username}</label>
         <input
           type='text'
           name='username'
@@ -59,7 +59,7 @@ const SignUpForm = () => {
         ></input>
 
 
-        <p className='errors'>{errors?.email}</p>
+        <label className='errors'>{errors?.email}</label>
         <input
           type='text'
           name='email'
@@ -68,7 +68,7 @@ const SignUpForm = () => {
           placeholder='Email'
         ></input>
 
-        <p className='errors'>{errors?.password}</p>
+        <label className='errors'>{errors?.password}</label>
         <input
           type='password'
           name='password'
@@ -77,7 +77,7 @@ const SignUpForm = () => {
           placeholder='Password'
         ></input>
 
-        <p className='errors'>{errors?.confirm}</p>
+        <label className='errors'>{errors?.confirm}</label>
         <input
           type='password'
           name='confirm_password'
