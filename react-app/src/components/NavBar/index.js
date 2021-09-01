@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
@@ -12,7 +12,14 @@ const NavBar = () => {
     const user = useSelector(state => state.session.user)
     const [showNav, setShowNav] = useState(false)
 
-    if (!user) return null;
+    useEffect(() => {
+        setShowNav(false)
+    }, [user])
+
+    if (!user) {
+        return null
+    };
+
 
     /* 
         Logo button - on click opens side bar.
@@ -25,7 +32,7 @@ const NavBar = () => {
   return (
     <div className='navbar'>
         <button onClick={() => setShowNav(!showNav)}>
-            <img className='logo' src={logo} />
+            <img className='logo' src={logo} alt='logo' />
         </button>
         <nav className='nav-links' style={!showNav ? {transform: 'translateX(250px)'} : {}}>
             <div className='navbar__hello'>
