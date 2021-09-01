@@ -45,5 +45,8 @@
 }
 
 .signup-form {
-    height: 420px;
+    height: 430px;
+}
+.auth-form label {
+    margin: 4px auto 0px;
 }

@@ -13,7 +13,6 @@
    grid-template-areas:
       "details ."
       "content btns";
-   /* height: 120px; */
 }
 
 .comment__details {
@@ -51,7 +50,6 @@
 }
 
 .comment__border {
-   /* grid-area: border; */
    width: 450px;
    border-top: 1px solid lightgrey;
    margin: 25px auto;
