@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import Footer from "../Footer";
+import SearchBar from "../Search/SearchBar";
 import logo from "../../images/bb-logo-closed.png";
 
 import "./navbar.css";
@@ -56,7 +57,7 @@ const NavBar = () => {
                   <LogoutButton />
                </li>
             </ul>
-            <li></li>
+            <SearchBar />
             <div>
                <Footer />
             </div>

@@ -72,3 +72,21 @@ def get_post_comments(id):
 
 
     return { 'comments': [comment.to_dict() for comment in comments] }
+
+#SEARCH FOR POST
+# @bp.route('/search/<str:search>')
+# def search_posts(search):
+#     print(search)
+#     posts = Post.query.filter(Post.title.find(search)).first()
+
+#     return posts.to_dict()
+
+@bp.route('/search/<string:search>')
+def search_posts(search):
+    
+    posts_titles = set(Post.query.filter(Post.title.like(f'%{search}%')).all())
+    posts_content =  set(Post.query.filter(Post.content.like(f'%{search}%')).all())
+
+    posts = list(posts_content.union(posts_titles))
+
+    return { 'posts': [post.to_dict() for post in posts] }
