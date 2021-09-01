@@ -5,6 +5,7 @@ import LoginFormModal from '../auth/LoginFormModal'
 import SignUpFormModal from '../auth/SignUpFormModal'
 import about from '../../images/about.jpg'
 import './homepage.css'
+import Footer from '../Footer';
 
 
 export default function Homepage() {
@@ -40,6 +41,9 @@ export default function Homepage() {
                 <div className='about__img-container'>
                     <img className='about__img' src={about} alt='img'></img>
                 </div>
+            </div>
+            <div>
+                <Footer />
             </div>
         </div>
     )

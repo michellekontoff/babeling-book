@@ -253,8 +253,8 @@ export default function Post({ post }) {
 ## Contact
 
 ### Michelle Kontoff
-<a href="https://www.linkedin.com/in/michelle-kontoff-149866132/"><img src="./readme-assets/linkedin-logo.png" height="28" align="middle" /></a>
-<a href="https://github.com/michellekontoff"><img src="./readme-assets/github-logo.png" height="38" align="middle" /></a>
+<a href="https://www.linkedin.com/in/michelle-kontoff-149866132/"><img src="./react-app/src/images/linkedin-logo.png" height="28" align="middle" /></a>
+<a href="https://github.com/michellekontoff"><img src="./react-app/src/images/github-logo.png" height="38" align="middle" /></a>
 
 mlkontoff@gmail.com
 

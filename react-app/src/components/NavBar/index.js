@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
+import Footer from '../Footer';
 
 import './navbar.css'
 
@@ -36,8 +37,8 @@ const NavBar = () => {
                 <li><LogoutButton /></li>
             </ul>
                 <li></li>
-            <div className='navbar__search'>
-                <input placeholder='To be implemented...'></input>
+            <div>
+                <Footer />
             </div>
     </nav>
     </div>
