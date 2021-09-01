@@ -1,5 +1,5 @@
 <p align='center'>
-  <img src='./react-app/src/assets/images/logo.png' height='200px'>
+  <img src='./react-app/src/images/bb-logo-closed.png' height='200px'>
 </p>
 
 # Babeling Book
@@ -34,34 +34,48 @@ Babeling Book is a blogging app designed to language-learners who want to practi
 ## Features
 
 ### Log In and Sign Up
-![Sign Up](./readme-assets/images/signup.jpg)
-![Login](./readme-assets/images/login.jpg)
+<p align="center">
+    <img src='./readme-assets/signup.png' height="200" />
+    <img src='./readme-assets/login.png' height="200" />
+</p>
+
 Log in as a demo user, or create your own account to see what Babeling Book has to offer.
 
 ### Posts
 Babeling Book view all the posts you've made by selecting 'Your Posts' in the navbar.
 Or view the most recent posts on the Latest Post's page.
-![Feed Page](./readme-assets/images/feed.jpg)
+<p align="center">
+    <img src='./readme-assets/posts.png' height="250" />
+</p>
 
 ### View Post
 See the full contents of a single post
-![{resource-1} Page](./readme-assets/images/{resource-1}-page.jpg)
+<p align="center">
+    <img src='./readme-assets/post.png' height="250" />
+</p>
 
 ### Add Post
 Add a new Post to the database
-![Add Post](./readme-assets/images/{resource-1}-add.jpg)
+<p align="center">
+    <img src='./readme-assets/create-post.png' height="250" />
+</p>
 
 ### Edit or Delete Post
-Edit or delete a post to change the title, contents, or language, or remove it from the database.
-![Edit Post]()
+Edit or delete a post to change the title, contents, or language, or remove it from the database without leaving the page.
+<p align="center">
+    <img src='./readme-assets/edit-post.png' height="250" />
+</p>
 
 ### Create, Read, Update, Delete Comments on a Post
 View a comments for a post on that post's page.
-![{resource-2-plural}](./readme-assets/images/{resource-2-plural}.png)
-Add comments, edit them, or delete them.
-![Edit {resource-2-plural}](./readme-assets/images/{resource-2-plural}-edit.png)
-![Add {resource-2-plural}](./readme-assets/images/{resource-2-plural}-add.png)
+<p align="center">
+    <img src='./readme-assets/comments.png' height="250" />
+</p>
 
+Add comments, edit them, or delete them.
+<p align="center">
+    <img src='./readme-assets/edit-comment.png' height="250" />
+</p>
 
 ## Installation
 To build/run project locally, please follow these steps:
@@ -239,12 +253,12 @@ export default function Post({ post }) {
 ## Contact
 
 ### Michelle Kontoff
-<a href="https://www.linkedin.com/in/mlkontoff/"><img src="./readme-assets/logos/linkedin-logo.png" height="28" align="middle" /></a>
-<a href="https://github.com/michellekontoff"><img src="./readme-assets/logos/github-logo.png" height="38" align="middle" /></a>
+<a href="https://www.linkedin.com/in/michelle-kontoff-149866132/"><img src="./readme-assets/linkedin-logo.png" height="28" align="middle" /></a>
+<a href="https://github.com/michellekontoff"><img src="./readme-assets/github-logo.png" height="38" align="middle" /></a>
 
 mlkontoff@gmail.com
 
 
 ## Special Thanks
-* Fellow peers who have given me support and community: [Andrew](https://github.com/andru17urdna), [Henry](https://github.com/hnrywltn), [Pierre](https://github.com/TheGuilbotine), [Lema](https://github.com/lemlooma), [Meagan](https://github.com/meagan13), [Simon](https://github.com/Simonvargas), [Michelle](https://github.com/michellekontoff), [Nico](https://github.com/nicopierson), [John](https://github.com/Jomix-13), [Manna](https://github.com/makon57), and [Monte](https://github.com/theflaggship)
-* Mentors who have given me their time and effort: [Zach](https://github.com/zdwatts), [Olivia](https://github.com/OByrnes), [Ed](https://github.com/edherm), and [Javier](https://github.com/javiermortiz) 
+* Peers who have given me support and community: [Brandon](https://github.com/Omstachu), [Ji](https://github.com/ji-k), [Johnathan](https://github.com/jyih), [Andrew](https://github.com/andru17urdna), [Henry](https://github.com/hnrywltn), [Pierre](https://github.com/TheGuilbotine), [Lema](https://github.com/lemlooma), [Meagan](https://github.com/meagan13), [Simon](https://github.com/Simonvargas), [Michelle](https://github.com/michellekontoff), [Nico](https://github.com/nicopierson), [John](https://github.com/Jomix-13), [Manna](https://github.com/makon57), and [Monte](https://github.com/theflaggship)
+* Mentors who have given me their time and effort: [Zach](https://github.com/zdwatts), [Kristen](https://github.com/chaunceykm), [Rihana](https://github.com/martinson-r), [Peter](https://github.com/Lazytangent), [Autumn](https://github.com/fairy-scary), [Warren](https://github.com/tamagrijr), [Ed](https://github.com/edherm), and [Javier](https://github.com/javiermortiz) 

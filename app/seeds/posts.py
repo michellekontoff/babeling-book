@@ -9,11 +9,6 @@ def seed_posts():
     fake_jp = Faker(['ja_JP'])
     fake_en = Faker()
 
-    for f in range (0, 30):
-        user = randint(1, 9)
-        f = Post(title=fake_fr.sentence()[0:50], content=fake_fr.text(), user_id=user, language_id=6)
-        db.session.add(f)
-
     for s in range (0, 30):
         user = randint(1, 9)
         s = Post(title=fake_sp.sentence()[0:50], content=fake_sp.text(), user_id=user, language_id=4)
@@ -23,6 +18,11 @@ def seed_posts():
         user = randint(1, 9)
         e = Post(title=fake_en.sentence()[0:50], content=fake_en.text(), user_id=user, language_id=1)
         db.session.add(e)
+
+    for f in range (0, 30):
+        user = randint(1, 9)
+        f = Post(title=fake_fr.sentence()[0:50], content=fake_fr.text(), user_id=user, language_id=6)
+        db.session.add(f)
 
     for j in range (0, 6):
         user = randint(1, 9)
