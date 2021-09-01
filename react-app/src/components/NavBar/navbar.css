@@ -18,12 +18,26 @@
 .navbar > button {
     position: absolute;
     right: 270px;
-    bottom: 10px;
+    bottom: 0px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 1px rgb(165, 165, 165);
+    transition: 0.7s;
+
+    /* border: 2px solid lightgrey; */
+}
+
+.navbar > button:hover {
+    box-shadow: 0px 0px 5px 2px grey;
+    transition: 0.7s;
 }
 
 .logo {
+    position: relative;
+    left: 4px;
+    top: 4px;
     height: 80px;
 }
+
 
  .nav-links {
     position: fixed;
