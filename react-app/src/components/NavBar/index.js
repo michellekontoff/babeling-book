@@ -21,14 +21,6 @@ const NavBar = () => {
     };
 
 
-    /* 
-        Logo button - on click opens side bar.
-            - toggle shownav when clicked
-        if shownav is false, only show button
-        if shownav is true, show navbar
-    */
-
-
   return (
     <div className='navbar'>
         <button onClick={() => setShowNav(!showNav)}>
