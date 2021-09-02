@@ -56,6 +56,7 @@ export default function PostCreateForm() {
             onSubmit={(e) => submitPost(e)}
          >
             <label>Title</label>
+            {errors?.title && <label className="errors">{errors?.title}</label>}
             <input
                type="text"
                name="title"

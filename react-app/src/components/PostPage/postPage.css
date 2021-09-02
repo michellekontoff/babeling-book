@@ -16,6 +16,9 @@
     color: rgb(0, 86, 97);
 }
 
+.post__content {
+    overflow-wrap: anywhere;
+}
 
 .post__details > div {
     color: grey
