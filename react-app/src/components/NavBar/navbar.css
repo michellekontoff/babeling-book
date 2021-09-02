@@ -5,6 +5,7 @@
 }
 
 .navbar h2 {
+    color: teal;
     margin: 20px auto 5px;
     text-align: center;
     width: 250px;
@@ -20,14 +21,14 @@
     right: 200px;
     bottom: 0px;
     border-radius: 8px;
-    box-shadow: 0px 0px 5px 1px rgb(165 165 165);
+    box-shadow: 0px 0px 5px 1px teal;
     transition: 0.7s;
     z-index: 1;
     background-color: white;
 }
 
 .navbar > button:hover {
-    box-shadow: 0px 0px 5px 2px grey;
+    box-shadow: 0px 0px 5px 2px teal;
     transition: 0.7s;
 }
 
@@ -67,6 +68,7 @@
 #logout-btn {
      color: black;
      font-size: 16pt;
+     transition: 0.3s;
  }
 
  .nav-links a:hover,
@@ -74,6 +76,7 @@
  #logout-btn:hover {
      font-style: italic;
      font-size: 18pt;
+     transition: 0.3s;
  }
 
  .navbar__search {
