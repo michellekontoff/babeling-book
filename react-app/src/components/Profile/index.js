@@ -39,7 +39,7 @@ export default function Profile() {
 
    return (
       <>
-         <div className="posts-latest">
+         <div className="user-posts posts-list-container">
             <h1>{user.username}'s Posts</h1>
             <PostList posts={posts} />
          </div>

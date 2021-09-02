@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
 
 export default function SearchBar () {
     const [search, setSearch] = useState('')
+    // const [error, setError]
     const history = useHistory()
     /* have a controlled input for search term.
         upon hitting search button, perform search fx.
@@ -14,31 +16,24 @@ export default function SearchBar () {
                     if post matches both title and content, only return it once
     */
 
-    // async function submitSearch () {
-    //     console.log('search me btich', search)
-    //     return (
-    //         <Redirect to='/' />
-    //     )                                                   
-    // }
-
-    
 
     return (
-        <div className='search'>
+        <form className='search'
+        // onSubmit={() => history.push(`/search/${search}`)}
+        >
             <input type='text'
             className='search__input'
             value={search}
             placeholder='Search...'
             onChange={(e) => setSearch(e.target.value)}
             />
-            {/* <Link to={`/search/${search}`}> */}
-                <button type='button'
+            <Link to={`/search/${search}`}>
+                <button type='submit'
                 className='search__btn'
-                onClick={() => history.push(`/search/${search}`)}
                 >
                     Search
                 </button>
-            {/* </Link> */}
-        </div>
+            </Link>
+        </form>
     )
 }

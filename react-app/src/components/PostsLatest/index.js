@@ -22,7 +22,7 @@ export default function PostLatest() {
    }, []);
 
    return (
-      <div className="posts-latest">
+      <div className="posts-latest posts-list-container">
          <h1>Latest Posts</h1>
          <PostList posts={posts} />
       </div>
