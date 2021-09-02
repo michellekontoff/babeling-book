@@ -30,9 +30,6 @@ function App() {
       <BrowserRouter>
          <NavBar />
          <Switch>
-            <ProtectedRoute path='/users' exact={true}>
-               <UsersList />
-            </ProtectedRoute>
             <ProtectedRoute path='/users/:userId' exact={true}>
                <Profile />
             </ProtectedRoute>

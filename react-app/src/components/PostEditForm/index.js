@@ -59,6 +59,7 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }) {
          <input
             type="text"
             name="title"
+            placeholder="(optional)"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
          />

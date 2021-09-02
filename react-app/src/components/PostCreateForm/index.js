@@ -60,6 +60,7 @@ export default function PostCreateForm() {
             <input
                type="text"
                name="title"
+               placeholder="(optional)"
                value={title}
                onChange={(e) => setTitle(e.target.value)}
             />

@@ -11,7 +11,7 @@ export default function Homepage() {
    const user = useSelector((state) => state.session.user);
 
    if (user) {
-      return <Redirect to={`/users/${user.id}`} />;
+      return <Redirect to={`/posts/latest`} />;
    }
 
    return (

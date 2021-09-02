@@ -63,7 +63,7 @@ export default function PostPage() {
       content = (
          <div className="post">
             <div className="post__title">
-               <h2>{post.title}</h2>
+               {post?.title && <h2>{post.title}</h2>}
             </div>
             <div className="post__details">
                <div>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import PostList from "../PostList";
 
 import "./profile.css";
@@ -41,7 +42,7 @@ export default function Profile() {
       <>
          <div className="posts-latest">
             <h1>{user.username}'s Posts</h1>
-            <PostList posts={posts} />
+            {posts.length > 0 ? <PostList posts={posts} /> : <p align="center">You don't have any posts yet. Why don't you try <Link to='/posts/new' className='first-post'>writing one</Link>?</p>}
          </div>
       </>
    );
