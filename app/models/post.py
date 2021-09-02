@@ -16,6 +16,8 @@ class Post(db.Model):
     language = relationship('Language')
     owner = relationship('User', lazy=True)
 
+    comments =relationship('Comment', lazy=True, cascade="all, delete, delete-orphan")
+
     def to_dict(self):
         return {
             'id': self.id,
