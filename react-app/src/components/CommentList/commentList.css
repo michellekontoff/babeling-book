@@ -28,7 +28,7 @@
 
 .comment__content {
    grid-area: content;
-   overflow-wrap: normal;
+   overflow-wrap: anywhere;
 }
 
 .comment__btns {

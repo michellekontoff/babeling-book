@@ -7,7 +7,7 @@
     padding: 15px;
     border-radius: 8px;
     margin: 30px 0px;
-    overflow-wrap: normal;
+    overflow-wrap: anywhere;
 }
 
 .post-list__item:hover {
