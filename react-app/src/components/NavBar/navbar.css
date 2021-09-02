@@ -42,18 +42,15 @@
  .nav-links {
     position: fixed;
     top: 0px;
-    /* border-left: 1px solid black; */
     box-shadow: 1px 0px 6px 1px black;
     height: 100%;
     transition: all 0.4s linear;
     background-color: rgba(62, 185, 158, 0.397);
-    /* background-image: url('../../images/book-bg.jpg');
-    background-size: cover;
-    background-blend-mode:inherit */
  }
 
  .nav-links:hover {
     box-shadow: 1px 0px 10px 1px black;
+    background-color: rgb(137, 221, 203);
  }
 .nav-links__list {
     padding: 10px;
