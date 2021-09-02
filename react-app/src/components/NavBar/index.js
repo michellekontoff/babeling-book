@@ -12,10 +12,11 @@ const NavBar = () => {
    const [showNav, setShowNav] = useState(false);
 
    useEffect(() => {
-      setShowNav(false);
+      setShowNav(!showNav);
    }, [user]);
 
    if (!user) {
+       
       return null;
    }
 

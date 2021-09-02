@@ -17,11 +17,13 @@
 
 .navbar > button {
     position: absolute;
-    right: 270px;
+    right: 200px;
     bottom: 0px;
     border-radius: 8px;
-    box-shadow: 0px 0px 5px 1px rgb(165, 165, 165);
+    box-shadow: 0px 0px 5px 1px rgb(165 165 165);
     transition: 0.7s;
+    z-index: 1;
+    background-color: white;
 }
 
 .navbar > button:hover {
@@ -42,7 +44,7 @@
     top: 0px;
     border-left: 1px solid black;
     height: 100%;
-    transition: all 0.25s linear;
+    transition: all 0.4s linear;
     background-color: white;
  }
 .nav-links__list {
