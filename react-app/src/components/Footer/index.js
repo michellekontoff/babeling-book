@@ -12,7 +12,7 @@ export default function Footer() {
          Developed by
          <span>Michelle Kontoff</span>
          <div className="footer__logos">
-            <a href="https://github.com/michellekontoff">
+            <a href="https://github.com/michellekontoff" target="_blank" rel="noopener noreferrer">
                <img src={github} height="48" alt="github logo" />
             </a>
 
@@ -25,7 +25,7 @@ export default function Footer() {
                />
             </a>
 
-            <a href="https://www.linkedin.com/in/michelle-kontoff-149866132/">
+            <a href="https://www.linkedin.com/in/michelle-kontoff-149866132/" target="_blank" rel="noopener noreferrer">
                <img src={linkedin} height="50" alt="linkedin logo" />
             </a>
          </div>
