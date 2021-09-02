@@ -1,0 +1,4 @@
+add post length limit
+add wrapping on posts
+add cascade deletion of comments when posts are deleted
+add error if post title is too long
