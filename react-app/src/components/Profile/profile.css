@@ -1,0 +1,9 @@
+.first-post {
+    color: rgb(41, 180, 180);
+    transition: 1s;
+}
+
+.first-post:hover {
+    color: black;
+    transition: 1s;
+}
