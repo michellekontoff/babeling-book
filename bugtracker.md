@@ -19,3 +19,5 @@ in debugging delete comment, discovered that apparently my fetch to get comments
 
 editing comment rearranges the order of the comments... comments just out of order in general.
     comments weren't sorting correctly in backend. fixed by changing query order_by from created_at to id.
+
+after modifying the default to_dict method in the skeleton, the redux state was nesting a bunch of extra info for session user. so i made a separate to_dict method for the user auth routes in the backend that returns just the necessary info
