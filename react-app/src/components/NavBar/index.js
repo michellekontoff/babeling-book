@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
@@ -13,11 +13,7 @@ const NavBar = () => {
    const user = useSelector((state) => state.session.user);
    const showNav = useSelector((state) => state.session.showNav)
 
-    useEffect(() => {
-        
-    })
     const setShowNav = useSetShowNav(!showNav)
-    console.log(setShowNav)
 
    if (!user) {
        
@@ -31,7 +27,7 @@ const NavBar = () => {
          </button>
          <nav
             className="nav-links"
-            style={!showNav ? { transform: "translateX(250px)" } : {}}
+            style={ !showNav ? { transform: "translateX(260px)" } : {}}
          >
             <div className="navbar__hello">
                <h2>Hello,</h2>

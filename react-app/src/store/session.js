@@ -31,6 +31,13 @@ export const useSetShowNav = (showNav) => {
 
 }
 
+function showNavOnLogin () {
+    localStorage.setItem('bb-showNav', true)
+}
+
+function closeNavOnLogout () {
+    localStorage.setItem('bb-showNav', false)
+}
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
@@ -65,6 +72,7 @@ export const login = (email, password) => async (dispatch) => {
     const data = await response.json();
     dispatch(setUser(data))
     dispatch(setShowNav())
+    showNavOnLogin()
     return null;
   } else if (response.status < 500) {
     const data = await response.json();
@@ -85,6 +93,7 @@ export const logout = () => async (dispatch) => {
   });
 
   if (response.ok) {
+    closeNavOnLogout()
     dispatch(removeUser());
   }
 };
@@ -108,6 +117,7 @@ export const signUp = (username, email, password, confirmPassword) => async (dis
     const data = await response.json();
     dispatch(setUser(data))
     dispatch(setShowNav())
+    showNavOnLogin()
     return null;
   } else if (response.status < 500) {
     const data = await response.json();
