@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
@@ -15,12 +15,6 @@ const NavBar = () => {
 //    const [showNav, setShowNav] = useState(true);
 
     const dispatch = useDispatch()
-
-
-   useEffect(() => {
-    //   setShowNav((s) => setShowNav(!s));
-    console.log(showNav)
-   });
 
    if (!user) {
        
