@@ -12,6 +12,7 @@
 
 #post-create-img {
     width: 400px;
+    align-self: center;
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
     grid-column: 1 / 2;
@@ -54,6 +55,7 @@
 
 .post-create-form button {
     margin-top: 20px;
+    margin-bottom: 8px;
     padding: 10px 15px;
     font-size: 16pt;
     align-self: center;
