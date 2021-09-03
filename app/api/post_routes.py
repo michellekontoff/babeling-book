@@ -27,7 +27,7 @@ def get_post_by_id(id):
     post = Post.query.filter(Post.id == id).first()
 
     if post is None:
-        return {'error': 'Post could not be found.'}
+        return {'error': 'Post could not be found.'}, 404
 
     if request.method == 'GET':
         return post.to_dict()

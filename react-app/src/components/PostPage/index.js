@@ -25,6 +25,7 @@ export default function PostPage() {
          const post = await res.json();
          setPost(post);
       } else {
+         history.push('/posts/not-found')
          return "Something went wrong.";
       }
    }
