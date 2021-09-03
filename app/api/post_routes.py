@@ -56,7 +56,7 @@ def create_post():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         data = form.data
-        post = Post(user_id=data['user_id'], title=data['title'], content=data['content'], language_id=data['language_id'])
+        post = Post(user_id=data['user_id'], title=data['title'], content=data['content'], language_id=data['language_id'], created_at=datetime.now(), updated_at=datetime.now())
 
         db.session.add(post)
         db.session.commit()
