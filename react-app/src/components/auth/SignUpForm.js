@@ -46,7 +46,7 @@ const SignUpForm = () => {
    }
 
    return (
-      <form className="signup-form auth-form" onSubmit={onSignUp}>
+      <form className="signup-form auth-form" onSubmit={onSignUp} autoComplete="off">
          {errors?.username && <label className="errors">{errors?.username}</label>}
          <input
             type="text"

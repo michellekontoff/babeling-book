@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams, useHistory } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import PostEditForm from "../PostEditForm";
 import CommentList from "../CommentList";
@@ -25,7 +25,6 @@ export default function PostPage() {
          const post = await res.json();
          setPost(post);
       } else {
-         history.push('/posts/not-found')
          return "Something went wrong.";
       }
    }
@@ -48,7 +47,7 @@ export default function PostPage() {
 
    useEffect(() => {
       getPost(params.postId);
-   }, [editMode, params.postId]);
+   }, [editMode, params.postId, history]);
 
    let content;
    if (editMode) {
@@ -102,19 +101,21 @@ export default function PostPage() {
    }
 
    return (
-      <div className="post-page">
-         <div className="post-container">
-            {post.error ? <h2>{post.error}</h2> : content}
-         </div>
-         <div className="comments-container">
-            <CommentsProvider
-               postOwnerId={post.owner?.id}
-               userId={user.id}
-               postId={post.id}
-            >
-               <CommentList />
-            </CommentsProvider>
-         </div>
-      </div>
+    <>{ post.error ? (<Redirect to='/posts/not-found' />) :
+    <div className="post-page">
+    <div className="post-container">
+       {content}
+    </div>
+    <div className="comments-container">
+       <CommentsProvider
+          postOwnerId={post.owner?.id}
+          userId={user.id}
+          postId={post.id}
+       >
+          <CommentList />
+       </CommentsProvider>
+    </div>
+    </div>
+    }</>
    );
 }
