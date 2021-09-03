@@ -15,7 +15,11 @@ export default function Profile() {
 
       if (res.ok) {
          const data = await res.json();
-         setPosts(data.posts);
+         if (data.posts.length) {
+            setPosts(data.posts);
+         } else {
+             setPosts((<p align="center">You don't have any posts yet. Why don't you try <Link to='/posts/new' className='first-post'>writing one</Link>?</p>))
+         }
       } else {
          return "Something went wrong.";
       }
@@ -42,7 +46,7 @@ export default function Profile() {
       <>
          <div className="posts-latest">
             <h1>{user.username}'s Posts</h1>
-            {posts.length > 0 ? <PostList posts={posts} /> : <p align="center">You don't have any posts yet. Why don't you try <Link to='/posts/new' className='first-post'>writing one</Link>?</p>}
+            {posts.length > 0 ? <PostList posts={posts} /> : <>{posts}</> }
          </div>
       </>
    );
