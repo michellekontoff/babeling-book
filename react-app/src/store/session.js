@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
@@ -15,6 +17,19 @@ const removeUser = () => ({
 export const setShowNav = () => ({
     type: SET_SHOWNAV,
 })
+
+export const useSetShowNav = (showNav) => {
+    const dispatch = useDispatch()
+        return async function () {
+            await dispatch(setShowNav())
+            try {
+                localStorage.setItem('bb-showNav', showNav)
+            } catch {
+                //do nothing
+            }
+    }
+
+}
 
 
 export const authenticate = () => async (dispatch) => {

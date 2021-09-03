@@ -1,20 +1,23 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import Footer from "../Footer";
 import logo from "../../images/bb-logo-closed.png";
 
-import { setShowNav } from "../../store/session";
+import { useSetShowNav } from "../../store/session";
 
 import "./navbar.css";
 
 const NavBar = () => {
    const user = useSelector((state) => state.session.user);
    const showNav = useSelector((state) => state.session.showNav)
-//    const [showNav, setShowNav] = useState(true);
 
-    const dispatch = useDispatch()
+    useEffect(() => {
+        
+    })
+    const setShowNav = useSetShowNav(!showNav)
+    console.log(setShowNav)
 
    if (!user) {
        
@@ -23,7 +26,7 @@ const NavBar = () => {
 
    return (
       <div className="navbar">
-         <button onClick={() => dispatch(setShowNav())}>
+         <button onClick={setShowNav}>
             <img className="logo" src={logo} alt="logo" />
          </button>
          <nav
