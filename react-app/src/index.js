@@ -6,7 +6,24 @@ import App from './App';
 import configureStore from './store';
 import { ModalProvider } from './context/Modal';
 
-const store = configureStore();
+function loadNavState() {
+   try {
+      const state = localStorage.getItem('bb-showNav');
+      if (state) {
+         return {
+            session: {
+               showNav: JSON.parse(state),
+            },
+         };
+      }
+   } catch {
+      //do nothing
+   }
+}
+
+const state = loadNavState()
+
+const store = configureStore(state);
 
 ReactDOM.render(
    <React.StrictMode>
