@@ -68,3 +68,26 @@
     top: 5px;
     box-shadow: -2px -2px 5px 1px rgb(53, 53, 53);
 }
+
+@media (max-width: 1000px) {
+    #post-create-img {
+        display: none;
+    }
+
+    .post-create-container {
+        display: grid;
+        grid-template-columns: 500px;
+        width: 500px;
+        padding: 3px;
+        margin: auto;
+        box-shadow: 0px 0px 6px 3px rgb(96, 178, 189), -4px 6px 7px 2px rgba(77, 77, 77, 0.671);
+        border-radius: 8px;
+    }
+
+    .post-create-form {
+        grid-column: 1 / 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+}
