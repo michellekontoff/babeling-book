@@ -49,7 +49,7 @@ def create_comment():
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
         data = form.data
-        comment = Comment(user_id=data['user_id'], content=data['content'], post_id=data['post_id'])
+        comment = Comment(user_id=data['user_id'], content=data['content'], post_id=data['post_id'], created_at=datetime.now(), updated_at=datetime.now())
 
         db.session.add(comment)
         db.session.commit()
