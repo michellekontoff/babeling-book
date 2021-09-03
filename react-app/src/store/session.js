@@ -1,3 +1,5 @@
+import { useDispatch } from "react-redux";
+
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
@@ -16,6 +18,26 @@ export const setShowNav = () => ({
     type: SET_SHOWNAV,
 })
 
+export const useSetShowNav = (showNav) => {
+    const dispatch = useDispatch()
+        return async function () {
+            await dispatch(setShowNav())
+            try {
+                localStorage.setItem('bb-showNav', showNav)
+            } catch {
+                //do nothing
+            }
+    }
+
+}
+
+function showNavOnLogin () {
+    localStorage.setItem('bb-showNav', true)
+}
+
+function closeNavOnLogout () {
+    localStorage.setItem('bb-showNav', false)
+}
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
@@ -50,6 +72,7 @@ export const login = (email, password) => async (dispatch) => {
     const data = await response.json();
     dispatch(setUser(data))
     dispatch(setShowNav())
+    showNavOnLogin()
     return null;
   } else if (response.status < 500) {
     const data = await response.json();
@@ -70,6 +93,7 @@ export const logout = () => async (dispatch) => {
   });
 
   if (response.ok) {
+    closeNavOnLogout()
     dispatch(removeUser());
   }
 };
@@ -93,6 +117,7 @@ export const signUp = (username, email, password, confirmPassword) => async (dis
     const data = await response.json();
     dispatch(setUser(data))
     dispatch(setShowNav())
+    showNavOnLogin()
     return null;
   } else if (response.status < 500) {
     const data = await response.json();

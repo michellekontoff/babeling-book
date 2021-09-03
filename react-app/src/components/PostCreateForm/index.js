@@ -50,7 +50,7 @@ export default function PostCreateForm() {
 
    return (
       <div className="post-create-container">
-         <img id="post-create-img" src={image} alt="create-post-img"></img>
+         <img id="post-create-img" src={image} alt="create-post-img" />
          <form
             className="post-create-form post-form"
             onSubmit={(e) => submitPost(e)}
