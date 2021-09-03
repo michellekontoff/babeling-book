@@ -1,10 +1,12 @@
 /* TODO Add site wide styles */
 
 body {
+    /* position: absolute; */
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 12pt;
     margin-top: 100px;
+    /* top: 100px */
 }
 
 * {
@@ -44,4 +46,12 @@ label.errors {
     color: red;
     text-align: center;
     padding: 2px 2px;
+}
+
+
+@media (max-width: 1000px) {
+    body {
+        position: absolute;
+        left: 5px;
+    }
 }
