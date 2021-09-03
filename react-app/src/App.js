@@ -5,7 +5,6 @@ import NavBar from './components/NavBar';
 import Homepage from './components/Homepage';
 import Profile from './components/Profile';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
 import { authenticate } from './store/session';
 import PostPage from './components/PostPage';
 import PostCreateForm from './components/PostCreateForm';

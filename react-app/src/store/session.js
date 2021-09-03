@@ -1,6 +1,7 @@
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
+const SET_SHOWNAV = 'session/SHOW_NAV'
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -11,7 +12,10 @@ const removeUser = () => ({
   type: REMOVE_USER,
 })
 
-const initialState = { user: null };
+export const setShowNav = () => ({
+    type: SET_SHOWNAV,
+})
+
 
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
@@ -45,6 +49,7 @@ export const login = (email, password) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
+    dispatch(setShowNav())
     return null;
   } else if (response.status < 500) {
     const data = await response.json();
@@ -87,6 +92,7 @@ export const signUp = (username, email, password, confirmPassword) => async (dis
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
+    dispatch(setShowNav())
     return null;
   } else if (response.status < 500) {
     const data = await response.json();
@@ -98,12 +104,23 @@ export const signUp = (username, email, password, confirmPassword) => async (dis
   }
 }
 
+const initialState = { user: null, showNav: false };
+
 export default function reducer(state = initialState, action) {
+    let newState = {...state}
   switch (action.type) {
     case SET_USER:
-      return { user: action.payload }
+        newState['user'] = action.payload
+      return newState
     case REMOVE_USER:
-      return { user: null }
+      return initialState
+    case SET_SHOWNAV:
+        if (newState['showNav'] === true) {
+            newState['showNav'] = false
+        } else {
+            newState['showNav'] = true
+        }
+        return newState
     default:
       return state;
   }
