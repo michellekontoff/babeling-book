@@ -9,6 +9,7 @@ import { authenticate } from './store/session';
 import PostPage from './components/PostPage';
 import PostCreateForm from './components/PostCreateForm';
 import PostsLatest from './components/PostsLatest';
+import PostNotFound from './components/PostNotFound';
 
 function App() {
    const [loaded, setLoaded] = useState(false);
@@ -44,6 +45,9 @@ function App() {
             <Route path='/' exact={true}>
                <Homepage />
             </Route>
+            <ProtectedRoute path='/posts/not-found' exact={true}>
+                <PostNotFound />
+            </ProtectedRoute>
             <Route>
                <h1 id='not-found'>
                   <p>404</p>
