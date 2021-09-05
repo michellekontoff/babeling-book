@@ -107,27 +107,22 @@ npm install
 pipenv shell
 ```
 
-5. In the root folder, create the database by running in the terminal:
+5. In the root folder, migrate tables to the database by running in the terminal:
 ```shell
-flask db create
+flask db upgrade
 ```
 
-6. In the root folder, migrate tables to the database by running in the terminal:
-```shell
-flask db migrate
-```
-
-7. In the root folder, seed the database by running in the terminal:
+6. In the root folder, seed the database by running in the terminal:
 ```shell
 flask seed all
 ```
 
-8. Start the flask backend in the `/` root directory
+7. Start the flask backend in the `/` root directory
 ```shell
 flask run
 ```
 
-9. Start the frontend by navigating to `/react-app` directory and running
+8. Start the frontend by navigating to `/react-app` directory and running
 
 ```javascript
 npm start
