@@ -13,7 +13,7 @@ const NavBar = () => {
    const user = useSelector((state) => state.session.user);
    const showNav = useSelector((state) => state.session.showNav)
 
-    const setShowNav = useSetShowNav(!showNav)
+   const setShowNav = useSetShowNav(!showNav)
 
    if (!user) {
       return null;
