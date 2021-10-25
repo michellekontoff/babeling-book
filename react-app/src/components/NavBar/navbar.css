@@ -104,6 +104,27 @@
 
  @media (max-width: 1000px) {
 
+    .navbar {
+        left: 2vw;
+        top: 2vw;
+        height: 2.5vw;
+    }
+
+    .navbar button {
+        right: auto;
+        left: auto;
+        height: 4.4vw;
+        width: 4.4vw;
+    }
+
+    .logo {
+        height: 3.4vw;
+        width: 3.4vw;
+        top: 0.2vw;
+        left: 0.2vw;
+    }
+
+
     .nav-links {
         position: fixed;
         right: 0px;
