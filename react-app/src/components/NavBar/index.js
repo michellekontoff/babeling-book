@@ -26,7 +26,7 @@ const NavBar = () => {
          </button>
          <nav
             className="nav-links"
-            style={ !showNav ? { transform: "translateX(260px)" } : {}}
+            style={ !showNav ? { transform: "translateY(-510px)" } : {}}
          >
             <div className='navbar__hello'>
                <h2>Hello,</h2>
@@ -56,8 +56,7 @@ const NavBar = () => {
                   <LogoutButton />
                </li>
             </ul>
-            <li></li>
-            <div>
+            <div className='nav-footer'>
                <Footer />
             </div>
          </nav>
