@@ -110,7 +110,7 @@
         height: 2.5vw;
     }
 
-    .navbar button {
+    .navbar button:not(#logout-btn) {
         right: auto;
         left: auto;
         height: 5vw;
@@ -157,9 +157,9 @@
     }
 
     #logout-btn {
-        /* position: static; */
-        left: 0px;
-        bottom: 10px;
+        position: static;
+        /* left: 0px;
+        bottom: 10px; */
         font-size: 2.7vw;
     }
 
