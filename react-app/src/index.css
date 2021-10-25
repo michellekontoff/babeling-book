@@ -5,12 +5,16 @@ body {
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 12pt;
-    margin-top: 100px;
+    /* margin-top: 100px; */
     /* top: 100px */
 }
 
 * {
     box-sizing: border-box;
+}
+
+.content {
+    margin: 70px auto;
 }
 
 button {

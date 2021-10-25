@@ -6,6 +6,7 @@ import { getLanguages } from "../postUtils";
 import image from "../../images/postCreate.jpg";
 
 import "./postCreateForm.css";
+// import "../../index.css";
 
 export default function PostCreateForm() {
    const history = useHistory();
@@ -49,7 +50,7 @@ export default function PostCreateForm() {
    }, []);
 
    return (
-      <div className="post-create-container">
+      <div className="post-create-container content">
          <img id="post-create-img" src={image} alt="create-post-img" />
          <form
             className="post-create-form post-form"

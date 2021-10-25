@@ -1,7 +1,6 @@
 .post-edit-form {
     display: flex;
     flex-direction: column;
-    margin: auto;
     width: 450px;
 }
 

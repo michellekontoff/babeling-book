@@ -1,7 +1,5 @@
-.post-container,
-.comments-container {
+.post-page {
     width: 650px;
-    margin: auto;
 }
 
 .post-container {
@@ -59,6 +57,10 @@
     border: 1px solid red;
     background-color: rgb(255, 198, 198);
 }
+
+/* .comments-container {
+    margin: auto;
+} */
 
 .comment-create {
     margin: 30px auto;
