@@ -1,7 +1,7 @@
 .navbar {
     position: fixed;
     width: 220px;
-    right: 50px;
+    right: 80px;
 }
 
 .navbar h2 {
@@ -41,7 +41,7 @@
  .nav-links {
     position: fixed;
     top: 0px;
-    box-shadow: 1px 0px 6px 1px rgb(65, 65, 65);
+    box-shadow: 1px 0px 6px 1px rgb(98, 98, 98);
     height: 500px;
     transition: all 0.8s linear;
     background-color: rgba(62, 185, 158, 0.397);
@@ -51,6 +51,7 @@
     box-shadow: 1px 0px 10px 1px black;
     background-color: rgb(137, 221, 203);
  }
+
 .nav-links__list {
     padding: 10px;
     padding-left: 20px;
