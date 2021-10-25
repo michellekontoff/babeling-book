@@ -100,3 +100,35 @@
      align-items: flex-end;
      height: 200px;
  }
+
+ @media (max-width: 1000px) {
+
+    .nav-links {
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        height: 50px;
+        width: 100%;
+    }
+
+    .nav-links__list {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 0px;
+    }
+
+    .nav-links__list li {
+        padding: 0px;
+        margin: 0px;
+        font-size: 2vw;
+    }
+
+    .navbar__hello {
+        display: none;
+    }
+
+    .nav-footer {
+        display: none;
+        height: 0px;
+    }
+}
