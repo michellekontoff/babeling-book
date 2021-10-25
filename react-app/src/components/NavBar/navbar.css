@@ -44,6 +44,7 @@
     box-shadow: 1px 0px 6px 1px rgb(98, 98, 98);
     height: 500px;
     transition: all 0.8s linear;
+    border-radius: 3px;
     background-color: rgba(62, 185, 158, 0.397);
  }
 
@@ -109,6 +110,9 @@
         top: 0px;
         height: 50px;
         width: 100%;
+        transition: all 0s linear;
+        background-color: rgb(137, 221, 203);
+        box-shadow: 1px 0px 10px 1px black;
     }
 
     .nav-links__list {
@@ -120,7 +124,20 @@
     .nav-links__list li {
         padding: 0px;
         margin: 0px;
-        font-size: 2vw;
+    }
+
+    .nav-links__list a {
+        font-size: 2.5vw;
+    }
+
+    .nav-links__list a:hover,
+    #logout-btn:hover {
+        font-size: 3vw;
+    }
+
+    #logout-btn {
+        position: static;
+        font-size: 2.7vw;
     }
 
     .navbar__hello {
