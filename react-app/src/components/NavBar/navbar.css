@@ -113,13 +113,13 @@
     .navbar button {
         right: auto;
         left: auto;
-        height: 4.4vw;
-        width: 4.4vw;
+        height: 5vw;
+        width: 5vw;
     }
 
     .logo {
-        height: 3.4vw;
-        width: 3.4vw;
+        height: 4.5vw;
+        width: 4.5vw;
         top: 0.2vw;
         left: 0.2vw;
     }
@@ -157,7 +157,9 @@
     }
 
     #logout-btn {
-        position: static;
+        /* position: static; */
+        left: 0px;
+        bottom: 10px;
         font-size: 2.7vw;
     }
 
