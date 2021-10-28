@@ -19,10 +19,6 @@
    height: 475px;
 }
 
-.about__img {
-   height: 475px;
-}
-
 .header__welcome {
    height: fit-content;
    width: fit-content;
@@ -58,7 +54,6 @@
 .header__buttons {
    grid-area: btns;
    display: flex;
-   /* width: 20vw; */
    flex-direction: column;
    align-items: flex-end;
    justify-content: space-between;
@@ -90,14 +85,12 @@
    background-color: rgb(80, 187, 187);
    display: flex;
    justify-content: center;
-   margin: 30px;
+   margin: 30px auto 30px;
    padding: 10px;
    align-items: center;
 }
 
-.about__img-container {
-   flex-shrink: 0;
-}
+
 .about__img {
    width: 500px;
    height: auto;
@@ -106,7 +99,7 @@
 .about__message {
    width: 310px;
    margin-right: 25px;
-   flex-shrink: 0;
+
 }
 
 .about__message button {
@@ -118,15 +111,16 @@
    color: black;
 }
 
-@media (max-width: 1000px) {
+@media (max-width: 850px) {
     .header {
-        /* display: block; */
         grid-template-columns: 2fr 1fr;
-        margin: auto;
-        width: 90vw;
+        width: 95vw;
+        height: 50vw;
         background-size: contain;
-        /* margin: auto; */
-        /* height: fit-content; */
+    }
+
+    .about__message {
+        margin: 20px auto;
     }
 
     .header__welcome-babeling {
@@ -138,15 +132,7 @@
          font-size: 10vw;
      }
 
-    .header__buttons {
-        /* flex-direction: row; */
-        /* width: 90vw; */
-        /* justify-content: center; */
-        /* margin: auto; */
-    }
-
     .header__buttons button {
-        /* margin-right: 50px; */
         width: 25vw;
         height: 6vw;
         font-size: 4vw;
@@ -156,8 +142,10 @@
         font-size: 5vw;
     }
 
+    .about__img-container,
     .about__img {
-        display: none;
+        width: 60vw;
+        margin: auto;
     }
 
     .about {
