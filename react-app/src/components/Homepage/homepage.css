@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Marck+Script&display=swap");
 
-/* .homepage-container {
-   position: relative;
-   bottom: 80px;
-} */
-
 .header {
    width: 800px;
    height: 415px;
@@ -84,7 +79,6 @@
 
 .header__buttons button:hover {
    font-size: 25pt;
-   color: white;
    text-shadow: 1px 1px 4px black;
    background-color: rgba(0, 0, 0, 0.4);
    border-top: 3px solid rgba(0, 0, 0, 0.5);
@@ -121,4 +115,32 @@
 .about__message button:hover {
    font-style: italic;
    color: black;
+}
+
+@media (max-width: 1000px) {
+    .header {
+        display: block;
+        width: 99.8vw;
+        background-size: contain;
+        margin: auto;
+        /* height: fit-content; */
+    }
+
+    .header__buttons {
+        flex-direction: row;
+        width: 90vw;
+        justify-content: center;
+        margin: auto;
+    }
+
+    .header__buttons button {
+        margin-right: 50px;
+        width: 25vw;
+        height: 6vw;
+        font-size: 4vw;
+    }
+
+    .header__buttons button:hover {
+        font-size: 5vw;
+    }
 }
