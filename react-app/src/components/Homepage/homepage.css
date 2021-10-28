@@ -58,6 +58,7 @@
 .header__buttons {
    grid-area: btns;
    display: flex;
+   /* width: 20vw; */
    flex-direction: column;
    align-items: flex-end;
    justify-content: space-between;
@@ -119,22 +120,33 @@
 
 @media (max-width: 1000px) {
     .header {
-        display: block;
-        width: 99.8vw;
-        background-size: contain;
+        /* display: block; */
+        grid-template-columns: 2fr 1fr;
         margin: auto;
+        width: 90vw;
+        background-size: contain;
+        /* margin: auto; */
         /* height: fit-content; */
     }
 
+    .header__welcome-babeling {
+        font-size: 10vw;
+        margin-bottom: 5px;
+     }
+     
+     .header__welcome-book {
+         font-size: 10vw;
+     }
+
     .header__buttons {
-        flex-direction: row;
-        width: 90vw;
-        justify-content: center;
-        margin: auto;
+        /* flex-direction: row; */
+        /* width: 90vw; */
+        /* justify-content: center; */
+        /* margin: auto; */
     }
 
     .header__buttons button {
-        margin-right: 50px;
+        /* margin-right: 50px; */
         width: 25vw;
         height: 6vw;
         font-size: 4vw;
