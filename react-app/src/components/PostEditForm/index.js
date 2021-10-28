@@ -52,7 +52,7 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }) {
    }, []);
 
    return (
-      <form className="post-edit-form post-form content" onSubmit={(e) => editPost(e)}>
+      <form className="post-edit-form post-form" onSubmit={(e) => editPost(e)}>
          {errors?.auth && <label className="errors">{errors?.auth}</label>}
          <label>Title</label>
          {errors?.title && <label className="errors">{errors?.title}</label>}
