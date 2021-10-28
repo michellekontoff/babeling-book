@@ -56,9 +56,9 @@ const NavBar = () => {
                   <LogoutButton />
                </li>
             </ul>
-            {/* <div className='nav-footer'>
+            <div className='nav-footer'>
                <Footer />
-            </div> */}
+            </div>
          </nav>
       </div>
    );
