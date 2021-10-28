@@ -65,8 +65,8 @@ label.errors {
     box-shadow: -2px -2px 5px 1px rgb(53, 53, 53);
 }
 
-@media (max-with: 1000px) {
-    .post-form input {
-        width: 100px;
+@media (max-width: 1000px) {
+    .post-edit-form{
+        width: 370px;
     }
 }
