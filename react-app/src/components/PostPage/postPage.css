@@ -83,3 +83,9 @@
     bottom: 5px;
     box-shadow: 2px 2px 7px 1px rgba(77, 77, 77, 0.671), -2px 2px 7px 1px rgba(77, 77, 77, 0.671);
 }
+
+@media (max-width: 1000px) {
+    .post-page {
+        width: 450px;
+    }
+}
