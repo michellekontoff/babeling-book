@@ -129,7 +129,7 @@ export const signUp = (username, email, password, confirmPassword) => async (dis
   }
 }
 
-const initialState = { user: null, showNav: true };
+const initialState = { user: null, showNav: false };
 
 export default function reducer(state = initialState, action) {
     let newState = {...state}
