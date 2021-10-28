@@ -1,8 +1,14 @@
 .posts-latest {
     width: 650px;
-    margin: auto;
+    /* margin: auto; */
 }
 
 .posts-latest > h1 {
     text-align: center;
+}
+
+@media (max-width: 700px) {
+    .posts-latest {
+        width: 450px;
+    }
 }

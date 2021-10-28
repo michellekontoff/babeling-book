@@ -8,3 +8,9 @@
     margin: 5px auto;
     border-radius: 4px;
  }
+
+ @media (max-width: 1000px) {
+    .comment-edit-form textarea {
+        width: 340px;
+    }
+}

@@ -1,8 +1,8 @@
 .post-edit-form {
     display: flex;
     flex-direction: column;
+    width: 550px;
     margin: auto;
-    width: 450px;
 }
 
 .post-edit-form input {
@@ -64,4 +64,10 @@ label.errors {
     position: relative;
     top: 5px;
     box-shadow: -2px -2px 5px 1px rgb(53, 53, 53);
+}
+
+@media (max-width: 1000px) {
+    .post-edit-form {
+        width: 370px;
+    }
 }

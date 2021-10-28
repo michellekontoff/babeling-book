@@ -66,3 +66,9 @@
    border: 1px solid rgb(216, 86, 0);
    margin-bottom: 8px;
 }
+
+@media (max-width: 1000px) {
+    .comment {
+        grid-template-columns: 350px 1fr;
+    }
+}

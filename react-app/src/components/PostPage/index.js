@@ -105,7 +105,7 @@ export default function PostPage() {
          {post.error ? (
             <Redirect to='/posts/not-found' />
          ) : (
-            <div className='post-page'>
+            <div className='post-page content'>
                <div className='post-container'>{content}</div>
                <div className='comments-container'>
                   {post.content ? (

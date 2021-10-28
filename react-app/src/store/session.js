@@ -32,11 +32,11 @@ export const useSetShowNav = (showNav) => {
 }
 
 function showNavOnLogin () {
-    localStorage.setItem('bb-showNav', true)
+    // localStorage.setItem('bb-showNav', true)
 }
 
 function closeNavOnLogout () {
-    localStorage.setItem('bb-showNav', false)
+    // localStorage.setItem('bb-showNav', false)
 }
 
 export const authenticate = () => async (dispatch) => {
