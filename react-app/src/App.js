@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Switch, useHistory } from 'react-router-dom';
+// import { useHistory, useHistory } from 'react-router';
 import { useDispatch } from 'react-redux';
 import NavBar from './components/NavBar';
 import Homepage from './components/Homepage';
@@ -14,7 +15,9 @@ import Footer from './components/Footer';
 
 function App() {
    const [loaded, setLoaded] = useState(false);
+   const [path, setPath] = useState('/')
    const dispatch = useDispatch();
+
 
    useEffect(() => {
       (async () => {
@@ -57,9 +60,6 @@ function App() {
                 </h1>
                 </Route>
             </Switch>
-            <div id="fullscreen-footer">
-                <Footer />
-            </div>
          </div>
       </BrowserRouter>
    );
