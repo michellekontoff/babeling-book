@@ -5,7 +5,7 @@ import LogoutButton from "../auth/LogoutButton";
 import Footer from "../Footer";
 import logo from "../../images/bb-logo-closed.png";
 
-import { useSetShowNav } from "../../store/session";
+import { useToggleShowNav } from "../../store/session";
 
 import './navbar.css';
 
@@ -13,7 +13,7 @@ const NavBar = () => {
    const user = useSelector((state) => state.session.user);
    const showNav = useSelector((state) => state.session.showNav)
 
-   const setShowNav = useSetShowNav(!showNav)
+   const toggleShowNav = useToggleShowNav(!showNav)
 
    if (!user) {
       return null;
@@ -21,7 +21,7 @@ const NavBar = () => {
 
    return (
       <div className="navbar">
-         <button onClick={setShowNav}>
+         <button onClick={toggleShowNav}>
             <img className="logo" src={logo} alt="logo" />
          </button>
          <nav
