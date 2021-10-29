@@ -13,6 +13,10 @@ body {
     box-sizing: border-box;
 }
 
+#fullscreen-footer {
+    display: none;
+}
+
 .content {
     margin: 70px auto;
 }
@@ -53,9 +57,32 @@ label.errors {
 }
 
 
-/* @media (max-width: 1000px) {
+@media (max-width: 1000px) {
     body {
-        position: absolute;
-        left: 5px;
+        margin: 0px;
     }
-} */
+    
+    #wrapper {
+        min-height: 100vh;
+        /* width: 99.5vw; */
+        overflow: hidden;
+        display: block;
+        position: relative;
+        padding-bottom: 100px;
+       }
+
+       #fullscreen-footer {
+        display: block;
+        position: absolute;
+        /* border: 1px solid black; */
+        /* position: fixed; */
+        padding: 7px;
+        bottom: 0;
+        left: 0;
+        /* justify-self: center; */
+        width: 100%;
+        height: 110px;
+        background-color: rgb(137, 221, 203);
+        box-shadow: -1px 0px 10px 1px black
+    }
+}

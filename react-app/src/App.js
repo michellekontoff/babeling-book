@@ -10,6 +10,7 @@ import PostPage from './components/PostPage';
 import PostCreateForm from './components/PostCreateForm';
 import PostsLatest from './components/PostsLatest';
 import PostNotFound from './components/PostNotFound';
+import Footer from './components/Footer';
 
 function App() {
    const [loaded, setLoaded] = useState(false);
@@ -28,33 +29,38 @@ function App() {
 
    return (
       <BrowserRouter>
-         <NavBar />
-         <Switch>
-            <ProtectedRoute path='/users/:userId' exact={true}>
-               <Profile />
-            </ProtectedRoute>
-            <ProtectedRoute path='/posts/new' exact={true}>
-               <PostCreateForm />
-            </ProtectedRoute>
-            <ProtectedRoute path='/posts/latest' exact={true}>
-               <PostsLatest />
-            </ProtectedRoute>
-            <ProtectedRoute path={`/posts/:postId(\\d+)`} exact={true}>
-               <PostPage />
-            </ProtectedRoute>
-            <Route path='/' exact={true}>
-               <Homepage />
-            </Route>
-            <ProtectedRoute path='/posts/not-found' exact={true}>
-                <PostNotFound />
-            </ProtectedRoute>
-            <Route>
-               <h1 id='not-found'>
-                  <p>404</p>
-                  <p>The page you requested could not be found.</p>
-               </h1>
-            </Route>
-         </Switch>
+        <div id='wrapper'>
+            <NavBar />
+            <Switch>
+                <ProtectedRoute path='/users/:userId' exact={true}>
+                <Profile />
+                </ProtectedRoute>
+                <ProtectedRoute path='/posts/new' exact={true}>
+                <PostCreateForm />
+                </ProtectedRoute>
+                <ProtectedRoute path='/posts/latest' exact={true}>
+                <PostsLatest />
+                </ProtectedRoute>
+                <ProtectedRoute path={`/posts/:postId(\\d+)`} exact={true}>
+                <PostPage />
+                </ProtectedRoute>
+                <Route path='/' exact={true}>
+                <Homepage />
+                </Route>
+                <ProtectedRoute path='/posts/not-found' exact={true}>
+                    <PostNotFound />
+                </ProtectedRoute>
+                <Route>
+                <h1 id='not-found'>
+                    <p>404</p>
+                    <p>The page you requested could not be found.</p>
+                </h1>
+                </Route>
+            </Switch>
+            <div id="fullscreen-footer">
+                <Footer />
+            </div>
+         </div>
       </BrowserRouter>
    );
 }
