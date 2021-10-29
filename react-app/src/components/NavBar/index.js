@@ -63,7 +63,7 @@ const NavBar = () => {
                     </div>
                 </nav>
             </div>
-            <div id="fullscreen-footer" style={location.pathname === '/' ? {display: "none"} : {display: "block"}}>
+            <div id="fullscreen-footer" style={location.pathname === '/' ? {display: "none"} : {} }>
                 <Footer />
             </div>
         </>
