@@ -10,7 +10,7 @@ export default function Profile() {
    const currentUser = useSelector((state) => state.session.user)
    const [user, setUser] = useState({});
    const [posts, setPosts] = useState([]);
-   const [userId, setUserId] = useState(null)
+   const [profileId, setProfileId] = useState(null)
    const params = useParams();
 
    async function getPosts(userId) {
@@ -20,7 +20,7 @@ export default function Profile() {
          if (data.posts.length) {
             setPosts(data.posts);
          } else {
-             if (currentUser.id === userId) {
+             if (currentUser.id === profileId) {
                  setPosts((<p align="center">You don't have any posts yet. Why don't you try <Link to='/posts/new' className='first-post'>writing one</Link>?</p>))
              } else {
                  setPosts((<p align="center">This user hasn't made any posts yet.</p>))
@@ -43,10 +43,9 @@ export default function Profile() {
    }
 
    useEffect(() => {
-      const userId = parseInt(params.userId);
-      setUserId(userId)
-      getUser(userId);
-      getPosts(userId);
+      setProfileId(parseInt(params.userId))
+      getUser(params.userId);
+      getPosts(params.userId);
    }, [params.userId]);
 
    return (
