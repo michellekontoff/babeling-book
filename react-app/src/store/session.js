@@ -3,7 +3,8 @@ import { useDispatch } from "react-redux";
 // constants
 const SET_USER = 'session/SET_USER';
 const REMOVE_USER = 'session/REMOVE_USER';
-const SET_SHOWNAV = 'session/SHOW_NAV'
+const TOGGLE_SHOWNAV = 'session/TOGGLE_SHOWNAV'
+const SET_SHOWNAV = 'session/SET_SHOWNAV'
 
 const setUser = (user) => ({
   type: SET_USER,
@@ -14,16 +15,20 @@ const removeUser = () => ({
   type: REMOVE_USER,
 })
 
-export const setShowNav = () => ({
-    type: SET_SHOWNAV,
+export const toggleShowNav = () => ({
+    type: TOGGLE_SHOWNAV,
 })
 
-export const useSetShowNav = (showNav) => {
-    const dispatch = useDispatch()
-        return async function () {
-            await dispatch(setShowNav())
+export const setShowNav = (showNav) => ({
+    type: SET_SHOWNAV,
+    showNav
+})
+
+export const toggleNavBar = (showNav) => {
+        return async function (dispatch) {
+            await dispatch(toggleShowNav());
             try {
-                localStorage.setItem('bb-showNav', showNav)
+                localStorage.setItem('bb-showNav', showNav);
             } catch {
                 //do nothing
             }
@@ -32,11 +37,7 @@ export const useSetShowNav = (showNav) => {
 }
 
 function showNavOnLogin () {
-    // localStorage.setItem('bb-showNav', true)
-}
-
-function closeNavOnLogout () {
-    // localStorage.setItem('bb-showNav', false)
+    localStorage.setItem('bb-showNav', true)
 }
 
 export const authenticate = () => async (dispatch) => {
@@ -71,7 +72,7 @@ export const login = (email, password) => async (dispatch) => {
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
-    dispatch(setShowNav())
+    dispatch(setShowNav(true))
     showNavOnLogin()
     return null;
   } else if (response.status < 500) {
@@ -93,7 +94,6 @@ export const logout = () => async (dispatch) => {
   });
 
   if (response.ok) {
-    closeNavOnLogout()
     dispatch(removeUser());
   }
 };
@@ -116,7 +116,7 @@ export const signUp = (username, email, password, confirmPassword) => async (dis
   if (response.ok) {
     const data = await response.json();
     dispatch(setUser(data))
-    dispatch(setShowNav())
+    dispatch(setShowNav(true))
     showNavOnLogin()
     return null;
   } else if (response.status < 500) {
@@ -129,7 +129,7 @@ export const signUp = (username, email, password, confirmPassword) => async (dis
   }
 }
 
-const initialState = { user: null, showNav: false };
+const initialState = { user: null, showNav: true };
 
 export default function reducer(state = initialState, action) {
     let newState = {...state}
@@ -139,12 +139,11 @@ export default function reducer(state = initialState, action) {
       return newState
     case REMOVE_USER:
       return initialState
+    case TOGGLE_SHOWNAV:
+        newState['showNav'] = !newState['showNav']
+        return newState
     case SET_SHOWNAV:
-        if (newState['showNav'] === true) {
-            newState['showNav'] = false
-        } else {
-            newState['showNav'] = true
-        }
+        newState['showNav'] = action.showNav
         return newState
     default:
       return state;
