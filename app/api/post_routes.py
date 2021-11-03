@@ -84,8 +84,8 @@ def get_post_comments(id):
 @bp.route('/search/<string:search>')
 def search_posts(search):
     
-    posts_titles = set(Post.query.filter(Post.title.like(f'%{search}%')).all())
-    posts_content =  set(Post.query.filter(Post.content.like(f'%{search}%')).all())
+    posts_titles = set(Post.query.filter(Post.title.ilike(f'%{search}%')).all())
+    posts_content =  set(Post.query.filter(Post.content.ilike(f'%{search}%')).all())
 
     posts = list(posts_content.union(posts_titles))
 
