@@ -140,11 +140,7 @@ export default function reducer(state = initialState, action) {
     case REMOVE_USER:
       return initialState
     case TOGGLE_SHOWNAV:
-        if (newState['showNav'] === true) {
-            newState['showNav'] = false
-        } else {
-            newState['showNav'] = true
-        }
+        newState['showNav'] = !newState['showNav']
         return newState
     case SET_SHOWNAV:
         newState['showNav'] = action.showNav
