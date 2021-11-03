@@ -41,10 +41,6 @@ function showNavOnLogin () {
     localStorage.setItem('bb-showNav', true)
 }
 
-function closeNavOnLogout () {
-    // localStorage.setItem('bb-showNav', false)
-}
-
 export const authenticate = () => async (dispatch) => {
   const response = await fetch('/api/auth/', {
     headers: {
