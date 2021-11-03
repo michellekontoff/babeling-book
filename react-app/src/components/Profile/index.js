@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Link } from "react-router-dom";
 import PostList from "../PostList";
 
 import "./profile.css";
@@ -14,7 +15,11 @@ export default function Profile() {
 
       if (res.ok) {
          const data = await res.json();
-         setPosts(data.posts);
+         if (data.posts.length) {
+            setPosts(data.posts);
+         } else {
+             setPosts((<p align="center">You don't have any posts yet. Why don't you try <Link to='/posts/new' className='first-post'>writing one</Link>?</p>))
+         }
       } else {
          return "Something went wrong.";
       }
@@ -39,9 +44,9 @@ export default function Profile() {
 
    return (
       <>
-         <div className="user-posts posts-list-container">
+         <div className="posts-latest content">
             <h1>{user.username}'s Posts</h1>
-            <PostList posts={posts} />
+            {posts.length > 0 ? <PostList posts={posts} /> : <>{posts}</> }
          </div>
       </>
    );

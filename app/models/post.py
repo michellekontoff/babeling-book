@@ -7,7 +7,7 @@ class Post(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(50), nullable=True)
-    content = db.Column(db.Text, nullable=False)
+    content = db.Column(db.String(2000), nullable=False)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
     language_id = db.Column(db.Integer, db.ForeignKey('languages.id'), nullable=False)
     created_at = db.Column(db.DateTime, nullable=False, default=datetime.now())
@@ -15,6 +15,8 @@ class Post(db.Model):
 
     language = relationship('Language')
     owner = relationship('User', lazy=True)
+
+    comments =relationship('Comment', lazy=True, cascade="all, delete, delete-orphan")
 
     def to_dict(self):
         return {

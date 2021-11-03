@@ -40,7 +40,7 @@ const LoginForm = () => {
    }
 
    return (
-      <form className="login-form auth-form" onSubmit={onLogin}>
+      <form className="login-form auth-form" onSubmit={onLogin} autoComplete="off">
          {errors?.email && <label className="errors">{errors?.email}</label>}
          <input
             name="email"

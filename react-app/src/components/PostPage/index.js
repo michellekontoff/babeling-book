@@ -1,14 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { useParams, useHistory } from "react-router";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useParams, useHistory } from 'react-router';
+import { Link, Redirect } from 'react-router-dom';
 
-import PostEditForm from "../PostEditForm";
-import CommentList from "../CommentList";
+import PostEditForm from '../PostEditForm';
+import CommentList from '../CommentList';
 
-import { CommentsProvider } from "../../context/CommentsContext";
+import { CommentsProvider } from '../../context/CommentsContext';
 
-import "./postPage.css";
+import './postPage.css';
 
 export default function PostPage() {
    const user = useSelector((state) => state.session.user);
@@ -25,20 +25,20 @@ export default function PostPage() {
          const post = await res.json();
          setPost(post);
       } else {
-         return "Something went wrong.";
+         return 'Something went wrong.';
       }
    }
 
    async function deletePost() {
       const res = window.confirm(
-         "Are you sure you want to permanently delete this post?"
+         'Are you sure you want to permanently delete this post?'
       );
 
       if (!res) {
          return;
       } else {
          await fetch(`/api/posts/${params.postId}`, {
-            method: "DELETE",
+            method: 'DELETE',
          });
 
          history.push(`/users/${user.id}`);
@@ -47,7 +47,7 @@ export default function PostPage() {
 
    useEffect(() => {
       getPost(params.postId);
-   }, [editMode, params.postId]);
+   }, [editMode, params.postId, history]);
 
    let content;
    if (editMode) {
@@ -61,11 +61,11 @@ export default function PostPage() {
       );
    } else {
       content = (
-         <div className="post">
-            <div className="post__title">
-               <h2>{post.title}</h2>
+         <div className='post'>
+            <div className='post__title'>
+               {post?.title && <h2>{post.title}</h2>}
             </div>
-            <div className="post__details">
+            <div className='post__details'>
                <div>
                   <Link to={`/users/${post.owner?.id}`}>
                      {post.owner?.username}
@@ -77,19 +77,19 @@ export default function PostPage() {
                   <div>edited {post.updated_at}</div>
                ) : null}
             </div>
-            <div className="post__content">{post.content}</div>
+            <div className='post__content'>{post.content}</div>
             {post.owner?.id === user.id ? (
-               <div className="post__btns">
+               <div className='post__btns'>
                   <button
-                     className="post__edit"
-                     type="button"
+                     className='post__edit'
+                     type='button'
                      onClick={() => setEditMode(!editMode)}
                   >
                      Edit
                   </button>
                   <button
-                     className="post__delete"
-                     type="button"
+                     className='post__delete'
+                     type='button'
                      onClick={deletePost}
                   >
                      Delete
@@ -101,19 +101,25 @@ export default function PostPage() {
    }
 
    return (
-      <div className="post-page">
-         <div className="post-container">
-            {post.error ? <h2>{post.error}</h2> : content}
-         </div>
-         <div className="comments-container">
-            <CommentsProvider
-               postOwnerId={post.owner?.id}
-               userId={user.id}
-               postId={post.id}
-            >
-               <CommentList />
-            </CommentsProvider>
-         </div>
-      </div>
+      <>
+         {post.error ? (
+            <Redirect to='/posts/not-found' />
+         ) : (
+            <div className='post-page content'>
+               <div className='post-container'>{content}</div>
+               <div className='comments-container'>
+                  {post.content ? (
+                     <CommentsProvider
+                        postOwnerId={post.owner?.id}
+                        userId={user.id}
+                        postId={post.id}
+                     >
+                        <CommentList />
+                     </CommentsProvider>
+                  ) : null}
+               </div>
+            </div>
+         )}
+      </>
    );
 }

@@ -5,13 +5,13 @@
     grid-template-columns: 450px 400px;
     width: 900px;
     padding: 3px;
-    margin: auto;
     box-shadow: 0px 0px 6px 3px rgb(96, 178, 189), -4px 6px 7px 2px rgba(77, 77, 77, 0.671);
     border-radius: 8px;
 }
 
 #post-create-img {
     width: 400px;
+    align-self: center;
     border-bottom-left-radius: 8px;
     border-top-left-radius: 8px;
     grid-column: 1 / 2;
@@ -54,6 +54,7 @@
 
 .post-create-form button {
     margin-top: 20px;
+    margin-bottom: 8px;
     padding: 10px 15px;
     font-size: 16pt;
     align-self: center;
@@ -65,4 +66,21 @@
     position: relative;
     top: 5px;
     box-shadow: -2px -2px 5px 1px rgb(53, 53, 53);
+}
+
+@media (max-width: 1000px) {
+    #post-create-img {
+        display: none;
+    }
+
+    .post-create-container {
+        display: block;
+        width: 450px;
+        padding: 3px;
+    }
+
+    .post-create-form {
+        width: 370px;
+        margin: auto;
+    }
 }

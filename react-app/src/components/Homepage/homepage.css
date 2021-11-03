@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Marck+Script&display=swap");
 
-.homepage-container {
-   position: relative;
-   bottom: 80px;
-}
-
 .header {
    width: 800px;
    height: 415px;
@@ -21,10 +16,6 @@
 }
 
 .header__img {
-   height: 475px;
-}
-
-.about__img {
    height: 475px;
 }
 
@@ -84,7 +75,6 @@
 
 .header__buttons button:hover {
    font-size: 25pt;
-   color: white;
    text-shadow: 1px 1px 4px black;
    background-color: rgba(0, 0, 0, 0.4);
    border-top: 3px solid rgba(0, 0, 0, 0.5);
@@ -95,14 +85,12 @@
    background-color: rgb(80, 187, 187);
    display: flex;
    justify-content: center;
-   margin: 30px;
+   margin: 30px auto 30px;
    padding: 10px;
    align-items: center;
 }
 
-.about__img-container {
-   flex-shrink: 0;
-}
+
 .about__img {
    width: 500px;
    height: auto;
@@ -111,7 +99,7 @@
 .about__message {
    width: 310px;
    margin-right: 25px;
-   flex-shrink: 0;
+
 }
 
 .about__message button {
@@ -121,4 +109,46 @@
 .about__message button:hover {
    font-style: italic;
    color: black;
+}
+
+@media (max-width: 850px) {
+    .header {
+        grid-template-columns: 2fr 1fr;
+        width: 95vw;
+        height: 50vw;
+        background-size: contain;
+    }
+
+    .about__message {
+        margin: 20px auto;
+    }
+
+    .header__welcome-babeling {
+        font-size: 10vw;
+        margin-bottom: 5px;
+     }
+     
+     .header__welcome-book {
+         font-size: 10vw;
+     }
+
+    .header__buttons button {
+        width: 25vw;
+        height: 6vw;
+        font-size: 4vw;
+    }
+
+    .header__buttons button:hover {
+        font-size: 4.5vw;
+    }
+
+    .about__img-container,
+    .about__img {
+        width: 60vw;
+        margin: auto;
+    }
+
+    .about {
+        display: block;
+    }
 }

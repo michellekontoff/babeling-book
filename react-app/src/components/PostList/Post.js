@@ -14,7 +14,7 @@ export default function Post({ post }) {
       <>
          <Link to={`/posts/${post.id}`}>
             <div className="post__title">
-               <h2>{post.title}</h2>
+            {post?.title && <h2>{post.title}</h2>}
             </div>
          </Link>
          <div className="post__details">

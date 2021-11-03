@@ -39,7 +39,7 @@ Babeling Book is a blogging app designed to language-learners who want to practi
     <img src='./readme-assets/login.png' height="200" />
 </p>
 
-Log in as a demo user, or create your own account to see what Babeling Book has to offer.
+Log in as a demo user, or create and log into your own account to see what Babeling Book has to offer.
 
 ### Posts
 Babeling Book view all the posts you've made by selecting 'Your Posts' in the navbar.
@@ -107,14 +107,9 @@ npm install
 pipenv shell
 ```
 
-5. In the root folder, create the database by running in the terminal:
-```shell
-flask db create
-```
-
 6. In the root folder, migrate tables to the database by running in the terminal:
 ```shell
-flask db migrate
+flask db upgrade
 ```
 
 7. In the root folder, seed the database by running in the terminal:
@@ -254,11 +249,11 @@ export default function Post({ post }) {
 
 ### Michelle Kontoff
 <a href="https://www.linkedin.com/in/michelle-kontoff-149866132/"><img src="./react-app/src/images/linkedin-logo.png" height="28" align="middle" /></a>
-<a href="https://github.com/michellekontoff"><img src="./react-app/src/images/github-logo.png" height="38" align="middle" /></a>
+<a href="https://github.com/michellekontoff"><img src="./react-app/src/images/github-logo.png" height="28" align="middle" /></a>
 
 mlkontoff@gmail.com
 
 
 ## Special Thanks
-* Peers who have given me support and community: [Brandon](https://github.com/Omstachu), [Ji](https://github.com/ji-k), [Johnathan](https://github.com/jyih), [Andrew](https://github.com/andru17urdna), [Henry](https://github.com/hnrywltn), [Pierre](https://github.com/TheGuilbotine), [Lema](https://github.com/lemlooma), [Meagan](https://github.com/meagan13), [Simon](https://github.com/Simonvargas), [Michelle](https://github.com/michellekontoff), [Nico](https://github.com/nicopierson), [John](https://github.com/Jomix-13), [Manna](https://github.com/makon57), and [Monte](https://github.com/theflaggship)
+* Peers who have given me support and community: [Brandon](https://github.com/Omstachu), [Ji](https://github.com/ji-k), [Johnathan](https://github.com/jyih), [Andrew](https://github.com/andru17urdna), [Henry](https://github.com/hnrywltn), [Pierre](https://github.com/TheGuilbotine), [Lema](https://github.com/lemlooma), [Meagan](https://github.com/meagan13), [Simon](https://github.com/Simonvargas), [Nico](https://github.com/nicopierson), [John](https://github.com/Jomix-13), [Manna](https://github.com/makon57), and [Monte](https://github.com/theflaggship)
 * Mentors who have given me their time and effort: [Zach](https://github.com/zdwatts), [Ryan](https://github.com/rhwebster), [Kristen](https://github.com/chaunceykm), [Rihana](https://github.com/martinson-r), [Peter](https://github.com/Lazytangent), [Autumn](https://github.com/fairy-scary), [Warren](https://github.com/tamagrijr), [Ed](https://github.com/edherm), and [Javier](https://github.com/javiermortiz) 

@@ -1,14 +1,24 @@
 /* TODO Add site wide styles */
 
 body {
+    /* position: absolute; */
     box-sizing: border-box;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 12pt;
-    margin-top: 100px;
+    /* margin-top: 100px; */
+    /* top: 100px */
 }
 
 * {
     box-sizing: border-box;
+}
+
+#fullscreen-footer {
+    display: none;
+}
+
+.content {
+    margin: 70px auto;
 }
 
 button {
@@ -44,4 +54,35 @@ label.errors {
     color: red;
     text-align: center;
     padding: 2px 2px;
+}
+
+
+@media (max-width: 1000px) {
+    body {
+        margin: 0px;
+    }
+    
+    #wrapper {
+        min-height: 100vh;
+        /* width: 99.5vw; */
+        overflow: hidden;
+        display: block;
+        position: relative;
+        padding-bottom: 100px;
+       }
+
+       #fullscreen-footer {
+        display: block;
+        position: absolute;
+        /* border: 1px solid black; */
+        /* position: fixed; */
+        padding: 7px;
+        bottom: 0;
+        left: 0;
+        /* justify-self: center; */
+        width: 100%;
+        height: 110px;
+        background-color: rgb(137, 221, 203);
+        box-shadow: -1px 0px 10px 1px black
+    }
 }

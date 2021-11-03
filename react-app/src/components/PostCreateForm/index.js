@@ -6,6 +6,7 @@ import { getLanguages } from "../postUtils";
 import image from "../../images/postCreate.jpg";
 
 import "./postCreateForm.css";
+// import "../../index.css";
 
 export default function PostCreateForm() {
    const history = useHistory();
@@ -49,16 +50,18 @@ export default function PostCreateForm() {
    }, []);
 
    return (
-      <div className="post-create-container">
-         <img id="post-create-img" src={image} alt="create-post-img"></img>
+      <div className="post-create-container content">
+         <img id="post-create-img" src={image} alt="create-post-img" />
          <form
             className="post-create-form post-form"
             onSubmit={(e) => submitPost(e)}
          >
             <label>Title</label>
+            {errors?.title && <label className="errors">{errors?.title}</label>}
             <input
                type="text"
                name="title"
+               placeholder="(optional)"
                value={title}
                onChange={(e) => setTitle(e.target.value)}
             />

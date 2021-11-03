@@ -31,6 +31,6 @@ def strong_password(form, field):
 class SignUpForm(FlaskForm):
     username = StringField(
         'username', validators=[DataRequired(), Length(max=40, min=2, message='Username must be between %(min)d and %(max)d characters.'), username_exists])
-    email = StringField('email', validators=[DataRequired(), Length(max=255, message='Email must be fewer than %(max)d characters'), Email(message='Please provide a valid email.'), user_exists])
+    email = StringField('email', validators=[DataRequired(), Length(max=255, message='Email must be fewer than %(max)d characters. '), Email(message='Please provide a valid email.'), user_exists])
     password = StringField('password', validators=[DataRequired(), Length(min=6, max=20, message='Password must be between %(min)d and %(max)d characters. '), strong_password])
     confirm = StringField('confirm', validators=[DataRequired(), EqualTo('password', message='Passwords do not match.')])

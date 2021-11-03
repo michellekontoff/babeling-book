@@ -28,7 +28,7 @@
 
 .comment__content {
    grid-area: content;
-   overflow-wrap: normal;
+   overflow-wrap: anywhere;
 }
 
 .comment__btns {
@@ -65,4 +65,10 @@
    background-color: rgb(255, 214, 176);
    border: 1px solid rgb(216, 86, 0);
    margin-bottom: 8px;
+}
+
+@media (max-width: 1000px) {
+    .comment {
+        grid-template-columns: 350px 1fr;
+    }
 }

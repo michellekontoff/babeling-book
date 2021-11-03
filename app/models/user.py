@@ -40,3 +40,10 @@ class User(db.Model, UserMixin):
                 'learning': [lang.name for lang in self.learning]
             }
         }
+
+    def auth_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email,
+        }
