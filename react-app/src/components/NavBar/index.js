@@ -1,20 +1,20 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import Footer from "../Footer";
 import logo from "../../images/bb-logo-closed.png";
 
-import { useToggleShowNav } from "../../store/session";
+import { toggleNavBar } from "../../store/session";
 
 import './navbar.css';
 
 const NavBar = () => {
    const user = useSelector((state) => state.session.user);
-   const showNav = useSelector((state) => state.session.showNav)
+   const showNav = useSelector((state) => state.session.showNav);
 
-   const toggleShowNav = useToggleShowNav(!showNav)
-   const location = useLocation()
+   const dispatch = useDispatch();
+   const location = useLocation();
 
    if (!user) {
       return null;
@@ -23,7 +23,7 @@ const NavBar = () => {
    return (
        <>
             <div className="navbar">
-                <button onClick={toggleShowNav}>
+                <button onClick={() => dispatch(toggleNavBar(!showNav))}>
                     <img className="logo" src={logo} alt="logo" />
                 </button>
                 <nav

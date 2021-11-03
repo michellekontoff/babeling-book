@@ -24,12 +24,11 @@ export const setShowNav = (showNav) => ({
     showNav
 })
 
-export const useToggleShowNav = (showNav) => {
-    const dispatch = useDispatch()
-        return async function () {
-            await dispatch(toggleShowNav())
+export const toggleNavBar = (showNav) => {
+        return async function (dispatch) {
+            await dispatch(toggleShowNav());
             try {
-                localStorage.setItem('bb-showNav', showNav)
+                localStorage.setItem('bb-showNav', showNav);
             } catch {
                 //do nothing
             }
