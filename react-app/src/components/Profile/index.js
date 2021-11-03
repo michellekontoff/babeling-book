@@ -53,10 +53,10 @@ export default function Profile() {
 
    return (
       <>
-         <div className="posts-latest content">
-            <h1>{user.username && `${user.username}'s Posts`}</h1>
+        {user.username && <div className="posts-latest content">
+            <h1>{`${user.username}'s Posts`}</h1>
             {posts.length > 0 ? <PostList posts={posts} /> : <>{noPosts()}</> }
-         </div>
+         </div>}
       </>
    );
 }
