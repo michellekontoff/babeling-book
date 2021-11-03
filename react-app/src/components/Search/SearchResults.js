@@ -16,14 +16,14 @@ export default function SearchResults() {
 
     return (
         <div className='search-results'>
-            <div className='search_users'>
+            {users.length ? <div className='search_users'>
                 <h1>Users</h1>
-                {users.length && <UsersList users={users} />}
-            </div>
-            {posts.length && <div className="search__posts posts-list-container">
+                <UsersList users={users} />
+            </div> : null}
+            {posts.length ? <div className="search__posts posts-list-container">
                 <h1>Posts</h1>
                 <PostList posts={posts} />
-            </div>}
+            </div> : null}
         </div>
      );
 }
