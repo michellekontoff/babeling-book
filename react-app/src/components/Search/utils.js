@@ -1,7 +1,6 @@
 export const searchUsers = async (search, setUsers) => {
     if (search.length < 40) {
-        const res = await fetch(`/api/users/search/${search}`)
-        console.log(res)
+        const res = await fetch(`/api/users/search/${search}`);
         if (res.ok) {
             const data = await res.json();
             setUsers(data.users);
