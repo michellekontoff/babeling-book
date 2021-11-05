@@ -44,7 +44,7 @@ function App() {
                <ProtectedRoute path={`/posts/:postId(\\d+)`} exact={true}>
                   <PostPage />
                </ProtectedRoute>
-               <ProtectedRoute path={`/search/:search`}>
+               <ProtectedRoute path={`/search`} exact={false}>
                   <SearchResults />
                </ProtectedRoute>
                <Route path='/' exact={true}>
