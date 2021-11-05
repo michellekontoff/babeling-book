@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router';
+import { useParams, useLocation } from 'react-router';
+// import { useSearchParams } from 'react-router-dom'
 import PostList from '../PostList';
 import { searchUsers, searchPosts } from './utils';
 import UsersList from '../UsersList';
@@ -8,11 +9,16 @@ export default function SearchResults() {
     const [users, setUsers] = useState({})
     const [posts, setPosts] = useState({})
     const params = useParams()
+    const { search } = useLocation();
+  
+    const query = new URLSearchParams(search).get('q')
+
+
 
     useEffect(() => {
-        searchUsers(params.search, setUsers)
-        searchPosts(params.search, setPosts)
-    }, [params.search])
+        searchUsers(query, setUsers)
+        searchPosts(query, setPosts)
+    }, [query])
 
     return (
         <div className='search-results'>
