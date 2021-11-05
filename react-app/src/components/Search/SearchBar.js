@@ -10,11 +10,14 @@ export default function SearchBar () {
 
     async function submitSearch(e) {
         e.preventDefault()
-        history.push(`/search?q=${search}`)
+
+        if (search) {
+            history.push(`/search?q=${search}`)
+        }
     }
 
     return (
-        <form className='search'
+        <form id='search'
         onSubmit={submitSearch}
         >
             <input type='text'
