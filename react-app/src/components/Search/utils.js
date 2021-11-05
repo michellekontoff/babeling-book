@@ -4,6 +4,7 @@ export const searchUsers = async (search, setUsers) => {
         if (res.ok) {
             const data = await res.json();
             setUsers(data.users);
+            return;
         }
     } else return;
 };
@@ -16,5 +17,5 @@ export const searchPosts = async (search, setPosts) => {
         const data = await res.json();
         setPosts(data.posts);
     }
-    return
+    return;
 }

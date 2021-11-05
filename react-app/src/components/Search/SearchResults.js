@@ -14,8 +14,8 @@ export default function SearchResults() {
 
 
     useEffect(() => {
-        searchUsers(query, setUsers)
-        searchPosts(query, setPosts)
+        searchUsers(query, setUsers);
+        searchPosts(query, setPosts);
     }, [query])
 
     return (
