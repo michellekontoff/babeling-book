@@ -1,18 +1,21 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import {
+            useHistory, 
+            // useLocation
+        }
+    from 'react-router-dom';
 
 import './search.css'
 
 export default function SearchBar () {
     const [search, setSearch] = useState('')
-    const location = useLocation()
-
     const history = useHistory()
+    // const location = useLocation()
 
-    const query = new URLSearchParams(location.search).get('q');
-    console.log(query)
+
+    // const query = new URLSearchParams(location.search).get('q');
 
     async function submitSearch(e) {
         e.preventDefault()
