@@ -1,0 +1,13 @@
+.search__input {
+    padding: 12px 3px 12px;
+}
+
+.search__btn {
+    position: relative;
+    top: 1px;
+    margin: 0px 5px 0px;
+    font-size: 12pt;
+    background-color: rgb(225, 255, 248);
+    padding: 5.5px;
+    border-radius: 4px;
+}

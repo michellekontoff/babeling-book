@@ -4,6 +4,8 @@ import PostList from '../PostList';
 import { searchUsers, searchPosts } from './utils';
 import UsersList from '../UsersList';
 
+import './search.css'
+
 export default function SearchResults() {
    const [users, setUsers] = useState({});
    const [posts, setPosts] = useState({});

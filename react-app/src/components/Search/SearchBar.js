@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 
+import './search.css'
+
 export default function SearchBar () {
     const [search, setSearch] = useState('')
     const location = useLocation()
