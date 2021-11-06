@@ -27,7 +27,10 @@ const NavBar = () => {
    return (
        <>
             <div className="navbar">
-                <button onClick={() => dispatch(toggleNavBar(!showNav))}>
+                <button 
+                className="navbar__logo-btn"
+                onClick={() => dispatch(toggleNavBar(!showNav))}
+                >
                     <img className="logo" src={logo} alt="logo" />
                 </button>
                 <nav

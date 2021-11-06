@@ -98,9 +98,10 @@
         height: 2.5vw;
     }
 
-    .navbar button:not(#logout-btn) {
+    .navbar__logo-btn {
+        left: 0px;
         right: auto;
-        left: auto;
+        bottom: -12px;
         height: 5vw;
         width: 5vw;
     }
