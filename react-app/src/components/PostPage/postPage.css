@@ -32,6 +32,15 @@
     font-size: 13pt;
 }
 
+.post__owner:hover {
+    color: teal;
+    transition: 0.2s;
+}
+
+.post__owner {
+    transition: 0.2s;
+}
+
 .post__btns {
     margin: 15px 0px 5px;
     display: flex;

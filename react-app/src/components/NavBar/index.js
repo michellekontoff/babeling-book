@@ -3,11 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import Footer from "../Footer";
+// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+// import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import SearchBar from "../Search/SearchBar";
 import logo from "../../images/bb-logo-closed.png";
 
 import { toggleNavBar } from "../../store/session";
 
 import './navbar.css';
+
 
 const NavBar = () => {
    const user = useSelector((state) => state.session.user);
@@ -23,7 +27,10 @@ const NavBar = () => {
    return (
        <>
             <div className="navbar">
-                <button onClick={() => dispatch(toggleNavBar(!showNav))}>
+                <button 
+                className="navbar__logo-btn"
+                onClick={() => dispatch(toggleNavBar(!showNav))}
+                >
                     <img className="logo" src={logo} alt="logo" />
                 </button>
                 <nav
@@ -36,30 +43,33 @@ const NavBar = () => {
                     </div>
 
                     <ul className='nav-links__list'>
-                    <li>
-                        <NavLink
-                            to={`/users/${user.id}`}
-                            activeClassName='navbar--active'
-                        >
-                            Your Posts
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/posts/latest' activeClassName='navbar--active'>
-                            Latest Posts
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/posts/new' activeClassName='navbar--active'>
-                            Create New Post
-                        </NavLink>
-                    </li>
-                    <li>
-                        <LogoutButton />
-                    </li>
+                        <li>
+                            <NavLink
+                                to={`/users/${user.id}`}
+                                activeClassName='navbar--active'
+                            >
+                                Your Posts
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/posts/latest'     activeClassName='navbar--active'>
+                                Latest Posts
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/posts/new'    activeClassName='navbar--active'>
+                                Create New Post
+                            </NavLink>
+                        </li>
+                        <li>
+                            <LogoutButton />
+                        </li>
                     </ul>
+
+                    <SearchBar />
+
                     <div className='nav-footer'>
-                    <Footer />
+                        <Footer />
                     </div>
                 </nav>
             </div>

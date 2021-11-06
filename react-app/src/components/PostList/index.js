@@ -5,7 +5,7 @@ import "./postList.css";
 
 export default function PostList({ posts }) {
    return (
-      <div className="post-list content">
+      <div className="post-list">
          {posts?.map((post, i) => {
             return (
                <div key={post.id} className="post-list__item">

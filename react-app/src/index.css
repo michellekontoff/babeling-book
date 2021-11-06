@@ -64,10 +64,10 @@ label.errors {
     
     #wrapper {
         min-height: 100vh;
-        /* width: 99.5vw; */
         overflow: hidden;
         display: block;
         position: relative;
+        padding-top: 50px;
         padding-bottom: 100px;
        }
 

@@ -9,12 +9,12 @@ import { authenticate } from './store/session';
 import PostPage from './components/PostPage';
 import PostCreateForm from './components/PostCreateForm';
 import PostsLatest from './components/PostsLatest';
+import SearchResults from './components/Search/SearchResults';
 import PostNotFound from './components/PostNotFound';
 
 function App() {
    const [loaded, setLoaded] = useState(false);
    const dispatch = useDispatch();
-
 
    useEffect(() => {
       (async () => {
@@ -29,33 +29,36 @@ function App() {
 
    return (
       <BrowserRouter>
-        <div id='wrapper'>
+         <div id='wrapper'>
             <NavBar />
             <Switch>
-                <ProtectedRoute path='/users/:userId' exact={true}>
-                <Profile />
-                </ProtectedRoute>
-                <ProtectedRoute path='/posts/new' exact={true}>
-                <PostCreateForm />
-                </ProtectedRoute>
-                <ProtectedRoute path='/posts/latest' exact={true}>
-                <PostsLatest />
-                </ProtectedRoute>
-                <ProtectedRoute path={`/posts/:postId(\\d+)`} exact={true}>
-                <PostPage />
-                </ProtectedRoute>
-                <Route path='/' exact={true}>
-                <Homepage />
-                </Route>
-                <ProtectedRoute path='/posts/not-found' exact={true}>
-                    <PostNotFound />
-                </ProtectedRoute>
-                <Route>
-                <h1 id='not-found'>
-                    <p>404</p>
-                    <p>The page you requested could not be found.</p>
-                </h1>
-                </Route>
+               <ProtectedRoute path='/users/:userId' exact={true}>
+                  <Profile />
+               </ProtectedRoute>
+               <ProtectedRoute path='/posts/new' exact={true}>
+                  <PostCreateForm />
+               </ProtectedRoute>
+               <ProtectedRoute path='/posts/latest' exact={true}>
+                  <PostsLatest />
+               </ProtectedRoute>
+               <ProtectedRoute path={`/posts/:postId(\\d+)`} exact={true}>
+                  <PostPage />
+               </ProtectedRoute>
+               <ProtectedRoute path={`/search`} exact={false}>
+                  <SearchResults />
+               </ProtectedRoute>
+               <Route path='/' exact={true}>
+                  <Homepage />
+               </Route>
+               <ProtectedRoute path='/posts/not-found' exact={true}>
+                  <PostNotFound />
+               </ProtectedRoute>
+               <Route>
+                  <h1 id='not-found'>
+                     <p>404</p>
+                     <p>The page you requested could not be found.</p>
+                  </h1>
+               </Route>
             </Switch>
          </div>
       </BrowserRouter>

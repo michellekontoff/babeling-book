@@ -24,3 +24,11 @@ def get_posts_by_user(id):
     posts = Post.query.filter(Post.user_id == id).order_by(desc(Post.id)).all()
 
     return { 'posts': [post.to_dict() for post in posts] }
+
+
+@user_routes.route('/search/<string:search>')
+def search_users(search):
+    
+    users = User.query.filter(User.username.ilike(f'%{search}%')).all()
+
+    return { 'users': [user.to_dict() for user in users] }
