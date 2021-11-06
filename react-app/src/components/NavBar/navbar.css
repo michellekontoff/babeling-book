@@ -84,18 +84,6 @@
      transition: 0.3s;
  }
 
- .navbar__search {
-     margin-top: 30px;
-     text-align: center;
- }
-
- .navbar__search input {
-     border-radius: 4px;
-     height: 20px;
-     width: 125px;
-     margin: auto;
- }
-
  .nav-footer {
      display: flex;
      align-items: flex-end;

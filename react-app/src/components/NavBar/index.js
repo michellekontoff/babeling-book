@@ -40,33 +40,33 @@ const NavBar = () => {
                     </div>
 
                     <ul className='nav-links__list'>
-                    <li>
-                        <NavLink
-                            to={`/users/${user.id}`}
-                            activeClassName='navbar--active'
-                        >
-                            Your Posts
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/posts/latest' activeClassName='navbar--active'>
-                            Latest Posts
-                        </NavLink>
-                    </li>
-                    <li>
-                        <NavLink to='/posts/new' activeClassName='navbar--active'>
-                            Create New Post
-                        </NavLink>
-                    </li>
-                    <li>
-                        <LogoutButton />
-                    </li>
+                        <li>
+                            <NavLink
+                                to={`/users/${user.id}`}
+                                activeClassName='navbar--active'
+                            >
+                                Your Posts
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/posts/latest'     activeClassName='navbar--active'>
+                                Latest Posts
+                            </NavLink>
+                        </li>
+                        <li>
+                            <NavLink to='/posts/new'    activeClassName='navbar--active'>
+                                Create New Post
+                            </NavLink>
+                        </li>
+                        <li>
+                            <LogoutButton />
+                        </li>
                     </ul>
-                    <div className='navbar__search'>
-                        <SearchBar />
-                    </div>
+
+                    <SearchBar />
+
                     <div className='nav-footer'>
-                    <Footer />
+                        <Footer />
                     </div>
                 </nav>
             </div>

@@ -19,8 +19,8 @@ export default function SearchResults() {
    }, [query]);
 
    return (
-      <div className='search-results'>
-         <div className='search__users'>
+      <div className='search-results content'>
+         <div className='results__users'>
             {users.length ? (
                <>
                   <h1>Users</h1>
@@ -30,7 +30,7 @@ export default function SearchResults() {
                'No users found.'
             )}
          </div>
-         <div className='search__posts'>
+         <div className='results__posts'>
             {posts.length ? (
                <>
                   <h1>Posts</h1>
