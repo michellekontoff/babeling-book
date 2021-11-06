@@ -41,11 +41,22 @@
     text-align: center;
 }
 
-@media (max-width: 700px) {
-    .search-results {
-        width: 450px;
-    }
+.results__users ul {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0px;
+}
 
+.results__users li {
+    text-align: center;
+    /* width: fit-content; */
+    /* height: 42px; */
+    margin: 8px;
+}
+
+@media (max-width: 1000px) {
     #search {
         position: fixed;
         left: 7px;
@@ -57,5 +68,11 @@
 
     .search__btn {
         border: 1px solid rgb(158, 158, 158);
+    }
+}
+
+@media (max-width: 1000px) {
+    .search-results {
+        width: 450px;
     }
 }
