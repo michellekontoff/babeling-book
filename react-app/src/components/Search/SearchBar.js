@@ -1,12 +1,16 @@
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 
 export default function SearchBar () {
     const [search, setSearch] = useState('')
+    const location = useLocation()
 
     const history = useHistory()
+
+    const query = new URLSearchParams(location.search).get('q');
+    console.log(query)
 
     async function submitSearch(e) {
         e.preventDefault()
@@ -18,12 +22,15 @@ export default function SearchBar () {
 
     return (
         <form id='search'
+        method="GET"
+        // action="../search"
         onSubmit={submitSearch}
         >
-            <input type='text'
+            <input type='search'
             className='search__input'
             value={search}
             placeholder='Search...'
+            name="q"
             onChange={(e) => setSearch(e.target.value)}
             />
             <button type='submit'
