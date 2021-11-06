@@ -18,7 +18,10 @@ export default function Post({ post }) {
             </div>
          </Link>
          <div className="post__details">
-            <Link to={`/users/${post.owner?.id}`}>{post.owner?.username}</Link> : {post.language?.name} - {post.created_at}
+            <Link 
+            className="post__owner"
+            to={`/users/${post.owner?.id}`}
+            >{post.owner?.username}</Link> : {post.language?.name} - {post.created_at}
          </div>
          <Link to={`/posts/${post.id}`}>
             <div className="post__content">

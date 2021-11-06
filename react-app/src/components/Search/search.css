@@ -37,7 +37,7 @@
     width: 650px;
 }
 
-.search-results h1 {
+.search-results {
     text-align: center;
 }
 
@@ -51,9 +51,17 @@
 
 .results__users li {
     text-align: center;
-    /* width: fit-content; */
-    /* height: 42px; */
     margin: 8px;
+}
+
+.results__users a:hover {
+    color: teal;
+    transition: 0.2s;
+}
+
+.results__users a {
+    font-weight: bold;
+    transition: 0.2s;
 }
 
 @media (max-width: 1000px) {

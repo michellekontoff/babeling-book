@@ -21,9 +21,9 @@ export default function SearchResults() {
    return (
       <div className='search-results content'>
          <div className='results__users'>
+             <h2>Users</h2>
             {users.length ? (
                <>
-                  <h1>Users</h1>
                   <UsersList users={users} />
                </>
             ) : (
@@ -31,9 +31,9 @@ export default function SearchResults() {
             )}
          </div>
          <div className='results__posts'>
+            <h2>Posts</h2>
             {posts.length ? (
                <>
-                  <h1>Posts</h1>
                   <PostList posts={posts} />
                </>
             ) : (

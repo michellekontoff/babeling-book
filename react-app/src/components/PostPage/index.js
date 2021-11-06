@@ -67,7 +67,7 @@ export default function PostPage() {
             </div>
             <div className='post__details'>
                <div>
-                  <Link to={`/users/${post.owner?.id}`}>
+                  <Link className="post__owner" to={`/users/${post.owner?.id}`}>
                      {post.owner?.username}
                   </Link>
                </div>
