@@ -4,6 +4,14 @@ import { Link } from "react-router-dom";
 export default function Post({ post }) {
    const [subString, setSubString] = useState(false);
 
+   /* 
+        check if urlsearchparams exist
+        if they do, index search match
+        then set substring start before index and end after index
+        highlight search term if possible
+        need to account for query length - if it's too long then just set the query as substring
+   */
+
    useEffect(() => {
       if (post.content.length > 200) {
          setSubString(post.content.substring(0, 200) + " ...");
