@@ -39,7 +39,7 @@ export default function SearchBar () {
             <button type='submit'
             className='search__btn'
             >
-                <i class="fas fa-search"></i>
+                <i className="fas fa-search"></i>
             </button>
         </form>
     )

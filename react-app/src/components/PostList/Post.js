@@ -1,8 +1,57 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 export default function Post({ post }) {
    const [subString, setSubString] = useState(false);
+   const { search } = useLocation();
+
+   const query = new URLSearchParams(search).get('q');
+
+   function highlightQuery(query) {
+        // const title = post.title
+        const content = post.content
+        //content match
+       if (query) {
+            const queryIndex = content.toLowerCase().indexOf(query.toLowerCase())
+
+            let queryMatch;
+            let beforeQuery;
+            let afterQuery;
+            let matchFound;
+
+            if (content.length < 300 && query.length < 300) {
+
+                queryMatch = content.slice(queryIndex, queryIndex + query.length)
+                beforeQuery = content.slice(0, queryIndex)
+                afterQuery = content.slice(queryIndex + query.length)
+
+            } else if (content.length > 300 && query.length < 300) {
+
+                queryMatch = content.slice(queryIndex, queryIndex + query.length)
+                beforeQuery = content.slice(queryIndex - 100, queryIndex)
+                afterQuery = content.slice(queryIndex + query.length, (queryIndex + query.length + 100))
+
+            } else if (query.length > 300) {
+                matchFound = (<span className="query-match">{queryMatch}</span>)
+
+                setSubString(matchFound)
+                return
+            }
+
+
+            matchFound = (
+                <>
+                    {beforeQuery}
+                    <span className="query-match">{queryMatch}</span>
+                    {afterQuery}
+                </>
+            )
+            
+            setSubString(matchFound)
+       }
+
+       //title match
+   }
 
    /* 
         check if urlsearchparams exist
@@ -13,10 +62,15 @@ export default function Post({ post }) {
    */
 
    useEffect(() => {
-      if (post.content.length > 200) {
-         setSubString(post.content.substring(0, 200) + " ...");
-      }
-   }, [post.content]);
+       highlightQuery(query);
+    //   if (post.content.length > 200) {
+    //      setSubString(post.content.substring(0, 200) + " ...");
+    //   }
+   }, [post.content, query]);
+
+   useEffect(() => {
+       console.log(subString)
+   })
 
    return (
       <>
@@ -33,7 +87,7 @@ export default function Post({ post }) {
          </div>
          <Link to={`/posts/${post.id}`}>
             <div className="post__content">
-               {post.content?.length < 200 ? (
+               {!subString ? (
                   <>{post.content}</>
                ) : (
                   <>{subString}</>

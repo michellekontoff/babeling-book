@@ -64,6 +64,10 @@
     transition: 0.2s;
 }
 
+.query-match {
+    background-color: rgb(255, 245, 107);
+}
+
 @media (max-width: 1000px) {
     #search {
         position: fixed;
