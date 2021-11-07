@@ -64,13 +64,12 @@
 }
 
 
-#logout-btn {
+/* #logout-btn {
     position: relative;
     left: 2px
-}
+} */
 
-.nav-links a,
-#logout-btn {
+.nav-links a {
      color: black;
      font-size: 16pt;
      transition: 0.3s;
