@@ -83,6 +83,9 @@ def get_post_comments(id):
 
 @bp.route('/search/<string:search>')
 def search_posts(search):
+
+    if len(search) > 420:
+        return { 'error': 'Search term must be fewer than 420 characters.'}
     
     posts_titles = set(Post.query.filter(Post.title.ilike(f'%{search}%')).all())
     posts_content =  set(Post.query.filter(Post.content.ilike(f'%{search}%')).all())

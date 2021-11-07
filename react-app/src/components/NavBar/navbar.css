@@ -65,8 +65,8 @@
 
 
 #logout-btn {
-    position: relative;
-    left: 2px
+    padding: 0px;
+    margin: 0px;
 }
 
 .nav-links a,
@@ -147,7 +147,7 @@
 
     #logout-btn {
         position: static;
-        font-size: 2.7vw;
+        font-size: 2.5vw;
     }
 
     .navbar__hello {

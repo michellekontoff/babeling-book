@@ -34,12 +34,13 @@ export default function SearchBar () {
             value={search}
             placeholder='Search...'
             name="q"
+            maxLength="420"
             onChange={(e) => setSearch(e.target.value)}
             />
             <button type='submit'
             className='search__btn'
             >
-                <i class="fas fa-search"></i>
+                <i className="fas fa-search"></i>
             </button>
         </form>
     )

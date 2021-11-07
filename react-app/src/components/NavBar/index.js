@@ -1,10 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
 import Footer from "../Footer";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import SearchBar from "../Search/SearchBar";
 import logo from "../../images/bb-logo-closed.png";
 
@@ -19,10 +17,15 @@ const NavBar = () => {
 
    const dispatch = useDispatch();
    const location = useLocation();
+   
+   useEffect(() => {
+       window.scrollTo(0, 0)
+   }, [location])
 
    if (!user) {
       return null;
    }
+
 
    return (
        <>
