@@ -3,6 +3,15 @@ export const searchUsers = async (search, setUsers) => {
         const res = await fetch(`/api/users/search/${search}`);
         if (res.ok) {
             const data = await res.json();
+            data.users.sort((a, b) => {
+                if (a.username < b.username) {
+                  return -1;
+                }
+                if (a.username > b.username) {
+                  return 1;
+                }
+                return 0;
+        })
             setUsers(data.users);
             return;
         }
@@ -22,7 +31,6 @@ export const searchPosts = async (search, setPosts) => {
                 if (a.id < b.id) {
                   return 1;
                 }
-                // a must be equal to b
                 return 0;
         })
         setPosts(data.posts);
