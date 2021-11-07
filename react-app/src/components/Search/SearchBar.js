@@ -1,5 +1,3 @@
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
 import {
             useHistory, 
@@ -41,7 +39,7 @@ export default function SearchBar () {
             <button type='submit'
             className='search__btn'
             >
-                <FontAwesomeIcon icon={faSearch} />
+                <i class="fas fa-search"></i>
             </button>
         </form>
     )

@@ -12,6 +12,8 @@ import PostsLatest from './components/PostsLatest';
 import SearchResults from './components/Search/SearchResults';
 import PostNotFound from './components/PostNotFound';
 
+import "../src/fontawesome/css/all.css"
+
 function App() {
    const [loaded, setLoaded] = useState(false);
    const dispatch = useDispatch();
