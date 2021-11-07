@@ -67,14 +67,15 @@ export default function Post({ post }) {
    */
 
    useEffect(() => {
-       highlightQuery(query);
-    //   if (post.content.length > 200) {
-    //      setSubString(post.content.substring(0, 200) + " ...");
-    //   }
+      highlightQuery(query);
+      if (post.content.length > 200) {
+         setSubString(post.content.substring(0, 200) + " ...");
+      }
    }, [post.content, query]);
 
    useEffect(() => {
        console.log(subString)
+       console.log(query)
    })
 
    return (

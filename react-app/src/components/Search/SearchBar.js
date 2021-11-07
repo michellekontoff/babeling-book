@@ -34,6 +34,7 @@ export default function SearchBar () {
             value={search}
             placeholder='Search...'
             name="q"
+            maxLength="420"
             onChange={(e) => setSearch(e.target.value)}
             />
             <button type='submit'
