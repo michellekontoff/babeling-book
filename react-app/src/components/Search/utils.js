@@ -15,6 +15,16 @@ export const searchPosts = async (search, setPosts) => {
 
     if (res.ok) {
         const data = await res.json();
+        data.posts.sort((a, b) => {
+                if (a.id > b.id) {
+                  return -1;
+                }
+                if (a.id < b.id) {
+                  return 1;
+                }
+                // a must be equal to b
+                return 0;
+        })
         setPosts(data.posts);
     }
     return;
