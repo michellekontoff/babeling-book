@@ -4,29 +4,25 @@ import { highlightQuery } from "../Search/utils";
 
 export default function Post({ post }) {
    const [subString, setSubString] = useState(false);
+   const [title, setTitle] = useState(post.title)
    const { search } = useLocation();
 
    const query = new URLSearchParams(search).get('q');
 
    useEffect(() => {
        if (query) {
-           highlightQuery(query, post, setSubString);
+           highlightQuery(query, post, setSubString, setTitle);
            return;
        } else if (!query && post.content.length > 200) {
          setSubString(post.content.substring(0, 200) + " ...");
       }
    }, [post, post.content, query]);
 
-//    useEffect(() => {
-//        console.log(subString)
-//        console.log(query)
-//    })
-
    return (
       <>
          <Link to={`/posts/${post.id}`}>
             <div className="post__title">
-            {post?.title && <h2>{post.title}</h2>}
+            {post?.title && <h2>{query ? title : post.title}</h2>}
             </div>
          </Link>
          <div className="post__details">

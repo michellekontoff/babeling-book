@@ -20,53 +20,89 @@ export const searchPosts = async (search, setPosts) => {
     return;
 }
 
-export function highlightQuery(query, post, setSubString) {
-    // const title = post.title
+export function highlightQuery(query, post, setSubString, setTitle) {
+    const title = post.title
     const content = post.content
     //content match
-   if (query) {
-        const queryIndex = content.toLowerCase().indexOf(query.toLowerCase())
-
-        let queryMatch;
-        let beforeQuery;
-        let afterQuery;
-        let matchFound;
-
-        if (content.length < 300 && query.length < 300) {
-
-            queryMatch = content.slice(queryIndex, queryIndex + query.length)
-            beforeQuery = content.slice(0, queryIndex)
-            afterQuery = content.slice(queryIndex + query.length)
-
-        } else if (content.length > 300 && query.length < 300) {
-
-            queryMatch = content.slice(queryIndex, queryIndex + query.length)
-
-            beforeQuery = queryIndex - 200 > 0
-                          ? '... ' +  content.slice(queryIndex - 200, queryIndex)
-                          : content.slice(0, queryIndex)
-
-            afterQuery = queryIndex + query.length + 200 < content.length
-                        ? content.slice(queryIndex + query.length, (queryIndex + query.length + 200)) + ' ...'
-                        : content.slice(queryIndex + query.length)
-
-        } else if (query.length > 300) {
-            matchFound = (<span className="query-match">{queryMatch}</span>)
-
-            setSubString(matchFound)
-            return
-        }
-
-        matchFound = (
-            <>
-                {beforeQuery}
-                <span className="query-match">{queryMatch}</span>
-                {afterQuery}
-            </>
-        )
-        
-        setSubString(matchFound)
-   }
+    let queryIndex = content.toLowerCase().indexOf(query.toLowerCase())
+    if (queryIndex >= 0) {
+        highlightContent(content, query, queryIndex, setSubString)
+    }
 
    //title match
+   queryIndex = title?.toLowerCase().indexOf(query.toLowerCase())
+   if (title && queryIndex >= 0) {
+        highlightTitle(title, query, queryIndex, setTitle)
+   }
+}
+
+function highlightTitle(title, query, queryIndex, setTitle) {
+    let {match, before, after} = sliceSmallQuery(title, query, queryIndex)
+
+    const matchTitle = (
+        <>
+            {before}
+            <span className="query-match">{match}</span>
+            {after}
+        </>
+    )
+
+    setTitle(matchTitle)
+}
+
+function highlightContent(content, query, queryIndex, setSubString) {
+    
+    let queryMatch;
+    let beforeQuery;
+    let afterQuery;
+    let matchContent;
+
+    if (content.length < 300 && query.length < 300) {
+
+        let {match, before, after} = sliceSmallQuery(content, query, queryIndex)
+
+        queryMatch = match;
+        beforeQuery = before;
+        afterQuery = after;
+
+    } else if (content.length > 300 && query.length < 300) {
+
+        queryMatch = content.slice(queryIndex, queryIndex + query.length)
+
+        beforeQuery = queryIndex - 200 > 0
+                      ? '... ' +  content.slice(queryIndex - 200, queryIndex)
+                      : content.slice(0, queryIndex)
+
+        afterQuery = queryIndex + query.length + 200 < content.length
+                    ? content.slice(queryIndex + query.length, (queryIndex + query.length + 200)) + ' ...'
+                    : content.slice(queryIndex + query.length)
+
+    } else if (query.length > 300) {
+        matchContent = (<span className="query-match">{queryMatch}</span>)
+
+        setSubString(matchContent)
+        return
+    }
+
+    matchContent = (
+        <>
+            {beforeQuery}
+            <span className="query-match">{queryMatch}</span>
+            {afterQuery}
+        </>
+    )
+    
+    setSubString(matchContent)
+}
+
+function sliceSmallQuery(string, query, queryIndex) {
+    const match = string.slice(queryIndex, queryIndex + query.length)
+    const before = string.slice(0, queryIndex)
+    const after = string.slice(queryIndex + query.length)
+
+    return {
+        match,
+        before,
+        after
+    }
 }
