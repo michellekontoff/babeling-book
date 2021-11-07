@@ -8,7 +8,7 @@ const LogoutButton = ({showNav, setShowNav}) => {
     await dispatch(logout());
   };
 
-  return <a className="logout-btn" onClick={onLogout}>Logout</a>;
+  return <button id="logout-btn" onClick={onLogout}>tCowout</button>;
 };
 
 export default LogoutButton;

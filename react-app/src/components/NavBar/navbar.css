@@ -64,12 +64,13 @@
 }
 
 
-/* #logout-btn {
-    position: relative;
-    left: 2px
-} */
+#logout-btn {
+    padding: 0px;
+    margin: 0px;
+}
 
-.nav-links a {
+.nav-links a,
+#logout-btn {
      color: black;
      font-size: 16pt;
      transition: 0.3s;
@@ -146,7 +147,7 @@
 
     #logout-btn {
         position: static;
-        font-size: 2.7vw;
+        font-size: 2.5vw;
     }
 
     .navbar__hello {
