@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, useLocation } from "react-router-dom";
 import LogoutButton from "../auth/LogoutButton";
@@ -17,10 +17,15 @@ const NavBar = () => {
 
    const dispatch = useDispatch();
    const location = useLocation();
+   
+   useEffect(() => {
+       window.scrollTo(0, 0)
+   }, [location])
 
    if (!user) {
       return null;
    }
+
 
    return (
        <>
