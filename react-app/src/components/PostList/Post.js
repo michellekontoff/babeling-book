@@ -28,8 +28,14 @@ export default function Post({ post }) {
             } else if (content.length > 300 && query.length < 300) {
 
                 queryMatch = content.slice(queryIndex, queryIndex + query.length)
-                beforeQuery = content.slice(queryIndex - 100, queryIndex)
-                afterQuery = content.slice(queryIndex + query.length, (queryIndex + query.length + 100))
+
+                beforeQuery = queryIndex - 100 > 0
+                              ? '... ' +  content.slice(queryIndex - 100, queryIndex)
+                              : content.slice(0, queryIndex)
+
+                afterQuery = queryIndex + query.length + 100 < content.length
+                            ? content.slice(queryIndex + query.length, (queryIndex + query.length + 100)) + ' ...'
+                            : content.slice(queryIndex + query.length)
 
             } else if (query.length > 300) {
                 matchFound = (<span className="query-match">{queryMatch}</span>)
@@ -37,7 +43,6 @@ export default function Post({ post }) {
                 setSubString(matchFound)
                 return
             }
-
 
             matchFound = (
                 <>
