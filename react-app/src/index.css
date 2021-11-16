@@ -2,6 +2,7 @@ body {
     /* position: absolute; */
     box-sizing: border-box;
     padding: 0px;
+    margin: 0px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 12pt;
     /* margin-top: 100px; */
@@ -63,10 +64,11 @@ label.errors {
     margin: 0px;
     padding: 0px;
     /* min-width: 100vw; */
+    background-color: #b3c6c7;
     background-attachment: fixed;
-    background-image: url(./images/site-bg.jpg);
+    background-image: url(./images/bgv1.png);
     background-repeat: no-repeat;
-    background-size: 99.9vw 100vh;
+    background-size: 99.8vw 100vh;
     background-position-x: right;
     /* min-height: 100vh; */
     overflow: hidden;
@@ -76,12 +78,10 @@ label.errors {
 
 
 @media (max-width: 1000px) {
-    body {
-        margin: 0px;
-    }
     
     #wrapper {
         min-height: 100vh;
+        background-image: none;
         overflow: hidden;
         display: block;
         position: relative;
