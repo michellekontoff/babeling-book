@@ -22,9 +22,11 @@ export default function PostLatest() {
    }, []);
 
    return (
+       <div id='posts-latest'>
       <div className="posts-latest content">
          <h1>Latest Posts</h1>
          <PostList posts={posts} />
+      </div>
       </div>
    );
 }

@@ -19,7 +19,7 @@ export default function Post({ post }) {
    }, [post, post.content, query]);
 
    return (
-      <>
+      <div className="post">
          <Link to={`/posts/${post.id}`}>
             <div className="post__title">
             {post?.title && <h2>{query ? title : post.title}</h2>}
@@ -40,6 +40,6 @@ export default function Post({ post }) {
                )}
             </div>
          </Link>
-      </>
+      </div>
    );
 }
