@@ -11,20 +11,21 @@
     transition: 0.2s;
 }
 
-.post {
+/* .post {
     background-color: white;
-}
+} */
 
 .post-list__item {
     box-shadow: 0px 0px 6px 3px rgb(96, 178, 189), -4px 6px 7px 2px rgba(77, 77, 77, 0.671);
     padding: 15px;
     border-radius: 8px;
     margin: 30px 0px;
+    background-color: white;
     overflow-wrap: anywhere;
     transition: 0.3s;
 }
 
 .post-list__item:hover {
-    box-shadow: 0px 0px 6px 3px rgb(236, 139, 49), -4px 6px 7px 2px rgba(77, 77, 77, 0.671);
+    box-shadow: 0px 0px 6px 3px rgb(6, 128, 165), -4px 6px 7px 2px rgba(77, 77, 77, 0.671);
     transition: 0.3s;
 }

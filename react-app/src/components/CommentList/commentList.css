@@ -4,10 +4,12 @@
    padding: 15px;
    border-radius: 8px;
    margin-bottom: 30px;
+   background-color: white;
 }
 
 .comment {
    display: grid;
+   background-color: white;
    grid-template-columns: 530px 1fr;
    grid-template-rows: auto;
    grid-template-areas:

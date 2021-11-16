@@ -70,17 +70,20 @@ label.errors {
     background-repeat: no-repeat;
     background-size: 99.8vw 100vh;
     background-position-x: right;
-    /* min-height: 100vh; */
+    min-height: 100vh;
     overflow: hidden;
     /* display: block; */
     /* position: relative; */
 }
 
+/* .content {
+    background-color: white;
+} */
+
 
 @media (max-width: 1000px) {
     
     #wrapper {
-        min-height: 100vh;
         background-image: none;
         overflow: hidden;
         display: block;

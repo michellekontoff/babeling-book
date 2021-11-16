@@ -22,6 +22,7 @@ export default function SearchResults() {
       <div className='search-results content'>
          <div className='results__users'>
              <h2>Users</h2>
+             <div className='results__users-list'>
             {users.length ? (
                <>
                   <UsersList users={users} />
@@ -29,6 +30,7 @@ export default function SearchResults() {
             ) : (
                'No users found.'
             )}
+            </div>
          </div>
          <div className='results__posts'>
             <h2>Posts</h2>
