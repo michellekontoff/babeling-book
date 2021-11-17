@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter, Route, Switch, useLocation } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import NavBar from './components/NavBar';
 import Homepage from './components/Homepage';
@@ -11,16 +11,13 @@ import PostCreateForm from './components/PostCreateForm';
 import PostsLatest from './components/PostsLatest';
 import SearchResults from './components/Search/SearchResults';
 import PostNotFound from './components/PostNotFound';
+import Wrapper from './components/Wrapper'
 
 import "../src/fontawesome/css/all.css"
 
 function App() {
    const [loaded, setLoaded] = useState(false);
    const dispatch = useDispatch();
-
-   useEffect(() => {
-
-   })
 
    useEffect(() => {
       (async () => {
@@ -35,7 +32,7 @@ function App() {
 
    return (
       <BrowserRouter>
-         <div id='wrapper'>
+         <Wrapper>
             <NavBar />
             <Switch>
                <ProtectedRoute path='/users/:userId' exact={true}>
@@ -66,7 +63,7 @@ function App() {
                   </h1>
                </Route>
             </Switch>
-         </div>
+         </Wrapper>
       </BrowserRouter>
    );
 }

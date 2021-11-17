@@ -64,7 +64,7 @@ label.errors {
     margin: 0px;
     padding: 0px;
     /* min-width: 100vw; */
-    background-color: #b3c6c7;
+    background-color: rgb(171, 194, 195);
     background-attachment: fixed;
     background-image: url(./images/bgv1.png);
     background-repeat: no-repeat;
