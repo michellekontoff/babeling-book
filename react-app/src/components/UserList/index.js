@@ -1,7 +1,7 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 
-function UsersList({ users }) {
+function UserList({ users }) {
   const userList = users.map((user) => {
     return (
       <li key={user?.id}>
@@ -17,4 +17,4 @@ function UsersList({ users }) {
   );
 }
 
-export default UsersList;
+export default UserList;
