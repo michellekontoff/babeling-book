@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router';
 import PostList from '../PostList';
 import { searchUsers, searchPosts } from './utils';
-import UsersList from '../UsersList';
+import UserList from '../UserList';
 
 import './search.css'
 
@@ -22,13 +22,15 @@ export default function SearchResults() {
       <div className='search-results content'>
          <div className='results__users'>
              <h2>Users</h2>
+             <div className='results__users-list'>
             {users.length ? (
                <>
-                  <UsersList users={users} />
+                  <UserList users={users} />
                </>
             ) : (
                'No users found.'
             )}
+            </div>
          </div>
          <div className='results__posts'>
             <h2>Posts</h2>

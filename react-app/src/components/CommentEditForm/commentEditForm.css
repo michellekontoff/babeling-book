@@ -7,6 +7,8 @@
     width: 530px;
     margin: 5px auto;
     border-radius: 4px;
+    min-height: 50px;
+    resize: vertical;
  }
 
  @media (max-width: 1000px) {

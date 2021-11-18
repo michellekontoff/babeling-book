@@ -47,6 +47,7 @@
     flex-wrap: wrap;
     align-items: center;
     padding: 0px;
+    margin: 0px;
 }
 
 .results__users li {
@@ -57,6 +58,22 @@
 .results__users a:hover {
     color: teal;
     transition: 0.2s;
+}
+
+.results__users h2 {
+    margin-bottom: 30px;
+}
+
+.results__posts h2 {
+    margin-top: 30px;
+}
+
+.results__users-list {
+    background-color: white;
+    box-shadow: 0px 0px 6px 3px rgb(236, 139, 49),
+    -4px 6px 7px 2px rgba(77, 77, 77, 0.671);
+    padding: 15px;
+    border-radius: 8px;
 }
 
 .results__users a {

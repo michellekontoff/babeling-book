@@ -1,3 +1,30 @@
+.comment-create {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    max-width: 420px;
+}
+
+.comments__add-btn {
+    border-left: 3px solid rgb(96, 178, 189);
+    border-top: 3px solid rgb(96, 178, 189);
+    border-right: 3px solid rgb(236, 139, 49);
+    border-bottom: 3px solid rgb(236, 139, 49);
+    background: linear-gradient(to bottom right, #90c4da, #ebf8e1, #ffc17f);
+    padding: 6px;
+    font-size: 13pt;
+    transition: 0.2s ease-in;
+    height: 38px;
+}
+
+.comment-create button:hover {
+    position: relative;
+    bottom: 2px;
+    box-shadow: 1px 1px 5px 1px rgba(77, 77, 77, 0.671), -1px 1px 5px 1px rgba(77, 77, 77, 0.671);
+    transition:  0.3s ease-in;
+}
+
+
 .comment-create__cancel {
     border: 2px solid red;
     background-color: rgb(255, 198, 198);
@@ -9,19 +36,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    background-color: rgba(0, 0, 0, 0.12);
 }
 
 .comment-create-form button {
     width: 90px;
-    margin: 5px auto;
-}
-
-.comment-form textarea {
-    resize: none;
+    margin: 5px 10px 0px;
 }
 
 .comment-create-form textarea {
     margin: 0px auto 5px;
     border-radius: 4px;
     width: 400px;
+    resize: none;
 }

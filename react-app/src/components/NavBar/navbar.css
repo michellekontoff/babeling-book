@@ -90,6 +90,12 @@
      height: 200px;
  }
 
+ @media (min-width: 1000px) {
+     .navbar > button {
+         top: 90px;
+     }
+ }
+
  @media (max-width: 1000px) {
 
     .navbar {

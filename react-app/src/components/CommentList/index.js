@@ -30,7 +30,21 @@ export default function CommentList() {
 
    return (
       <>
-         <div className="comment-create">{leaveComment}</div>
+         <div className="comment-create"
+         style={
+             !addComment
+             ? {
+                 height: "38px",
+                 backgroundColor: "rgba(0, 0, 0, 0.0)",
+                 transition: "0.4s"
+                }
+             : {
+                 height: "250px",
+                 backgroundColor: "rgba(0, 0, 0, 0.12)",
+                 transition: "0.4s"
+                }
+         }
+         >{leaveComment}</div>
          {comments?.length ? (
             <div className="comment-list">
                {comments?.map((comment, i) => {

@@ -3,6 +3,17 @@
     /* margin: auto; */
 }
 
+/* #posts-latest {
+    background-attachment: fixed;
+    position: relative;
+    bottom: 50;
+    z-index: -5;
+    margin: 0px;
+    background-repeat: no-repeat;
+    background-image: url(../../images/site-bg.jpg);
+    background-size: contain;
+} */
+
 .posts-latest > h1 {
     text-align: center;
 }

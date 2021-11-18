@@ -3,20 +3,17 @@
 .header {
    width: 800px;
    height: 415px;
-   margin: auto;
+   margin: 20px auto 0px;
    background-image: url(../../images/welcome_v3.png);
    background-size: 800px auto;
    background-repeat: no-repeat;
+   box-shadow: -2px 2px 9px 3px rgb(42, 42, 42);
    display: grid;
    grid-template-columns: 490px 1fr;
    grid-template-rows: 1fr 1fr;
    grid-template-areas:
       "welcome btns"
       ".       btns";
-}
-
-.header__img {
-   height: 475px;
 }
 
 .header__welcome {
@@ -69,7 +66,7 @@
    height: 50px;
    border-bottom: 3px solid rgba(0, 0, 0, 0.5);
    border-left: 3px solid rgba(0, 0, 0, 0.5);
-   box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.5);
+   box-shadow: 0px 0px 3px 1px rgba(0, 0, 0, 0.5);
    background-color: rgba(0, 0, 0, 0.2);
 }
 
@@ -88,6 +85,7 @@
    margin: 30px auto 30px;
    padding: 10px;
    align-items: center;
+   box-shadow: 0px 0px 10px 0.5px rgb(0, 85, 85);
 }
 
 
