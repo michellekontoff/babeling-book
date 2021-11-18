@@ -5,7 +5,7 @@ function Wrapper(props) {
     const location = useLocation()
 
     return (
-        <div id='wrapper' style={location.pathname === '/' ? {"background-image": "none"} : {} }>
+        <div id='wrapper' style={location.pathname === '/' ? {backgroundImage: "none"} : {} }>
             {props.children}
         </div>
     )
