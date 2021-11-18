@@ -39,7 +39,7 @@ export default function SearchResults() {
                   <PostList posts={posts} />
                </>
             ) : (
-               'No posts found.'
+               <div className="results__no-posts">No posts found.</div>
             )}
          </div>
       </div>

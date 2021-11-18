@@ -33,10 +33,7 @@ export default function Homepage() {
                to learn. You can make posts and leave comments. The difference
                between Babeling Book and other blogging sites is here users are{" "}
                <i>encouraged</i> to offer each other corrections to grammar and
-               spelling. Verified members of the community (coming soon), can
-               even make corrections through annotations on a post, making their
-               notes easy read side-by-side with the post, and viewable to other
-               users who want to learn from your post.
+               spelling. In the future, you'll be able to follow other users and have a personal feed of posts from the users you follow.
                <p>
                   <LoginFormModal /> or <SignUpFormModal /> to see more!
                </p>
