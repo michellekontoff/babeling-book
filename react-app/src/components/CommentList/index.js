@@ -39,7 +39,8 @@ export default function CommentList() {
                  transition: "0.4s"
                 }
              : {
-                 height: "165px", backgroundColor: "rgba(0, 0, 0, 0.12)",
+                 height: "250px",
+                 backgroundColor: "rgba(0, 0, 0, 0.12)",
                  transition: "0.4s"
                 }
          }
