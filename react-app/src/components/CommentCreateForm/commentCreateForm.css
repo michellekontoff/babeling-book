@@ -2,6 +2,7 @@
     margin: 30px auto;
     display: flex;
     justify-content: center;
+    max-width: 420px;
 }
 
 .comments__add-btn {
@@ -35,6 +36,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 5px;
+    /* background-color: rgba(255, 255, 255, 0.5); */
+    background-color: rgba(0, 0, 0, 0.12);
 }
 
 .comment-create-form button {

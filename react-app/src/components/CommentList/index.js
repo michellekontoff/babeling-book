@@ -33,8 +33,15 @@ export default function CommentList() {
          <div className="comment-create"
          style={
              !addComment
-             ? {height: "38px", transition: "0.4s"}
-             : {height: "165px", transition: "0.4s"}
+             ? {
+                 height: "38px",
+                 backgroundColor: "rgba(0, 0, 0, 0.0)",
+                 transition: "0.4s"
+                }
+             : {
+                 height: "165px", backgroundColor: "rgba(0, 0, 0, 0.12)",
+                 transition: "0.4s"
+                }
          }
          >{leaveComment}</div>
          {comments?.length ? (
