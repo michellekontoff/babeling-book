@@ -69,28 +69,6 @@
     background-color: rgb(255, 198, 198);
 }
 
-.comment-create {
-    margin: 30px auto;
-    display: flex;
-    justify-content: center;
-}
-
-.comments__add-btn {
-    border-left: 3px solid rgb(96, 178, 189);
-    border-top: 3px solid rgb(96, 178, 189);
-    border-right: 3px solid rgb(236, 139, 49);
-    border-bottom: 3px solid rgb(236, 139, 49);
-    background: linear-gradient(to bottom right, #90c4da, #ebf8e1, #ffc17f);
-    padding: 6px;
-    font-size: 13pt;
-}
-
-.comment-create button:hover {
-    position: relative;
-    bottom: 5px;
-    box-shadow: 2px 2px 7px 1px rgba(77, 77, 77, 0.671), -2px 2px 7px 1px rgba(77, 77, 77, 0.671);
-}
-
 @media (max-width: 1000px) {
     .post-page {
         width: 450px;
