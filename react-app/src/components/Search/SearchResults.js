@@ -58,7 +58,8 @@ export default function SearchResults() {
 
    useEffect(() => {
       searchUsers(query, setUsers);
-      searchPosts(query, setPosts, currentPage);
+      searchPosts(query, setPosts);
+      window.scrollTo({behavior: 'smooth', top: 0})
    }, [query, currentPage]);
 
    const currentPosts = useMemo(() => {
