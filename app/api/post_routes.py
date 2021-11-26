@@ -93,22 +93,27 @@ def search_posts(search, page):
     if len(search) > 420:
         return { 'error': 'Search term must be fewer than 420 characters.'}
 
-    num_posts = list(Post.query.order_by(desc(Post.id)).filter(or_(
-        Post.content.ilike(f'%{search}%'),
-        Post.title.ilike(f'%{search}%')
-        )).limit(limit * 5).offset(offset + limit))
-
-    next_pages = math.ceil(len(num_posts) / limit)
-
-    # print('********!!!!!!!!LENGTH!!!!!!!******* \n', next_pages, '\n ***************************')
-
     posts = Post.query.order_by(desc(Post.id)).filter(or_(
         Post.content.ilike(f'%{search}%'),
         Post.title.ilike(f'%{search}%')
         )).limit(limit).offset(offset)
 
+    posts = [post.to_dict() for post in posts]
 
+    if page % 5 == 1:
+        num_posts = list(Post.query.order_by(desc(Post.id)).filter(or_(
+            Post.content.ilike(f'%{search}%'),
+            Post.title.ilike(f'%{search}%')
+        )).limit(limit * 5).offset(offset + limit))
+
+        next_pages = math.ceil(len(num_posts) / limit)
+
+        return {
+            'posts': posts,
+            'next_pages': list(range(page, next_pages + 1))
+        }
+
+    # print('********!!!!!!!!LENGTH!!!!!!!******* \n', next_pages, '\n ***************************')
     return {
-        'posts': [post.to_dict() for post in posts],
-        'next_pages': list(range(page, next_pages + 1))
+        'posts': posts,
         }

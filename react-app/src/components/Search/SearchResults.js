@@ -37,6 +37,7 @@ import './search.css'
     ++ search results component
         maybe in postUtils, add a nextPageLink fx
             creates navLinks for the next ~5 pages from the page nums returned in the search route
+        only runs nextpage link fx on the right page
         
         
 
@@ -45,7 +46,7 @@ import './search.css'
 export default function SearchResults() {
    const [users, setUsers] = useState({});
    const [posts, setPosts] = useState({});
-   const [nextPages, setNextPages] = useState({});
+   const [nextPages, setNextPages] = useState(undefined);
    const location = useLocation();
 
    const params = new URLSearchParams(location.search);
