@@ -112,5 +112,5 @@ def search_posts(search):
 
     # print('********!!!!!!!!LENGTH!!!!!!!******* \n', next_pages, '\n ***************************')
     return {
-        'posts': [post.to_dict() for post in posts],
-        }
+                'posts': posts,
+            }
