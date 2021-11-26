@@ -3,6 +3,7 @@ from sqlalchemy import desc, asc, or_
 from app.forms import PostCreateForm, PostEditForm
 from app.models import Post, Comment, db
 from datetime import datetime
+import math
 
 
 bp = Blueprint('posts', __name__)
@@ -83,18 +84,31 @@ def get_post_comments(id):
 
 @bp.route('/search/<string:search>/<int:page>')
 def search_posts(search, page):
-    offset = (page - 1) * 30
+    limit = 30
+    offset = (page - 1) * limit
 
-    print('********!!!!!!!!PAGE, OFFSET!!!!!!!******* \n', page, offset, '\n ***************************')
+    # print('********!!!!!!!!PAGE, OFFSET!!!!!!!******* \n', page, offset, '\n ***************************')
 
 
     if len(search) > 420:
         return { 'error': 'Search term must be fewer than 420 characters.'}
 
+    num_posts = list(Post.query.order_by(desc(Post.id)).filter(or_(
+        Post.content.ilike(f'%{search}%'),
+        Post.title.ilike(f'%{search}%')
+        )).limit(limit * 5).offset(offset + limit))
+
+    next_pages = math.ceil(len(num_posts) / limit)
+
+    # print('********!!!!!!!!LENGTH!!!!!!!******* \n', next_pages, '\n ***************************')
+
     posts = Post.query.order_by(desc(Post.id)).filter(or_(
         Post.content.ilike(f'%{search}%'),
         Post.title.ilike(f'%{search}%')
-        )).limit(30).offset(offset)
+        )).limit(limit).offset(offset)
 
 
-    return { 'posts': [post.to_dict() for post in posts] }
+    return {
+        'posts': [post.to_dict() for post in posts],
+        'next_pages': list(range(page, next_pages + 1))
+        }

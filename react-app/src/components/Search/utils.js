@@ -18,7 +18,7 @@ export const searchUsers = async (search, setUsers) => {
     } else return;
 };
 
-export const searchPosts = async (search, setPosts, pageNum) => {
+export const searchPosts = async (search, setPosts, pageNum, setNextPages) => {
 
     if (pageNum === null || pageNum === undefined) {
         pageNum = 1;
@@ -36,8 +36,9 @@ export const searchPosts = async (search, setPosts, pageNum) => {
                   return 1;
                 }
                 return 0;
-        })
+        });
         setPosts(data.posts);
+        setNextPages(data.next_pages)
     }
     return;
 }

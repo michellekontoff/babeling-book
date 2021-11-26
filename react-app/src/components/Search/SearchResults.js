@@ -45,7 +45,7 @@ import './search.css'
 export default function SearchResults() {
    const [users, setUsers] = useState({});
    const [posts, setPosts] = useState({});
-   const [nextPages, setPages] = useState({});
+   const [nextPages, setNextPages] = useState({});
    const location = useLocation();
 
    const params = new URLSearchParams(location.search);
@@ -54,7 +54,7 @@ export default function SearchResults() {
 
    useEffect(() => {
       searchUsers(query, setUsers);
-      searchPosts(query, setPosts, currentPage);
+      searchPosts(query, setPosts, currentPage, setNextPages);
    }, [query, currentPage]);
 
    return (
