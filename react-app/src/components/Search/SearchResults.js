@@ -3,6 +3,7 @@ import { useLocation } from 'react-router';
 import PostList from '../PostList';
 import { searchUsers, searchPosts } from './utils';
 import UserList from '../UserList';
+// import { nextPageLinks } from '../postUtils';
 
 import './search.css'
 

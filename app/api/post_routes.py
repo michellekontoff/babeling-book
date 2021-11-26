@@ -82,11 +82,8 @@ def get_post_comments(id):
 
 #     return posts.to_dict()
 
-@bp.route('/search/<string:search>/<int:page>')
-def search_posts(search, page):
-    limit = 30
-    offset = (page - 1) * limit
-
+@bp.route('/search/<string:search>')
+def search_posts(search):
     # print('********!!!!!!!!PAGE, OFFSET!!!!!!!******* \n', page, offset, '\n ***************************')
 
 
@@ -96,24 +93,24 @@ def search_posts(search, page):
     posts = Post.query.order_by(desc(Post.id)).filter(or_(
         Post.content.ilike(f'%{search}%'),
         Post.title.ilike(f'%{search}%')
-        )).limit(limit).offset(offset)
+        )).all()
 
     posts = [post.to_dict() for post in posts]
 
-    if page % 5 == 1:
-        num_posts = list(Post.query.order_by(desc(Post.id)).filter(or_(
-            Post.content.ilike(f'%{search}%'),
-            Post.title.ilike(f'%{search}%')
-        )).limit(limit * 5).offset(offset + limit))
+    # if page % 5 == 1:
+    #     num_posts = list(Post.query.order_by(desc(Post.id)).filter(or_(
+    #         Post.content.ilike(f'%{search}%'),
+    #         Post.title.ilike(f'%{search}%')
+    #     )).limit(limit * 5).offset(offset + limit))
 
-        next_pages = math.ceil(len(num_posts) / limit)
+    #     next_pages = math.ceil(len(num_posts) / limit)
 
-        return {
-            'posts': posts,
-            'next_pages': list(range(page, next_pages + 1))
-        }
+    #     return {
+    #         'posts': posts,
+    #         'next_pages': list(range(page, next_pages + 1))
+    #     }
 
     # print('********!!!!!!!!LENGTH!!!!!!!******* \n', next_pages, '\n ***************************')
     return {
-        'posts': posts,
+        'posts': [post.to_dict() for post in posts],
         }

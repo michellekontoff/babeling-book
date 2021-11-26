@@ -13,6 +13,7 @@ export async function getLanguages(cb) {
 }
 
 export function nextPageLinks(nextPages, query) {
+
     let links = (
         <nav className="page-links">
             {nextPages.map((pageNum, i) => {

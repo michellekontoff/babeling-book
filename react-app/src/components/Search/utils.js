@@ -18,27 +18,27 @@ export const searchUsers = async (search, setUsers) => {
     } else return;
 };
 
-export const searchPosts = async (search, setPosts, pageNum, setNextPages) => {
+export const searchPosts = async (search, setPosts) => {
 
-    if (pageNum === null || pageNum === undefined) {
-        pageNum = 1;
-    };
+    // if (pageNum === null || pageNum === undefined) {
+    //     pageNum = 1;
+    // };
 
-    const res = await fetch(`/api/posts/search/${search}/${pageNum}`);
+    const res = await fetch(`/api/posts/search/${search}`);
 
     if (res.ok) {
         const data = await res.json();
-        data.posts.sort((a, b) => {
-                if (a.id > b.id) {
-                  return -1;
-                }
-                if (a.id < b.id) {
-                  return 1;
-                }
-                return 0;
-        });
+        // data.posts.sort((a, b) => {
+        //         if (a.id > b.id) {
+        //           return -1;
+        //         }
+        //         if (a.id < b.id) {
+        //           return 1;
+        //         }
+        //         return 0;
+        // });
         setPosts(data.posts);
-        setNextPages(data.next_pages)
+        // setNextPages(data.next_pages)
     }
     return;
 }
