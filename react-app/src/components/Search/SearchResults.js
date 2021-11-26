@@ -45,6 +45,7 @@ import './search.css'
 export default function SearchResults() {
    const [users, setUsers] = useState({});
    const [posts, setPosts] = useState({});
+   const [nextPages, setPages] = useState({});
    const location = useLocation();
 
    const params = new URLSearchParams(location.search);

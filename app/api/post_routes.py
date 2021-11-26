@@ -83,13 +83,17 @@ def get_post_comments(id):
 
 @bp.route('/search/<string:search>/<int:page>')
 def search_posts(search, page):
-    print('!!!!!!!!PAGE!!!!!', page)
+    offset = (page - 1) * 30
+
+    print('********!!!!!!!!PAGE, OFFSET!!!!!!!******* \n', page, offset, '\n ***************************')
+
+
     if len(search) > 420:
         return { 'error': 'Search term must be fewer than 420 characters.'}
     
-    posts_titles = set(Post.query.filter(Post.title.ilike(f'%{search}%')).all())
-    posts_content =  set(Post.query.filter(Post.content.ilike(f'%{search}%')).all())
+    posts_titles = set(Post.query.order_by(desc(Post.id)).filter(Post.title.ilike(f'%{search}%')).limit(30).offset(offset))
+    posts_content = set(Post.query.order_by(desc(Post.id)).filter(Post.content.ilike(f'%{search}%'), Post.title.ilike(f'%{search}%')).limit(30).offset(offset))
 
     posts = list(posts_content.union(posts_titles))
 
-    return { 'posts': [post.to_dict() for post in posts] }
+    return { 'posts': [post.to_dict() for post in posts_content] }
