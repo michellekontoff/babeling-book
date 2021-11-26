@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { useLocation } from 'react-router';
 import PostList from '../PostList';
 import { searchUsers, searchPosts } from './utils';
 import UserList from '../UserList';
+import Pagination from '../Pagination';
 // import { nextPageLinks } from '../postUtils';
 
 import './search.css'
@@ -47,17 +48,29 @@ import './search.css'
 export default function SearchResults() {
    const [users, setUsers] = useState({});
    const [posts, setPosts] = useState({});
-   const [nextPages, setNextPages] = useState(undefined);
+//    const [nextPages, setNextPages] = useState(undefined);
+   const [currentPage, setCurrentPage] = useState(1)
    const location = useLocation();
 
    const params = new URLSearchParams(location.search);
    const query = params.get('q');
-   const currentPage = params.get('page')
+//    const currentPage = params.get('page')
 
-   useEffect(() => {
-      searchUsers(query, setUsers);
-      searchPosts(query, setPosts, currentPage, setNextPages);
-   }, [query, currentPage]);
+useEffect(() => {
+   searchUsers(query, setUsers);
+   searchPosts(query, setPosts, currentPage);
+}, [query, currentPage]);
+
+   const currentPosts = useMemo(() => {
+    let pageSize = 30;
+    console.log(posts)
+    const firstPageIdx = (currentPage - 1) * pageSize;
+    const lastPageIdx = firstPageIdx + pageSize;
+    if (posts.length) {
+        return posts.slice(firstPageIdx, lastPageIdx);
+    }
+  }, [currentPage, posts]);
+
 
    return (
       <div className='search-results content'>
@@ -77,12 +90,19 @@ export default function SearchResults() {
             <h2>Posts</h2>
             {posts.length ? (
                <>
-                  <PostList posts={posts} />
+                  <PostList posts={currentPosts} />
                </>
             ) : (
                <div className="results__no-posts">No posts found.</div>
             )}
          </div>
+         <Pagination
+        className="pagination-bar"
+        currentPage={currentPage}
+        totalCount={posts.length}
+        pageSize={30}
+        onPageChange={page => setCurrentPage(page)}
+      />
       </div>
    );
 }

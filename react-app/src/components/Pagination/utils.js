@@ -1,56 +1,55 @@
-import { useMemo } from "react";
+import { useMemo } from 'react';
 
+function range(start, end) {
+   let arr = new Array({length: end - start}, (x, i) => {
+        return start + i
+    })
+
+    return arr;
+}
 
 export const usePagination = ({
-    totalItems,
-    pageSize,
-    siblings = 1,
-    currentPage
-  }) => {
-    const paginationRange = useMemo(() => {
-        const totalPages = Math.ceil(totalItems / pageSize);
+   totalItems,
+   pageSize,
+   siblings = 1,
+   currentPage,
+}) => {
+   const paginationRange = useMemo(() => {
+      const totalPages = Math.ceil(totalItems / pageSize);
 
-        const totalPageNumbers = siblings + 5;
-    
-        if (totalPageNumbers >= totalPages) {
-          return range(1, totalPages);
-        }
+      const totalPageNumbers = siblings + 5;
 
-        const leftSiblingIdx = Math.max(currentPage - siblings, 1);
-        const rightSiblingIdx = Math.min(
-          currentPage + siblings,
-          totalPages
-        );
-    
-        const showLeftDots = leftSiblingIdx > 2;
-        const showRightDots = rightSiblingIdx < totalPages - 2;
-    
-        const firstPageIdx = 1;
-        const lastPageIdx = totalPages;
-    
-        if (!showLeftDots && showRightDots) {
-          let leftItemCount = 3 + 2 * siblings;
-          let leftRange = range(1, leftItemCount);
-    
-          return [...leftRange, DOTS, totalPages];
-        }
-    
-        if (showLeftDots && !showRightDots) {
-          
-          let rightItemCount = 3 + 2 * siblings;
-          let rightRange = range(
-            totalPages - rightItemCount + 1,
-            totalPages
-          );
-          return [firstPageIdx, DOTS, ...rightRange];
-        }
-         
-        if (showLeftDots && showRightDots) {
-          let middleRange = range(leftSiblingIdx, rightSiblingIdx);
-          return [firstPageIdx, DOTS, ...middleRange, DOTS, lastPageIdx];
-        }
-        
-    }, [totalItems, pageSize, siblings, currentPage]);
-  
-    return paginationRange;
-  };
+      if (totalPageNumbers >= totalPages) {
+         return range(1, totalPages);
+      }
+
+      const leftSiblingIdx = Math.max(currentPage - siblings, 1);
+      const rightSiblingIdx = Math.min(currentPage + siblings, totalPages);
+
+      const showLeftDots = leftSiblingIdx > 2;
+      const showRightDots = rightSiblingIdx < totalPages - 2;
+
+      const firstPageIdx = 1;
+      const lastPageIdx = totalPages;
+
+      if (!showLeftDots && showRightDots) {
+         let leftItemCount = 3 + 2 * siblings;
+         let leftRange = range(1, leftItemCount);
+
+         return [...leftRange, 'DOTS', totalPages];
+      }
+
+      if (showLeftDots && !showRightDots) {
+         let rightItemCount = 3 + 2 * siblings;
+         let rightRange = range(totalPages - rightItemCount + 1, totalPages);
+         return [firstPageIdx, 'DOTS', ...rightRange];
+      }
+
+      if (showLeftDots && showRightDots) {
+         let middleRange = range(leftSiblingIdx, rightSiblingIdx);
+         return [firstPageIdx, 'DOTS', ...middleRange, 'DOTS', lastPageIdx];
+      }
+   }, [totalItems, pageSize, siblings, currentPage]);
+
+   return paginationRange;
+};
