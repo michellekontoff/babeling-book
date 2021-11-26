@@ -81,9 +81,9 @@ def get_post_comments(id):
 
 #     return posts.to_dict()
 
-@bp.route('/search/<string:search>')
-def search_posts(search):
-
+@bp.route('/search/<string:search>/<int:page>')
+def search_posts(search, page):
+    print('!!!!!!!!PAGE!!!!!', page)
     if len(search) > 420:
         return { 'error': 'Search term must be fewer than 420 characters.'}
     

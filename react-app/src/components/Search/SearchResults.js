@@ -19,8 +19,7 @@ import './search.css'
                 could circumvent issue by doing 5-10 pages' worth of query at a time.
 
     ++ searchPosts fx (in utils)
-        rather than use /${search}, give get request a body
-        body = search term, page num
+        also takes in page num
 
         will need setPosts and setNextPages
     
@@ -48,12 +47,14 @@ export default function SearchResults() {
    const [posts, setPosts] = useState({});
    const location = useLocation();
 
-   const query = new URLSearchParams(location.search).get('q');
+   const params = new URLSearchParams(location.search);
+   const query = params.get('q');
+   const currentPage = params.get('page')
 
    useEffect(() => {
       searchUsers(query, setUsers);
-      searchPosts(query, setPosts);
-   }, [query]);
+      searchPosts(query, setPosts, currentPage);
+   }, [query, currentPage]);
 
    return (
       <div className='search-results content'>

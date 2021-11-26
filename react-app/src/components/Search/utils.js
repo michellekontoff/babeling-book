@@ -18,9 +18,13 @@ export const searchUsers = async (search, setUsers) => {
     } else return;
 };
 
-export const searchPosts = async (search, setPosts) => {
+export const searchPosts = async (search, setPosts, pageNum) => {
 
-    const res = await fetch(`/api/posts/search/${search}`)
+    if (pageNum === null || pageNum === undefined) {
+        pageNum = 1;
+    };
+
+    const res = await fetch(`/api/posts/search/${search}/${pageNum}`);
 
     if (res.ok) {
         const data = await res.json();
