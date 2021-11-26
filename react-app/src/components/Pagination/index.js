@@ -13,6 +13,7 @@ const Pagination = (props) => {
       className,
    } = props;
 
+   console.log(totalItems)
    const paginationRange = usePagination({
       currentPage,
       totalItems,
