@@ -1,5 +1,5 @@
 from flask import Blueprint, request
-from sqlalchemy import desc, asc
+from sqlalchemy import desc, asc, or_
 from app.forms import PostCreateForm, PostEditForm
 from app.models import Post, Comment, db
 from datetime import datetime
@@ -90,10 +90,11 @@ def search_posts(search, page):
 
     if len(search) > 420:
         return { 'error': 'Search term must be fewer than 420 characters.'}
-    
-    posts_titles = set(Post.query.order_by(desc(Post.id)).filter(Post.title.ilike(f'%{search}%')).limit(30).offset(offset))
-    posts_content = set(Post.query.order_by(desc(Post.id)).filter(Post.content.ilike(f'%{search}%'), Post.title.ilike(f'%{search}%')).limit(30).offset(offset))
 
-    posts = list(posts_content.union(posts_titles))
+    posts = Post.query.order_by(desc(Post.id)).filter(or_(
+        Post.content.ilike(f'%{search}%'),
+        Post.title.ilike(f'%{search}%')
+        )).limit(30).offset(offset)
 
-    return { 'posts': [post.to_dict() for post in posts_content] }
+
+    return { 'posts': [post.to_dict() for post in posts] }
