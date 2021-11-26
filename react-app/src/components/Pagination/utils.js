@@ -1,9 +1,11 @@
 import { useMemo } from 'react';
 
 function range(start, end) {
-   let arr = new Array({length: end - start}, (x, i) => {
-        return start + i
-    })
+   let arr = [];
+
+   for (let i = start; i <= end; i++) {
+       arr.push(i);
+   }
 
     return arr;
 }
@@ -32,10 +34,10 @@ export const usePagination = ({
       const firstPageIdx = 1;
       const lastPageIdx = totalPages;
 
+      console.log(range(2, 6))
       if (!showLeftDots && showRightDots) {
          let leftItemCount = 3 + 2 * siblings;
          let leftRange = range(1, leftItemCount);
-
          return [...leftRange, 'DOTS', totalPages];
       }
 

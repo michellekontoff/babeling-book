@@ -17,7 +17,7 @@ export function nextPageLinks(nextPages, query) {
     let links = (
         <nav className="page-links">
             {nextPages.map((pageNum, i) => {
-            <NavLink
+            return <NavLink
                 to={`/search?q=${query}&page=${pageNum}`}
                 key={i}
                 activeClassName="active-page"

@@ -99,7 +99,7 @@ useEffect(() => {
          <Pagination
         className="pagination-bar"
         currentPage={currentPage}
-        totalCount={posts.length}
+        totalItems={posts.length}
         pageSize={30}
         onPageChange={page => setCurrentPage(page)}
       />
