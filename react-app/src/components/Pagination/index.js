@@ -35,28 +35,30 @@ const Pagination = (props) => {
    let lastPage = paginationRange[paginationRange.length - 1];
    return (
       <ul
-         className={classnames('pagination-container', {
+         className={classnames('page-list', {
             [className]: className,
          })}
       >
-         {/* Left navigation arrow */}
+
          <li
-            className={classnames('pagination-item', {
+            className={classnames('page-num', {
                disabled: currentPage === 1,
+               pointer: currentPage !== 1
             })}
             onClick={onPrevious}
          >
-            <div className='arrow left' />
+            <i class="fas fa-arrow-left"></i>
          </li>
          {paginationRange.map((pageNumber) => {
             if (pageNumber === 'DOTS') {
-               return <li className='pagination-item dots'>...</li>;
+               return <li className='page-num dots'>...</li>;
             }
 
             return (
                <li
-                  className={classnames('pagination-item', {
+                  className={classnames('page-num', {
                      selected: pageNumber === currentPage,
+                     pointer: pageNumber !== currentPage
                   })}
                   onClick={() => onPageChange(pageNumber)}
                >
@@ -64,14 +66,15 @@ const Pagination = (props) => {
                </li>
             );
          })}
-         {/*  Right Navigation arrow */}
+
          <li
-            className={classnames('pagination-item', {
+            className={classnames('page-num', {
                disabled: currentPage === lastPage,
+               pointer: currentPage !== lastPage
             })}
             onClick={onNext}
          >
-            <div className='arrow right' />
+            <i class="fas fa-arrow-right"></i>
          </li>
       </ul>
    );
