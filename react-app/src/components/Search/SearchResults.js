@@ -14,6 +14,8 @@ export default function SearchResults() {
    const [currentPostsPage, setCurrentPostsPage] = useState(1);
    const [currentUsersPage, setCurrentUsersPage] = useState(1);
    const location = useLocation();
+   const postPageSize = 30;
+   const userPageSize = 10
 
    const params = new URLSearchParams(location.search);
    const query = params.get('q');
@@ -25,11 +27,11 @@ export default function SearchResults() {
    }, [query, currentPostsPage, currentUsersPage]);
 
    const currentPosts = useMemo(() => {
-      return getCurrentPageItems(posts, 30, currentPostsPage);
+      return getCurrentPageItems(posts, postPageSize, currentPostsPage);
    }, [currentPostsPage, posts]);
 
    const currentUsers = useMemo(() => {
-      return getCurrentPageItems(users, 10, currentUsersPage);
+      return getCurrentPageItems(users, userPageSize, currentUsersPage);
    }, [currentUsersPage, users]);
 
    return (
@@ -50,7 +52,7 @@ export default function SearchResults() {
             className='pagination-bar'
             currentPage={currentUsersPage}
             totalItems={users?.length}
-            pageSize={10}
+            pageSize={userPageSize}
             siblings={2}
             onPageChange={(page) => setCurrentUsersPage(page)}
          />
@@ -68,7 +70,7 @@ export default function SearchResults() {
             className='pagination-bar'
             currentPage={currentPostsPage}
             totalItems={posts?.length}
-            pageSize={30}
+            pageSize={postPageSize}
             siblings={2}
             onPageChange={(page) => setCurrentPostsPage(page)}
          />
