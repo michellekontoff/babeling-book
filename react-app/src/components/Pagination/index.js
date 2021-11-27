@@ -47,7 +47,7 @@ const Pagination = (props) => {
             })}
             onClick={onPrevious}
          >
-            <i class="fas fa-arrow-left"></i>
+            <i class="far fa-arrow-left"></i>
          </li>
          {paginationRange.map((pageNumber) => {
             if (pageNumber === 'DOTS') {
@@ -74,7 +74,7 @@ const Pagination = (props) => {
             })}
             onClick={onNext}
          >
-            <i class="fas fa-arrow-right"></i>
+            <i class="far fa-arrow-right"></i>
          </li>
       </ul>
    );
