@@ -4,13 +4,15 @@ import PostList from '../PostList';
 import { searchUsers, searchPosts } from './utils';
 import UserList from '../UserList';
 import Pagination from '../Pagination';
+import { getCurrentPageItems } from '../Pagination/utils';
 
 import './search.css';
 
 export default function SearchResults() {
-   const [users, setUsers] = useState({});
+   const [users, setUsers] = useState([]);
    const [posts, setPosts] = useState([]);
-   const [currentPage, setCurrentPage] = useState(1);
+   const [currentPostsPage, setCurrentPostsPage] = useState(1);
+   const [currentUsersPage, setCurrentUsersPage] = useState(1);
    const location = useLocation();
 
    const params = new URLSearchParams(location.search);
@@ -19,17 +21,16 @@ export default function SearchResults() {
    useEffect(() => {
       searchUsers(query, setUsers);
       searchPosts(query, setPosts);
-      window.scrollTo({behavior: 'smooth', top: 0})
-   }, [query, currentPage]);
+      window.scrollTo({ behavior: 'smooth', top: 0 });
+   }, [query, currentPostsPage, currentUsersPage]);
 
    const currentPosts = useMemo(() => {
-      let pageSize = 30;
-      const firstPageIdx = (currentPage - 1) * pageSize;
-      const lastPageIdx = firstPageIdx + pageSize;
-      if (posts.length) {
-         return posts.slice(firstPageIdx, lastPageIdx);
-      }
-   }, [currentPage, posts]);
+      return getCurrentPageItems(posts, 30, currentPostsPage);
+   }, [currentPostsPage, posts]);
+
+   const currentUsers = useMemo(() => {
+      return getCurrentPageItems(users, 10, currentUsersPage);
+   }, [currentUsersPage, users]);
 
    return (
       <div className='search-results content'>
@@ -38,13 +39,21 @@ export default function SearchResults() {
             <div className='results__users-list'>
                {users.length ? (
                   <>
-                     <UserList users={users} />
+                     <UserList users={currentUsers} />
                   </>
                ) : (
                   'No users found.'
                )}
             </div>
          </div>
+         <Pagination
+            className='pagination-bar'
+            currentPage={currentUsersPage}
+            totalItems={users?.length}
+            pageSize={10}
+            siblings={2}
+            onPageChange={(page) => setCurrentUsersPage(page)}
+         />
          <div className='results__posts'>
             <h2>Posts</h2>
             {posts.length ? (
@@ -57,10 +66,11 @@ export default function SearchResults() {
          </div>
          <Pagination
             className='pagination-bar'
-            currentPage={currentPage}
+            currentPage={currentPostsPage}
             totalItems={posts?.length}
             pageSize={30}
-            onPageChange={(page) => setCurrentPage(page)}
+            siblings={2}
+            onPageChange={(page) => setCurrentPostsPage(page)}
          />
       </div>
    );

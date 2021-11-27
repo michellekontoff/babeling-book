@@ -10,6 +10,14 @@ function range(start, end) {
     return arr;
 }
 
+export const getCurrentPageItems = (items, pageSize, currentPage) => {
+    const firstPageIdx = (currentPage - 1) * pageSize;
+    const lastPageIdx = firstPageIdx + pageSize;
+    if (items.length) {
+       return items.slice(firstPageIdx, lastPageIdx);
+    }
+}
+
 export const usePagination = ({
    totalItems,
    pageSize,
