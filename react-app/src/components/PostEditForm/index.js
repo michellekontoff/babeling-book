@@ -4,7 +4,7 @@ import { getLanguages } from "../postUtils";
 
 import "./postEditForm.css";
 
-export default function PostEditForm({ ownerId, post, editMode, setEditMode }) {
+export default function PostEditForm({ ownerId, post, editPostMode }) {
    const [title, setTitle] = useState(post.title);
    const [content, setContent] = useState(post.content);
    const [languageId, setLanguageId] = useState(post.language.id);
@@ -41,7 +41,7 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }) {
       const data = await res.json();
 
       if (res.ok) {
-         setEditMode(!editMode);
+         editPostMode();
       } else {
          setErrors(data);
       }
@@ -93,7 +93,7 @@ export default function PostEditForm({ ownerId, post, editMode, setEditMode }) {
             <button
                type="button"
                className="post-edit__cancel"
-               onClick={() => setEditMode(!editMode)}
+               onClick={editPostMode}
             >
                Cancel
             </button>

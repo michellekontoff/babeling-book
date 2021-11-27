@@ -18,6 +18,11 @@ export default function PostPage() {
    const params = useParams();
    const history = useHistory();
 
+   function editPost() {
+    setEditMode(!editMode)
+    window.scrollTo({behavior: 'smooth', top: '0px'})
+   }
+
    async function getPost(id) {
       const res = await fetch(`/api/posts/${id}`);
 
@@ -53,8 +58,9 @@ export default function PostPage() {
    if (editMode) {
       content = (
          <PostEditForm
-            editMode={editMode}
-            setEditMode={setEditMode}
+            // editMode={editMode}
+            // setEditMode={setEditMode}
+            editPostMode={editPost}
             ownerId={post.owner?.id}
             post={post}
          />
@@ -83,7 +89,7 @@ export default function PostPage() {
                   <button
                      className='post__edit'
                      type='button'
-                     onClick={() => setEditMode(!editMode)}
+                     onClick={editPost}
                   >
                      Edit
                   </button>
