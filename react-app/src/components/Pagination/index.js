@@ -13,14 +13,12 @@ const Pagination = (props) => {
       className,
    } = props;
 
-//    console.log(totalItems)
    const paginationRange = usePagination({
       currentPage,
       totalItems,
       siblings,
       pageSize,
    });
-//    console.log(paginationRange)
 
    if (currentPage === 0 || paginationRange.length < 2) {
       return null;
