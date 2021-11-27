@@ -49,7 +49,7 @@ export default function SearchResults() {
             </div>
          </div>
          <Pagination
-            className='pagination-bar'
+            className='pagination'
             currentPage={currentUsersPage}
             totalItems={users?.length}
             pageSize={userPageSize}
@@ -67,7 +67,7 @@ export default function SearchResults() {
             )}
          </div>
          <Pagination
-            className='pagination-bar'
+            className='pagination'
             currentPage={currentPostsPage}
             totalItems={posts?.length}
             pageSize={postPageSize}
