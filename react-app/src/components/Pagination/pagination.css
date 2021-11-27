@@ -9,6 +9,12 @@
 .page-num {
     margin: 0px 10px;
     font-size: 16pt;
+    transition: 0.2s;
+}
+
+.page-num:hover:not(.selected) {
+    color: rgb(0, 86, 97);
+    transition: 0.2s;
 }
 
 .selected {
