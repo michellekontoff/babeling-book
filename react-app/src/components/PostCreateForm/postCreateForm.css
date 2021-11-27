@@ -61,12 +61,14 @@
     align-self: center;
     background-color: rgb(212, 241, 245);
     border: 2px solid rgb(0, 86, 97);
+    transition: 0.2s ease-in;
 }
 
 .post-create-form button:hover {
     position: relative;
-    top: 5px;
-    box-shadow: -2px -2px 5px 1px rgb(53, 53, 53);
+    top: 2px;
+    box-shadow: -1px -2px 6px 1px rgb(53, 53, 53);
+    transition: 0.2s ease-in;
 }
 
 @media (max-width: 1000px) {
