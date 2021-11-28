@@ -38,7 +38,7 @@ const NavBar = () => {
                 </button>
                 <nav
                     className="nav-links"
-                    style={ !showNav ? { transform: "translateY(-510px)" } : {}}
+                    style={ !showNav ? { transform: "translateY(-580px)" } : {}}
                 >
                     <div className='navbar__hello'>
                     <h2>Hello,</h2>

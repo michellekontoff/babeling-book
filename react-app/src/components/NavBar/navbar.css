@@ -14,7 +14,11 @@
     margin: auto;
 }
 
+.navbar__hello {
+    padding: 0px 10px;
+}
 
+/* 
 .navbar > button {
     position: absolute;
     right: -50px;
@@ -23,7 +27,17 @@
     transition: 0.3s;
     z-index: 1;
     background-color: white;
-}
+} */
+
+/* .navbar__logo-btn {
+    position: absolute;
+    right: -50px;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 1px rgb(53, 53, 53);
+    transition: 0.3s;
+    z-index: 1;
+    background-color: white;
+} */
 
 .navbar > button:hover {
     box-shadow: 0px 0px 6px 2px rgb(53, 53, 53);;
@@ -42,7 +56,7 @@
     position: fixed;
     top: 0px;
     box-shadow: 1px 0px 6px 1px rgb(98, 98, 98);
-    height: 500px;
+    /* height: 500px; */
     transition: all 0.8s linear;
     border-radius: 3px;
     background-color: rgba(62, 185, 158, 0.397);
@@ -91,8 +105,15 @@
  }
 
  @media (min-width: 1000px) {
-     .navbar > button {
-         top: 90px;
+     .navbar__logo-btn {
+         position: absolute;
+         top: 115px;
+         right: -50px;
+         border-radius: 8px;
+         box-shadow: 0px 0px 5px 1px rgb(53, 53, 53);
+         transition: 0.3s;
+         z-index: 1;
+         background-color: white;
      }
  }
 
