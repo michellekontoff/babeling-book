@@ -58,8 +58,6 @@ export default function PostPage() {
    if (editMode) {
       content = (
          <PostEditForm
-            // editMode={editMode}
-            // setEditMode={setEditMode}
             editPostMode={editPost}
             ownerId={post.owner?.id}
             post={post}
@@ -86,16 +84,13 @@ export default function PostPage() {
             <div className='post__content'>{post.content}</div>
             {post.owner?.id === user.id ? (
                <div className='post__btns'>
-                   {/* <i class="fas fa-edit"></i> */}
                   <i
                      className='post__edit fas fa-edit'
-                     type='button'
                      onClick={editPost}
                   >
                   </i>
                   <i
                      className='post__delete fas fa-trash-alt'
-                     type='button'
                      onClick={deletePost}
                   >
                   </i>

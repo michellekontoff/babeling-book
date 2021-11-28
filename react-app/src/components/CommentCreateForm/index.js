@@ -31,7 +31,7 @@ export default function CommentCreateForm({ addComment, setAddComment }) {
          getPostComments(postId);
          window.scrollTo({
             behavior: 'smooth',
-            top: document.querySelector('.comment-list').scrollHeight,
+            top: document.querySelector('.comments-container').scrollHeight,
          });
       } else {
          setErrors(data);
