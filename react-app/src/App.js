@@ -10,7 +10,6 @@ import PostPage from './components/PostPage';
 import PostCreateForm from './components/PostCreateForm';
 import PostsLatest from './components/PostsLatest';
 import SearchResults from './components/Search/SearchResults';
-import PostNotFound from './components/PostNotFound';
 import Wrapper from './components/Wrapper'
 
 import "../src/fontawesome/css/all.css"
@@ -53,9 +52,6 @@ function App() {
                <Route path='/' exact={true}>
                   <Homepage />
                </Route>
-               <ProtectedRoute path='/posts/not-found' exact={true}>
-                  <PostNotFound />
-               </ProtectedRoute>
                <Route>
                   <h1 id='not-found'>
                      <p>404</p>
