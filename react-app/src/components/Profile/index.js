@@ -57,7 +57,7 @@ export default function Profile() {
       setProfileId(parseInt(userId));
       getUser(userId);
       getPosts(userId);
-   }, []);
+   }, [params.userId]);
 
    return (
       <>
