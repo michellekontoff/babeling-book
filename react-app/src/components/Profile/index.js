@@ -10,7 +10,6 @@ export default function Profile() {
    const currentUser = useSelector((state) => state.session.user);
    const [user, setUser] = useState({});
    const [posts, setPosts] = useState([]);
-   const [profileId, setProfileId] = useState(null);
    const params = useParams();
 
    async function getUser(userId) {
@@ -25,39 +24,47 @@ export default function Profile() {
    }
 
    async function getPosts(userId) {
-      const res = await fetch(`/api/users/${userId}/posts`);
-      if (res.ok) {
-         const data = await res.json();
-         if (data.posts.length) {
-            setPosts(data.posts);
-         } else noPosts();
-      } else {
-         return 'Something went wrong.';
-      }
+       if (userId) {
+
+           const res = await fetch(`/api/users/${userId}/posts`);
+           if (res.ok) {
+              const data = await res.json();
+              if (data.posts.length) {
+                 setPosts(data.posts);
+              } else {
+                 console.log()
+                  noPosts();
+              }
+           } else {
+              return 'Something went wrong.';
+           }
+       }
    }
 
    function noPosts() {
-      if (currentUser.id === profileId) {
+       console.log(currentUser.id, user.id)
+      if (currentUser.id == user.id) {
          setPosts(
-            <p align='center'>
-               You don't have any posts yet. Why don't you try{' '}
-               <Link to='/posts/new' className='first-post'>
+            <p className='no-posts' align='center'>
+               You don't have any posts yet. Why don't you try <Link to='/posts/new' className='first-post'>
                   writing one
-               </Link>
-               ?
+               </Link>?
             </p>
          );
       } else {
-         setPosts(<p align='center'>This user hasn't made any posts yet.</p>);
+         setPosts(<p className='no-posts' align='center'>This user hasn't made any posts yet.</p>);
       }
    }
 
    useEffect(() => {
       const userId = params.userId;
-      setProfileId(parseInt(userId));
+    //   setProfileId(parseInt(userId));
       getUser(userId);
-      getPosts(userId);
    }, [params.userId]);
+
+   useEffect(() => {
+    getPosts(user.id);
+   }, [user])
 
    return (
       <>
