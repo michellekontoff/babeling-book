@@ -1,8 +1,9 @@
 from flask import Blueprint, request
-from sqlalchemy import desc, asc
+from sqlalchemy import desc, asc, or_
 from app.forms import PostCreateForm, PostEditForm
 from app.models import Post, Comment, db
 from datetime import datetime
+import math
 
 
 bp = Blueprint('posts', __name__)
@@ -83,13 +84,33 @@ def get_post_comments(id):
 
 @bp.route('/search/<string:search>')
 def search_posts(search):
+    # print('********!!!!!!!!PAGE, OFFSET!!!!!!!******* \n', page, offset, '\n ***************************')
+
 
     if len(search) > 420:
         return { 'error': 'Search term must be fewer than 420 characters.'}
-    
-    posts_titles = set(Post.query.filter(Post.title.ilike(f'%{search}%')).all())
-    posts_content =  set(Post.query.filter(Post.content.ilike(f'%{search}%')).all())
 
-    posts = list(posts_content.union(posts_titles))
+    posts = Post.query.order_by(desc(Post.id)).filter(or_(
+        Post.content.ilike(f'%{search}%'),
+        Post.title.ilike(f'%{search}%')
+        )).all()
 
-    return { 'posts': [post.to_dict() for post in posts] }
+    posts = [post.to_dict() for post in posts]
+
+    # if page % 5 == 1:
+    #     num_posts = list(Post.query.order_by(desc(Post.id)).filter(or_(
+    #         Post.content.ilike(f'%{search}%'),
+    #         Post.title.ilike(f'%{search}%')
+    #     )).limit(limit * 5).offset(offset + limit))
+
+    #     next_pages = math.ceil(len(num_posts) / limit)
+
+    #     return {
+    #         'posts': posts,
+    #         'next_pages': list(range(page, next_pages + 1))
+    #     }
+
+    # print('********!!!!!!!!LENGTH!!!!!!!******* \n', next_pages, '\n ***************************')
+    return {
+                'posts': posts,
+            }

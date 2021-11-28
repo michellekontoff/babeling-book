@@ -59,14 +59,23 @@
 }
 
 .post__edit {
-    background-color: rgb(212, 241, 245);
-    border: 1px solid rgb(0, 86, 97);
-    margin-right: 8px;
+    color: rgb(0, 86, 97);
+    margin-right: 12px;
+    font-size: 18pt;
+    transition: 0.2s all;
 }
 
 .post__delete {
-    border: 1px solid red;
-    background-color: rgb(255, 198, 198);
+    color: rgb(190, 56, 56);
+    font-size: 18pt;
+    transition: 0.2s all;
+}
+
+.post__delete:hover,
+.post__edit:hover {
+    cursor: pointer;
+    color: black;
+    transition: 0.2s all;
 }
 
 @media (max-width: 1000px) {

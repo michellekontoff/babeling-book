@@ -1,0 +1,26 @@
+.page-list {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(255,255,255,0.7);
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.page-num {
+    margin: 0px 10px;
+    font-size: 16pt;
+    transition: 0.2s;
+}
+
+.page-num:hover:not(.selected) {
+    color: rgb(0, 86, 97);
+    transition: 0.2s;
+}
+
+.selected {
+    color: gray;
+}
+
+.disabled {
+    display: none;
+}
