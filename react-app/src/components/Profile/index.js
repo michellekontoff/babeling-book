@@ -24,23 +24,20 @@ export default function Profile() {
    }
 
    async function getPosts(userId) {
-      const res = await fetch(`/api/users/${userId}/posts`);
-      if (res.ok) {
-         const data = await res.json();
-         if (data.posts.length) {
-            setPosts(data.posts);
+      if (userId) {
+         const res = await fetch(`/api/users/${userId}/posts`);
+         if (res.ok) {
+            const data = await res.json();
+               setPosts(data.posts);
          } else {
-            noPosts();
+            return 'Something went wrong fetching posts.';
          }
-      } else {
-         return 'Something went wrong fetching posts.';
       }
    }
 
    function noPosts() {
-      
       if (currentUser.id === user.id) {
-         setPosts(
+         return (
             <p className='not-found' align='center'>
                You don't have any posts yet. Why don't you try{' '}
                <Link to='/posts/new' className='first-post'>
@@ -50,7 +47,7 @@ export default function Profile() {
             </p>
          );
       } else {
-         setPosts(
+         return (
             <p className='not-found' align='center'>
                This user hasn't made any posts yet.
             </p>
@@ -72,7 +69,7 @@ export default function Profile() {
          {user.username ? (
             <div className='posts-latest content'>
                <h1>{`${user.username}'s Posts`}</h1>
-               {posts.length > 0 ? <PostList posts={posts} /> : <>{posts}</>}
+               {posts.length > 0 ? <PostList posts={posts} /> : <>{noPosts()}</>}
             </div>
          ) : (
             <div className='posts-latest content'>
