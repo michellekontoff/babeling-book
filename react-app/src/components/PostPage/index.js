@@ -86,20 +86,19 @@ export default function PostPage() {
             <div className='post__content'>{post.content}</div>
             {post.owner?.id === user.id ? (
                <div className='post__btns'>
-                  <button
-                     className='post__edit'
+                   {/* <i class="fas fa-edit"></i> */}
+                  <i
+                     className='post__edit fas fa-edit'
                      type='button'
                      onClick={editPost}
                   >
-                     Edit
-                  </button>
-                  <button
-                     className='post__delete'
+                  </i>
+                  <i
+                     className='post__delete fas fa-trash-alt'
                      type='button'
                      onClick={deletePost}
                   >
-                     Delete
-                  </button>
+                  </i>
                </div>
             ) : null}
          </div>
