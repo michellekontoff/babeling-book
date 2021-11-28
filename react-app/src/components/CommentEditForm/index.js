@@ -49,20 +49,16 @@ export default function CommentEditForm({
             ></textarea>
          </form>
          <div className="comment__btns">
-            <button
-               type="submit"
-               className="comment-edit__edit"
+            <i
+               className="comment-edit__edit fas fa-edit"
                onClick={(e) => submitComment(e)}
             >
-               Edit
-            </button>
-            <button
-               type="button"
-               className="comment-edit__del-cancel"
+            </i>
+            <i
+               className="comment-edit__del-cancel fas fa-ban"
                onClick={() => setEditComment(!editComment)}
             >
-               Cancel
-            </button>
+            </i>
          </div>
       </>
    );

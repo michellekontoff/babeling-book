@@ -29,6 +29,10 @@ export default function CommentCreateForm({ addComment, setAddComment }) {
       if (res.ok) {
          setAddComment(!addComment);
          getPostComments(postId);
+         window.scrollTo({
+            behavior: 'smooth',
+            top: document.querySelector('.comments-container').scrollHeight,
+         });
       } else {
          setErrors(data);
       }

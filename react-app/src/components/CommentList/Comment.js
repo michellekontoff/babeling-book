@@ -55,22 +55,18 @@ export default function Comment({ comment }) {
          <div className="comment__content">{comment.content}</div>
          <div className="comment__btns">
             {comment.owner?.id === userId ? (
-               <button
-                  type="submit"
-                  className="comment-edit__edit"
+               <i
+                  className="comment-edit__edit fas fa-edit"
                   onClick={() => setEditComment(!editComment)}
                >
-                  Edit
-               </button>
+               </i>
             ) : null}
             {comment.owner?.id === userId || postOwnerId === userId ? (
-               <button
-                  type="button"
-                  className="comment-edit__del-cancel"
+               <i
+                  className="comment-edit__del-cancel fas fa-trash-alt"
                   onClick={deleteComment}
                >
-                  Delete
-               </button>
+               </i>
             ) : null}
          </div>
       </>

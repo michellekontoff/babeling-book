@@ -10,7 +10,6 @@ export default function Profile() {
    const currentUser = useSelector((state) => state.session.user);
    const [user, setUser] = useState({});
    const [posts, setPosts] = useState([]);
-   const [profileId, setProfileId] = useState(null);
    const params = useParams();
 
    async function getUser(userId) {
@@ -20,7 +19,7 @@ export default function Profile() {
          const data = await res.json();
          setUser(data);
       } else {
-         return 'Something went wrong.';
+         return 'No such user exists.';
       }
    }
 
@@ -30,16 +29,19 @@ export default function Profile() {
          const data = await res.json();
          if (data.posts.length) {
             setPosts(data.posts);
-         } else noPosts();
+         } else {
+            noPosts();
+         }
       } else {
-         return 'Something went wrong.';
+         return 'Something went wrong fetching posts.';
       }
    }
 
    function noPosts() {
-      if (currentUser.id === profileId) {
+      
+      if (currentUser.id === user.id) {
          setPosts(
-            <p align='center'>
+            <p className='not-found' align='center'>
                You don't have any posts yet. Why don't you try{' '}
                <Link to='/posts/new' className='first-post'>
                   writing one
@@ -48,27 +50,35 @@ export default function Profile() {
             </p>
          );
       } else {
-         setPosts(<p align='center'>This user hasn't made any posts yet.</p>);
+         setPosts(
+            <p className='not-found' align='center'>
+               This user hasn't made any posts yet.
+            </p>
+         );
       }
    }
 
    useEffect(() => {
       const userId = params.userId;
-      setProfileId(parseInt(userId));
       getUser(userId);
-      getPosts(userId);
    }, [params.userId]);
+
+   useEffect(() => {
+      getPosts(user.id);
+   }, [user]);
 
    return (
       <>
-         {user.username && (
+         {user.username ? (
             <div className='posts-latest content'>
                <h1>{`${user.username}'s Posts`}</h1>
-               {posts.length > 0 ? (
-                  <PostList posts={posts} />
-               ) : (
-                  <>{posts}</>
-               )}
+               {posts.length > 0 ? <PostList posts={posts} /> : <>{posts}</>}
+            </div>
+         ) : (
+            <div className='posts-latest content'>
+               <p className='not-found' align='center'>
+                  No such user exists.
+               </p>
             </div>
          )}
       </>
