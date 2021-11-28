@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useParams, useHistory } from 'react-router';
-import { Link, Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import PostEditForm from '../PostEditForm';
 import CommentList from '../CommentList';
@@ -103,7 +103,11 @@ export default function PostPage() {
    return (
       <>
          {post.error ? (
-            <Redirect to='/posts/not-found' />
+            <div className='post-page content'>
+                <p className='not-found' align='center'>
+                    The post you requested could not be found.
+                </p>
+            </div>
          ) : (
             <div className='post-page content'>
                <div className='post-container'>{content}</div>

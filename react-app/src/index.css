@@ -1,16 +1,9 @@
 body {
-    /* position: absolute; */
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 12pt;
-    /* margin-top: 100px; */
-    /* top: 100px */
-    /* position: relative; */
-    /* bottom: 50;
-    z-index: -5; */
-    /* margin: 0px; */
 }
 
 * {
@@ -27,6 +20,11 @@ body {
 
 .content {
     margin: 70px auto;
+}
+
+.not-found {
+    font-weight: bold;
+    font-size: 15pt;
 }
 
 button {
