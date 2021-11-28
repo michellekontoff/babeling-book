@@ -16,28 +16,8 @@
 
 .navbar__hello {
     padding: 0px 10px;
+    word-wrap: anywhere;
 }
-
-/* 
-.navbar > button {
-    position: absolute;
-    right: -50px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 5px 1px rgb(53, 53, 53);
-    transition: 0.3s;
-    z-index: 1;
-    background-color: white;
-} */
-
-/* .navbar__logo-btn {
-    position: absolute;
-    right: -50px;
-    border-radius: 8px;
-    box-shadow: 0px 0px 5px 1px rgb(53, 53, 53);
-    transition: 0.3s;
-    z-index: 1;
-    background-color: white;
-} */
 
 .navbar > button:hover {
     box-shadow: 0px 0px 6px 2px rgb(53, 53, 53);;
@@ -104,11 +84,19 @@
      height: 200px;
  }
 
+ .navbar__logo-btn {
+    position: absolute;
+    border-radius: 8px;
+    box-shadow: 0px 0px 5px 1px rgb(53, 53, 53);
+    transition: 0.3s;
+    z-index: 1;
+    background-color: white;
+ }
+
  @media (min-width: 1000px) {
      .navbar__logo-btn {
-         position: absolute;
-         top: 115px;
-         right: -50px;
+         top: 95px;
+         right: -35px;
          border-radius: 8px;
          box-shadow: 0px 0px 5px 1px rgb(53, 53, 53);
          transition: 0.3s;
@@ -125,17 +113,18 @@
         height: 2.5vw;
     }
 
-    .navbar__logo-btn {
+    button.navbar__logo-btn {
+        top: 120px;
         left: 0px;
         right: auto;
         bottom: -12px;
-        height: 5vw;
-        width: 5vw;
+        height: 45px;
+        width: 45px;
     }
 
     .logo {
-        height: 4.5vw;
-        width: 4.5vw;
+        height: 40px;
+        width: 40px;
         top: 0.2vw;
         left: 0.2vw;
     }
