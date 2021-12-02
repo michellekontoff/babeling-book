@@ -35,46 +35,47 @@ Babeling Book is a blogging app designed to language-learners who want to practi
 
 ### Log In and Sign Up
 <p align="center">
-    <img src='./readme-assets/signup.png' height="200" />
-    <img src='./readme-assets/login.png' height="200" />
+    <img src='./readme-assets/signupv2.png' height="200" />
+    <img src='./readme-assets/loginv2.png' height="200" />
 </p>
 
 Log in as a demo user, or create and log into your own account to see what Babeling Book has to offer.
 
 ### Posts
-Babeling Book view all the posts you've made by selecting 'Your Posts' in the navbar.
+You can view all the posts you've made by selecting 'Your Posts' in the navbar. You can also view all of a user's posts by clicking on their username from the post details.
 Or view the most recent posts on the Latest Post's page.
 <p align="center">
-    <img src='./readme-assets/posts.png' height="250" />
+    <img src='./readme-assets/metadata-imgv2.png' height="250" />
 </p>
 
 ### View Post
-See the full contents of a single post
+See the full contents and details of a single post.
 <p align="center">
-    <img src='./readme-assets/post.png' height="250" />
+    <img src='./readme-assets/posts-and-comments.png' height="250" />
 </p>
 
 ### Add Post
-Add a new Post to the database
+Add a new Post to the database. The new post will show up in your list of posts and the latests posts.
 <p align="center">
-    <img src='./readme-assets/create-post.png' height="250" />
+    <img src='./readme-assets/create-postv2.png' height="250" />
 </p>
 
 ### Edit or Delete Post
 Edit or delete a post to change the title, contents, or language, or remove it from the database without leaving the page.
 <p align="center">
-    <img src='./readme-assets/edit-post.png' height="250" />
+    <img src='./readme-assets/edit-postv2.png' height="250" />
 </p>
 
-### Create, Read, Update, Delete Comments on a Post
-View a comments for a post on that post's page.
+### Create, Update, Delete Comments on a Post
+Users can add comments, edit them, or delete them. Additionally the owner of a post can delete any comments on it if they find them offensive.
 <p align="center">
-    <img src='./readme-assets/comments.png' height="250" />
+    <img src='./readme-assets/edit-commentv2.png' height="250" />
 </p>
 
-Add comments, edit them, or delete them.
+### Search
+Users can search for other users and for posts whose titles or content match the search query. Search results are paginated. It is my intention to also paginate a user's posts on their own post list. Featured below is what the post list looks like for a search for the letter 'e.'
 <p align="center">
-    <img src='./readme-assets/edit-comment.png' height="250" />
+    <img src='./readme-assets/search.png' height="250" />
 </p>
 
 ## Installation
