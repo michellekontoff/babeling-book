@@ -45,7 +45,7 @@ Log in as a demo user, or create and log into your own account to see what Babel
 You can view all the posts you've made by selecting 'Your Posts' in the navbar. You can also view all of a user's posts by clicking on their username from the post details.
 Or view the most recent posts on the Latest Post's page.
 <p align="center">
-    <img src='./readme-assets/metadata-imgv2.png' height="250" />
+    <img src='./readme-assets/postsv2.png' height="250" />
 </p>
 
 ### View Post
