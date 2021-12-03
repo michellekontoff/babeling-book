@@ -21,18 +21,18 @@ const NavBar = () => {
 
 //    window.addEventListener('resize', handleResize)
    
-   function handleResize() {
-       console.log('i ran')
-        if (windowSize >= 1000 && window.innerWidth < 1000) {
-            setWindowSize(window.innerWidth)
-        } else if (windowSize < 1000 && window.innerWidth >= 1000) {
-            setWindowSize(window.innerWidth)
-        }
-   }
+//    function handleResize() {
+//        console.log('i ran')
+//         if (windowSize >= 1000 && window.innerWidth < 1000) {
+//             setWindowSize(window.innerWidth)
+//         } else if (windowSize < 1000 && window.innerWidth >= 1000) {
+//             setWindowSize(window.innerWidth)
+//         }
+//    }
 
 //    handleResize()
 
-   useEffect(handleResize)
+//    useEffect(handleResize)
 
    useEffect(() => {
       window.scrollTo(0, 0);
