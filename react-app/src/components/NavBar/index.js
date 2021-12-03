@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NavLink, useLocation } from 'react-router-dom';
 import LogoutButton from '../auth/LogoutButton';
@@ -13,14 +13,31 @@ import './navbar.css';
 const NavBar = () => {
    const user = useSelector((state) => state.session.user);
    const showNav = useSelector((state) => state.session.showNav);
+   const [windowSize, setWindowSize] = useState(window.innerWidth)
+
 
    const dispatch = useDispatch();
    const location = useLocation();
-   console.log(window.innerWidth)
+
+//    window.addEventListener('resize', handleResize)
+   
+   function handleResize() {
+       console.log('i ran')
+        if (windowSize >= 1000 && window.innerWidth < 1000) {
+            setWindowSize(window.innerWidth)
+        } else if (windowSize < 1000 && window.innerWidth >= 1000) {
+            setWindowSize(window.innerWidth)
+        }
+   }
+
+//    handleResize()
+
+   useEffect(handleResize)
 
    useEffect(() => {
       window.scrollTo(0, 0);
    }, [location]);
+
 
    if (!user) {
       return null;
@@ -31,7 +48,7 @@ const NavBar = () => {
          <div className='navbar'>
             <button
                className='navbar__logo-btn'
-               style={(user.username.length > 20 && window.innerWidth > 1000) ? { top: 120 } : {}}
+               style={(user.username.length > 20 && windowSize > 1000) ? { top: 120 } : {}}
                onClick={() => dispatch(toggleNavBar(!showNav))}
             >
                <img className='logo' src={logo} alt='logo' />
