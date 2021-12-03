@@ -16,6 +16,7 @@ const NavBar = () => {
 
    const dispatch = useDispatch();
    const location = useLocation();
+   console.log(window.innerWidth)
 
    useEffect(() => {
       window.scrollTo(0, 0);
@@ -30,7 +31,7 @@ const NavBar = () => {
          <div className='navbar'>
             <button
                className='navbar__logo-btn'
-               style={user.username.length > 20 ? { top: 120 } : {}}
+               style={(user.username.length > 20 && window.innerWidth > 1000) ? { top: 120 } : {}}
                onClick={() => dispatch(toggleNavBar(!showNav))}
             >
                <img className='logo' src={logo} alt='logo' />

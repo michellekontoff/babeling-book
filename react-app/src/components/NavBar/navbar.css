@@ -86,6 +86,8 @@
 
  .navbar__logo-btn {
     position: absolute;
+    top: 95px;
+    right: -35px;
     border-radius: 8px;
     box-shadow: 0px 0px 5px 1px rgb(53, 53, 53);
     transition: 0.3s;
@@ -93,17 +95,17 @@
     background-color: white;
  }
 
- @media (min-width: 1000px) {
-     .navbar__logo-btn {
-         top: 95px;
+ 
+     /* .navbar__logo-btn {
+         top: 120px; 
          right: -35px;
          border-radius: 8px;
          box-shadow: 0px 0px 5px 1px rgb(53, 53, 53);
          transition: 0.3s;
          z-index: 1;
          background-color: white;
-     }
- }
+     } */
+ 
 
  @media (max-width: 1000px) {
 
@@ -114,17 +116,17 @@
     }
 
     button.navbar__logo-btn {
-        top: 120px;
-        left: 0px;
+        top: 0px;
+        left: 5px;
         right: auto;
         bottom: -12px;
-        height: 45px;
-        width: 45px;
+        height: 4vw;
+        width: 4vw;
     }
 
     .logo {
-        height: 40px;
-        width: 40px;
+        height: 3.5vw;
+        width: 3.5vw;
         top: 0.2vw;
         left: 0.2vw;
     }
