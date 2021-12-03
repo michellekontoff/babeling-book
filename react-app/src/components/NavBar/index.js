@@ -48,7 +48,7 @@ const NavBar = () => {
          <div className='navbar'>
             <button
                className='navbar__logo-btn'
-               style={(user.username.length > 20 && windowSize > 1000) ? { top: 120 } : {}}
+            //    style={(user.username.length > 20 && windowSize > 1000) ? { top: 108 } : {}}
                onClick={() => dispatch(toggleNavBar(!showNav))}
             >
                <img className='logo' src={logo} alt='logo' />
